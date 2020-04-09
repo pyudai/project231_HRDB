@@ -43,5 +43,60 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Absent (AbsentNO number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,AbsentDate DATE DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Absent (AbsentNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,AbsentDate DATE DEFAULT NULL)';
+
+ BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Welfare';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Welfare (StaffID char(6) DEFAULT NULL,BenefitCode char(4) DEFAULT NULL)';
+ BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE EmployeeBenefits';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeBenefits (BenefitCode char(4) DEFAULT NULL,BeniefitsDescription varchar(50) DEFAULT NULL)';
+ BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE EmployeeDeduction';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeDeduction (StaffID char(6) DEFAULT NULL,DeductionCode char(4) DEFAULT NULL,AmountDed number(4) DEFAULT NULL)';
+ BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE DeductionCode';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE DeductionCode (DeductionCode char(4) DEFAULT NULL,DescriptionDed varchar(50) DEFAULT NULL)';
+ BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Employeeincome';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Employeeincome (StaffID char(4) DEFAULT NULL,IncomeCode char(4) DEFAULT NULL,Amountin number(6) DEFAULT NULL)';
+ BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE IncomeCode';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE IncomeCode (IncomeCode char(4) DEFAULT NULL,DescriptionIn varchar(50) DEFAULT NULL)';
 END;
