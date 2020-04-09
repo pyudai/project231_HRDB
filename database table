@@ -98,5 +98,61 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE IncomeCode (IncomeCode char(4) DEFAULT NULL,DescriptionIn varchar(50) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE IncomeCode(IncomeCode char(4) DEFAULT NULL,DescriptionIn varchar(50) DEFAULT NULL)';
+
+
+ BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE WorkHistory';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE WorkHistory (StaffID char(6) DEFAULT NULL,CompanyName varchar(50) DEFAULT NULL,StartMonth DATE DEFAULT NULL,EndMonth DATE DEFAULT NULL,HistoryPosition varchar(20) DEFAULT NULL,ExitInterview varchar(100) DEFAULT NULL,No number(2) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE PromotionalHistory';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE PromotionalHistory(StaffID char(6) DEFAULT NULL,PositionID char(3) DEFAULT NULL,DepartmentID char(3) DEFAULT NULL,TrainingNo number(6) DEFAULT NULL,PerformanceReviewDate DATE DEFAULT NULL,PromotionDate DATE DEFAULT NULL,No number(2) DEFAULT NULL,SuperVisorName varchar(70) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Department';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Department(DepartmentID char(3) DEFAULT NULL,Department_Name varchar(20) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Position';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Position(PositionID char(3) DEFAULT NULL,PositionName varchar(20) DEFAULT NULL,StartSalary number(6) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE EducationalHistory';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE EducationalHistory(StaffID char(6) DEFAULT NULL,GraduationDate DATE DEFAULT NULL,DegreeID varchar(10) DEFAULT NULL,Level varchar(20) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Degree';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) DEFAULT NULL,DegreeName varchar(10) DEFAULT NULL)';
 END;
