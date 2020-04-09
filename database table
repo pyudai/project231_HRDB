@@ -1,0 +1,47 @@
+BEGIN
+    BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Familymember';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Familymember (ChildID char(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,ChildName varchar(100) DEFAULT NULL,ChildDOB DATE DEFAULT NULL)';
+    BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Vacation';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Vacation (VacationNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,VDateStart DATE DEFAULT NULL,VDateEnd DATE DEFAULT NULL,No number(2) DEFAULT NULL)'; 
+    BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE MonthlyPaySlip';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE MonthlyPaySlip (PayrollNo char(6) DEFAULT NULL,VacationN0 number(6) DEFAULT NULL,AbsentNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,PositionID char(3) DEFAULT NULL,DepartmentID char(3) DEFAULT NULL,PayDate DATE DEFAULT NULL,TCDate DATE DEFAULT NULL)';
+    BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE EmployeeInfo';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeInfo (StaffID char(6) DEFAULT NULL,F_Name varchar(20) DEFAULT NULL,L_Name varchar(50) DEFAULT NULL,DOB DATE DEFAULT NULL,Email varchar(30) DEFAULT NULL,MaritalStatus char(1) DEFAULT NULL,CitizenID char(13) DEFAULT NULL,TelephoneNo char(10) DEFAULT NULL,TaxID char(13) DEFAULT NULL,StartDate DATE DEFAULT NULL,AccountNo varchar(13) DEFAULT NULL,InsuranceID char(13) DEFAULT NULL,Gender char(1) DEFAULT NULL,Address varchar(100) DEFAULT NULL)';
+    BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Absent';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Absent (AbsentNO number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,AbsentDate DATE DEFAULT NULL)';
+END;
