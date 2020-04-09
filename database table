@@ -155,4 +155,58 @@ BEGIN
             END IF;
     END;
     EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) DEFAULT NULL,DegreeName varchar(50) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE DailyTimeCard';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE DailyTimeCard(StaffID char(6) DEFAULT NULL,TCDate DATE DEFAULT NULL,TimeIn TIMESTAMP DEFAULT NULL,TimeOut TIMESTAMP DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE EmployeeSkill';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeSkill(StaffID char(6) DEFAULT NULL,SkillID char(6) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Course';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Course(CourseID char(3) DEFAULT NULL,CourseName varchar(20) DEFAULT NULL,CourseDescription varchar(100) DEFAULT NULL,StartCourse DATE DEFAULT NULL,EndCourse DATE DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE Skill';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE Skill(SkillID char(6) DEFAULT NULL,SkillName varchar(20) DEFAULT NULL,SkillDescription varchar(50) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE PerformanceReview';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE PerformanceReview(StaffID char(6) DEFAULT NULL,PerformanceReviewDate DATE DEFAULT NULL,JobKnowledge char(1) DEFAULT NULL,QuantityofWork char(1) DEFAULT NULL,QualityofWork char(1) DEFAULT NULL,Comment varchar(100) DEFAULT NULL)';
+BEGIN
+        EXECUTE IMMEDIATE 'DROP TABLE TrainingHistory';
+    EXCEPTION
+        WHEN OTHERS THEN
+            IF SQLCODE != -942 THEN
+                RAISE;
+            END IF;
+    END;
+    EXECUTE IMMEDIATE 'CREATE TABLE TrainingHistory(TrainingNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,CourseID char(3) DEFAULT NULL,SkillID char(6) DEFAULT NULL,THDate DATE DEFAULT NULL,No number(2) DEFAULT NULL,Result number(2) DEFAULT NULL)';
 END;
