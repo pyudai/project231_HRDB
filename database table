@@ -154,5 +154,5 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) DEFAULT NULL,DegreeName varchar(10) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) DEFAULT NULL,DegreeName varchar(50) DEFAULT NULL)';
 END;
