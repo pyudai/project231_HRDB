@@ -148,7 +148,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EducationalHistory(StaffID char(6) NOT NULL,GraduationDate DATE NOT NULL,DegreeID varchar(10) DEFAULT NULL,Levels varchar(20) NOT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE EducationalHistory(StaffID char(6) NOT NULL,GraduationDate DATE NOT NULL,DegreeID varchar(10) NOT NULL,Levels varchar(20) NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Degree';
     EXCEPTION
@@ -157,7 +157,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) DEFAULT NULL,DegreeName varchar(50) NOT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) NOT NULL,DegreeName varchar(50) NOT NULL)';
 
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE DailyTimeCard';
@@ -167,7 +167,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE DailyTimeCard(StaffID char(6) DEFAULT NULL,TCDate DATE NOT NULL,TimeIn TIMESTAMP NOT NULL,TimeOut TIMESTAMP NOT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE DailyTimeCard(StaffID char(6) NOT NULL,TCDate DATE NOT NULL,TimeIn TIMESTAMP NOT NULL,TimeOut TIMESTAMP NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE EmployeeSkill';
     EXCEPTION
