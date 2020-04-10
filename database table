@@ -7,7 +7,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Familymember (ChildID char(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,ChildName varchar(100) DEFAULT NULL,ChildDOB DATE DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Familymember (ChildID char(6) NOT NULL,StaffID char(6) NOT NULL,ChildName varchar(100) NOT NULL,ChildDOB DATE NOT NULL)';
     BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Vacation';
     EXCEPTION
@@ -16,7 +16,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Vacation (VacationNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,VDateStart DATE DEFAULT NULL,VDateEnd DATE DEFAULT NULL,No number(2) DEFAULT NULL)'; 
+    EXECUTE IMMEDIATE 'CREATE TABLE Vacation (VacationNo number(6) NOT NULL,StaffID char(6) NOT NULL,VDateStart DATE NOT NULL,VDateEnd DATE NOT NULL,No number(2) NOT NULL)'; 
     BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE MonthlyPaySlip';
     EXCEPTION
@@ -25,7 +25,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE MonthlyPaySlip (PayrollNo char(6) DEFAULT NULL,VacationN0 number(6) DEFAULT NULL,AbsentNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,PositionID char(3) DEFAULT NULL,DepartmentID char(3) DEFAULT NULL,PayDate DATE DEFAULT NULL,TCDate DATE DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE MonthlyPaySlip (PayrollNo char(6) NOT NULL,VacationN0 number(6) NOT NULL,AbsentNo number(6) NOT NULL,StaffID char(6) NOT NULL,PositionID char(3) NOT NULL,DepartmentID char(3) NOT NULL,PayDate DATE NOT NULL,TCDate DATE NOT NULL)';
     BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE EmployeeInfo';
     EXCEPTION
@@ -34,7 +34,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeInfo (StaffID char(6) DEFAULT NULL,F_Name varchar(20) DEFAULT NULL,L_Name varchar(50) DEFAULT NULL,DOB DATE DEFAULT NULL,Email varchar(30) DEFAULT NULL,MaritalStatus char(1) DEFAULT NULL,CitizenID char(13) DEFAULT NULL,TelephoneNo char(10) DEFAULT NULL,TaxID char(13) DEFAULT NULL,StartDate DATE DEFAULT NULL,AccountNo varchar(13) DEFAULT NULL,InsuranceID char(13) DEFAULT NULL,Gender char(1) DEFAULT NULL,Address varchar(100) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeInfo (StaffID char(6) NOT NULL,F_Name varchar(20) NOT NULL,L_Name varchar(50) NOT NULL,DOB DATE NOT NULL,Email varchar(30) DEFAULT NULL,MaritalStatus char(1) NOT NULL,CitizenID char(13) NOT NULL,TelephoneNo char(10) NOT NULL,TaxID char(13) NOT NULL,StartDate DATE NOT NULL,AccountNo varchar(13) NOT NULL,InsuranceID char(13) NOT NULL,Gender char(1) NOT NULL,Address varchar(100) NOT NULL)';
     BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Absent';
     EXCEPTION
@@ -43,7 +43,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Absent (AbsentNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,AbsentDate DATE DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Absent (AbsentNo number(6) NOT NULL,StaffID char(6) NOT NULL,AbsentDate DATE NOT NULL)';
 
  BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Welfare';
@@ -62,7 +62,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeBenefits (BenefitCode char(4) DEFAULT NULL,BeniefitsDescription varchar(50) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeBenefits (BenefitCode char(4) NOT NULL,BeniefitsDescription varchar(50) NOT NULL)';
  BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE EmployeeDeduction';
     EXCEPTION
@@ -71,7 +71,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeDeduction (StaffID char(6) DEFAULT NULL,DeductionCode char(4) DEFAULT NULL,AmountDed number(4) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeDeduction (StaffID char(6) NOT NULL,DeductionCode char(4) NOT NULL,AmountDed number(4) NOT NULL)';
  BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE DeductionCode';
     EXCEPTION
@@ -80,16 +80,16 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE DeductionCode (DeductionCode char(4) DEFAULT NULL,DescriptionDed varchar(50) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE DeductionCode (DeductionCode char(4) NOT NULL,DescriptionDed varchar(50) NOT NULL)';
  BEGIN
-        EXECUTE IMMEDIATE 'DROP TABLE Employeeincome';
+        EXECUTE IMMEDIATE 'DROP TABLE EmployeeIncome';
     EXCEPTION
         WHEN OTHERS THEN
             IF SQLCODE != -942 THEN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Employeeincome (StaffID char(4) DEFAULT NULL,IncomeCode char(4) DEFAULT NULL,Amountin number(6) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeIncome (StaffID char(4) NOT NULL,IncomeCode char(4) NOT NULL,Amountin number(6) NOT NULL)';
 
 
  BEGIN
@@ -100,7 +100,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE IncomeCode(IncomeCode char(4) DEFAULT NULL,DescriptionIn varchar(50) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE IncomeCode(IncomeCode char(4) NOT NULL,DescriptionIn varchar(50) NOT NULL)';
 
 
  BEGIN
@@ -111,7 +111,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE WorkHistory (StaffID char(6) DEFAULT NULL,CompanyName varchar(50) DEFAULT NULL,StartMonth DATE DEFAULT NULL,EndMonth DATE DEFAULT NULL,HistoryPosition varchar(20) DEFAULT NULL,ExitInterview varchar(100) DEFAULT NULL,No number(2) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE WorkHistory (StaffID char(6) NOT NULL,CompanyName varchar(50) NOT NULL,StartMonth DATE NOT NULL,EndMonth DATE NOT NULL,HistoryPosition varchar(20) NOT NULL,ExitInterview varchar(100) NOT NULL,No number(2) DEFAULT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE PromotionalHistory';
     EXCEPTION
@@ -120,7 +120,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE PromotionalHistory(StaffID char(6) DEFAULT NULL,PositionID char(3) DEFAULT NULL,DepartmentID char(3) DEFAULT NULL,TrainingNo number(6) DEFAULT NULL,PerformanceReviewDate DATE DEFAULT NULL,PromotionDate DATE DEFAULT NULL,No number(2) DEFAULT NULL,SuperVisorName varchar(70) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE PromotionalHistory(StaffID char(6) NOT NULL,PositionID char(3) NOT NULL,DepartmentID char(3) NOT NULL,TrainingNo number(6) NOT NULL,PerformanceReviewDate DATE NOT NULL,PromotionDate DATE NOT NULL,No number(2) NOT NULL,SuperVisorName varchar(70) NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Department';
     EXCEPTION
@@ -129,7 +129,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Department(DepartmentID char(3) DEFAULT NULL,Department_Name varchar(20) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Department(DepartmentID char(3) NOT NULL,Department_Name varchar(20) NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Position';
     EXCEPTION
@@ -138,7 +138,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Position(PositionID char(3) DEFAULT NULL,PositionName varchar(20) DEFAULT NULL,StartSalary number(6) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Position(PositionID char(3) NOT NULL,PositionName varchar(20) NOT NULL,StartSalary number(6) NOT NULL)';
 
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE EducationalHistory';
@@ -148,7 +148,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EducationalHistory(StaffID char(6) DEFAULT NULL,GraduationDate DATE DEFAULT NULL,DegreeID varchar(10) DEFAULT NULL,Levels varchar(20) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE EducationalHistory(StaffID char(6) NOT NULL,GraduationDate DATE NOT NULL,DegreeID varchar(10) DEFAULT NULL,Levels varchar(20) NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Degree';
     EXCEPTION
@@ -157,7 +157,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) DEFAULT NULL,DegreeName varchar(50) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Degree(DegreeID varchar(10) DEFAULT NULL,DegreeName varchar(50) NOT NULL)';
 
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE DailyTimeCard';
@@ -167,7 +167,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE DailyTimeCard(StaffID char(6) DEFAULT NULL,TCDate DATE DEFAULT NULL,TimeIn TIMESTAMP DEFAULT NULL,TimeOut TIMESTAMP DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE DailyTimeCard(StaffID char(6) DEFAULT NULL,TCDate DATE NOT NULL,TimeIn TIMESTAMP NOT NULL,TimeOut TIMESTAMP NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE EmployeeSkill';
     EXCEPTION
@@ -176,7 +176,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeSkill(StaffID char(6) DEFAULT NULL,SkillID char(6) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeSkill(StaffID char(6) NOT NULL,SkillID char(6) NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Course';
     EXCEPTION
@@ -185,7 +185,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Course(CourseID char(3) DEFAULT NULL,CourseName varchar(20) DEFAULT NULL,CourseDescription varchar(100) DEFAULT NULL,StartCourse DATE DEFAULT NULL,EndCourse DATE DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Course(CourseID char(3) NOT NULL,CourseName varchar(20) NOT NULL,CourseDescription varchar(100) NOT NULL,StartCourse DATE NOT NULL,EndCourse DATE NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE Skill';
     EXCEPTION
@@ -194,7 +194,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Skill(SkillID char(6) DEFAULT NULL,SkillName varchar(20) DEFAULT NULL,SkillDescription varchar(50) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Skill(SkillID char(6) NOT NULL,SkillName varchar(20) NOT NULL,SkillDescription varchar(50) NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE PerformanceReview';
     EXCEPTION
@@ -203,7 +203,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE PerformanceReview(StaffID char(6) DEFAULT NULL,PerformanceReviewDate DATE DEFAULT NULL,JobKnowledge char(1) DEFAULT NULL,QuantityofWork char(1) DEFAULT NULL,QualityofWork char(1) DEFAULT NULL,Comments varchar(100) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE PerformanceReview(StaffID char(6) NOT NULL,PerformanceReviewDate DATE NOT NULL,JobKnowledge char(1) NOT NULL,QuantityofWork char(1) NOT NULL,QualityofWork char(1) NOT NULL,Comments varchar(100) NOT NULL)';
 BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE TrainingHistory';
     EXCEPTION
@@ -212,5 +212,5 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE TrainingHistory(TrainingNo number(6) DEFAULT NULL,StaffID char(6) DEFAULT NULL,CourseID char(3) DEFAULT NULL,SkillID char(6) DEFAULT NULL,THDate DATE DEFAULT NULL,No number(2) DEFAULT NULL,Result number(2) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE TrainingHistory(TrainingNo number(6) NOT NULL,StaffID char(6) NOT NULL,CourseID char(3) NOT NULL,SkillID char(6) NOT NULL,THDate DATE NOT NULL,No number(2) NOT NULL,Result number(2) NOT NULL)';
 END;
