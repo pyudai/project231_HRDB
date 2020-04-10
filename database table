@@ -53,7 +53,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Welfare (StaffID char(6) DEFAULT NULL,BenefitCode char(4) DEFAULT NULL)';
+    EXECUTE IMMEDIATE 'CREATE TABLE Welfare (StaffID char(6) NOT NULL,BenefitCode char(4) NOT NULL)';
  BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE EmployeeBenefits';
     EXCEPTION
