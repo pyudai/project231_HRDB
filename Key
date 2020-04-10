@@ -1,0 +1,3 @@
+ALTER TABLE Degree
+ADD PRIMARY KEY (DegreeID)
+
