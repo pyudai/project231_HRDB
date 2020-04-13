@@ -1,0 +1,44 @@
+
+Begin
+begin
+INSERT INTO EmployeeInfo VALUES ('100001','Irene','Bae',to_date('13-Apr-1990'),'renebae@hotmail.com','N','1311001110022','0931117788','1234567891011',
+	to_date('03-Mar-2012'),'1222333456777','1344556677998','F','128 Kanlapaphruek Rd. Bangkok 10151');
+INSERT INTO EmployeeInfo VALUES('100235','Wendy','Son',to_date('22-Feb-1998'),'SonW@hotmail.com','N','1311001110023','0911122345','1234567891012',
+	to_date('10-Mar-2013'),'1222333456778','1344556677999','F','24 NgamWongWan Rd. Bangkok 10140');
+INSERT INTO EmployeeInfo VALUES('104582','Joy','Park',to_date('22-Jul-1995'),'Joyy@hotmail.com','Y','1311001110024','0911100345','1234567891013',
+	to_date('11-Apr-2013'),'1222333456779','1344556677990','F','56 Chomthong Rd. Bangkok 10150');
+INSERT INTO EmployeeInfo VALUES	('400823','Yeri','Kim',to_date('16-Mar-1997'),'Yerii@hotmail.com','Y','1311001110025','0911121346','1234567891014',
+	to_date('10-May-2015'),'1222333456780','1344556677991','F','65 Charoenkrung Rd. Bangkok 10160');
+INSERT INTO EmployeeInfo VALUES	('341001','Seulgi','Kang',to_date('19-Feb-1998'),'KSeul@hotmail.com','Y','1311001110026','0911124349','1234567891015',
+	to_date('11-Apr-2013'),'1222333456781','1344556677992','F','22 Charoenkrung Rd. Bangkok 10160');
+INSERT INTO EmployeeInfo VALUES	('100436','Seojoon','Park',to_date('16-Dec-1988'),'Seojooni@hotmail.com','N','1311001110027','0911133345','1234567891016',
+	to_date('10-Dec-2010'),'1222333456782','1344556677993','M','66 Charoennakhon Rd. Bangkok 10170');
+INSERT INTO EmployeeInfo VALUES	('10112','Minho','Lee',to_date('19-Jun-1988'),'minmin@hotmail.com','N','1311001110028','0999122345','1234567891017',
+	to_date('10-Mar-2018'),'1222333456783','1344556677994','M','66 Charoenphatthana Rd. Bangkok 10180');
+INSERT INTO EmployeeInfo VALUES	('236377','Taehyung','Kim',to_date('30-Dec-1995'),'VTaehyung@hotmail.com','N','1311001110029','0911177345','1234567891018',
+	to_date('10-Mar-2013'),'1222333456784','1344556677995','M','75 Chaengwatthana Rd. Bangkok 10190');
+INSERT INTO EmployeeInfo VALUES	('104097','Dongwook','Lee',to_date('27-Dec-1985'),'DongW@hotmail.com','Y','1311001110030','0911126545','1234567891019',
+	to_date('10-Apr-2014'),'1222333456785','1344556677996','M','83 Chaengwatthana Rd. Bangkok 10190');
+INSERT INTO EmployeeInfo VALUES	('618643','Dami','Kim',to_date('08-Apr-1997'),'Damii@hotmail.com','N','1311001110031','0914442345','1234567891020',
+	to_date('10-Mar-2019'),'1222333456786','1344556677997','F','96 NgamWongWan Rd. Bangkok 10140');
+    END;
+    END;
+	
+	
+	
+	
+	
+
+	
+	
+
+
+	
+	
+
+	
+	
+
+
+	
+	
