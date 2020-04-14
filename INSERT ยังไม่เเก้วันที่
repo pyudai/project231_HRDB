@@ -1,47 +1,47 @@
 BEGIN 
-	INSERT INTO department VALUES ('HKP','Housekeeping')
-	INSERT INTO department VALUES ('MTN','Maintenance')
-	INSERT INTO department VALUES ('MNS','Marketing and Sales')
-	INSERT INTO department VALUES ('EPN','Event Planner')
-	INSERT INTO department VALUES ('FBS',' Food and Beverage Service')
-	INSERT INTO department VALUES ('FPD','Food Production')
-	INSERT INTO department VALUES ('FOF','Front Office')
-	INSERT INTO department VALUES ('HRS','Human Resource')
-	INSERT INTO department VALUES ('ANF','Accounting and Finance')
-	INSERT INTO department VALUES ('PUR','Purchase')
-	INSERT INTO department VALUES ('SEC','Security')
-	INSERT INTO department VALUES ('ITN','Information Technology')
-	INSERT INTO department VALUES ('AMO','Administrative Office')
+	INSERT INTO department VALUES ('HKP','Housekeeping');
+	INSERT INTO department VALUES ('MTN','Maintenance');
+	INSERT INTO department VALUES ('MNS','Marketing and Sales');
+	INSERT INTO department VALUES ('EPN','Event Planner');
+	INSERT INTO department VALUES ('FBS',' Food and Beverage Service');
+	INSERT INTO department VALUES ('FPD','Food Production');
+	INSERT INTO department VALUES ('FOF','Front Office');
+	INSERT INTO department VALUES ('HRS','Human Resource');
+	INSERT INTO department VALUES ('ANF','Accounting and Finance');
+	INSERT INTO department VALUES ('PUR','Purchase');
+	INSERT INTO department VALUES ('SEC','Security');
+	INSERT INTO department VALUES ('ITN','Information Technology');
+	INSERT INTO department VALUES ('AMO','Administrative Office');
  END;
 
  BEGIN 
-	INSERT INTO POSITION VALUES ('GSM','Guest Sevice Manager')
-	INSERT INTO POSITION VALUES ('FOM','Front Office Attendant')
-	INSERT INTO POSITION VALUES ('GSS','Guest Sevice Supervisor')
-	INSERT INTO POSITION VALUES ('FDA','Front Desk Assistant')
-	INSERT INTO POSITION VALUES ('RCT','Receptionist')
-	INSERT INTO POSITION VALUES ('RSV','Reservationist')
-	INSERT INTO POSITION VALUES ('EXC','Executive Chef')
-	INSERT INTO POSITION VALUES ('CFM','Cafe Manager')
-	INSERT INTO POSITION VALUES ('CTM','Catering Manager')
-	INSERT INTO POSITION VALUES ('FBM','Food and Beverage Manager')
-	INSERT INTO POSITION VALUES ('CHE','Chef')
-	INSERT INTO POSITION VALUES ('SCH','Sous Chef')
-	INSERT INTO POSITION VALUES ('KCM','Kitchen Manger')
-	INSERT INTO POSITION VALUES (NWB','Newbie')	
+	INSERT INTO POSITION VALUES ('GSM','Guest Sevice Manager');
+	INSERT INTO POSITION VALUES ('FOM','Front Office Attendant');
+	INSERT INTO POSITION VALUES ('GSS','Guest Sevice Supervisor');
+	INSERT INTO POSITION VALUES ('FDA','Front Desk Assistant');
+	INSERT INTO POSITION VALUES ('RCT','Receptionist');
+	INSERT INTO POSITION VALUES ('RSV','Reservationist');
+	INSERT INTO POSITION VALUES ('EXC','Executive Chef');
+	INSERT INTO POSITION VALUES ('CFM','Cafe Manager');
+	INSERT INTO POSITION VALUES ('CTM','Catering Manager');
+	INSERT INTO POSITION VALUES ('FBM','Food and Beverage Manager');
+	INSERT INTO POSITION VALUES ('CHE','Chef');
+	INSERT INTO POSITION VALUES ('SCH','Sous Chef');
+	INSERT INTO POSITION VALUES ('KCM','Kitchen Manger');
+	INSERT INTO POSITION VALUES (NWB','Newbie')	;
  END;
 
  BEGIN 
-	INSERT INTO absent VALUES (000001,'100001','2019-12-01')
-	INSERT INTO absent VALUES (000002,'100235','2019-12-01')
-	INSERT INTO absent VALUES (000003,'104582','2019-12-01')
-	INSERT INTO absent VALUES (000004,'400823','2019-12-01')
-	INSERT INTO absent VALUES (000005,'341001','2019-12-02')
-	INSERT INTO absent VALUES (000006,'100436','2019-12-02')
-	INSERT INTO absent VALUES (000007,'101112','2019-12-03')
-	INSERT INTO absent VALUES (000008,'236377','2019-12-03')
-	INSERT INTO absent VALUES (000009,'104097','2019-12-03')
-	INSERT INTO absent VALUES (000010,'618643','2019-12-05')
+	INSERT INTO absent VALUES (000001,'100001','2019-12-01');
+	INSERT INTO absent VALUES (000002,'100235','2019-12-01');
+	INSERT INTO absent VALUES (000003,'104582','2019-12-01');
+	INSERT INTO absent VALUES (000004,'400823','2019-12-01');
+	INSERT INTO absent VALUES (000005,'341001','2019-12-02');
+	INSERT INTO absent VALUES (000006,'100436','2019-12-02');
+	INSERT INTO absent VALUES (000007,'101112','2019-12-03');
+	INSERT INTO absent VALUES (000008,'236377','2019-12-03');
+	INSERT INTO absent VALUES (000009,'104097','2019-12-03');
+	INSERT INTO absent VALUES (000010,'618643','2019-12-05');
  END;
 
  BEGIN
