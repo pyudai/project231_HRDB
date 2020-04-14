@@ -119,39 +119,39 @@ BEGIN
 	INSERT INTO IncomeCode VALUES ('CSUP','Child Support');
 
 BEGIN
-	INSERT INTO EmployeeDeduction VALUES ('100001','MEDE','300');
-	INSERT INTO EmployeeDeduction VALUES ('100001','SS-E','750');
-	INSERT INTO EmployeeDeduction VALUES ('100001','LTFE','500');
-	INSERT INTO EmployeeDeduction VALUES ('100001','RMFE','500');
-	INSERT INTO EmployeeDeduction VALUES ('100001','WHTX','2500');
-	INSERT INTO EmployeeDeduction VALUES ('100001','EIEE','0');
+	INSERT INTO EmployeeDeduction VALUES ('100001','MEDE',300);
+	INSERT INTO EmployeeDeduction VALUES ('100001','SS-E',750);
+	INSERT INTO EmployeeDeduction VALUES ('100001','LTFE',500);
+	INSERT INTO EmployeeDeduction VALUES ('100001','RMFE',500);
+	INSERT INTO EmployeeDeduction VALUES ('100001','WHTX',2500);
+	INSERT INTO EmployeeDeduction VALUES ('100001','EIEE',0);
 
-	INSERT INTO EmployeeDeduction VALUES ('100235','MEDE','0');
-	INSERT INTO EmployeeDeduction VALUES ('100235','SS-E','750');
-	INSERT INTO EmployeeDeduction VALUES ('100235','LTFE','300');
-	INSERT INTO EmployeeDeduction VALUES ('100235','RMFE','300');
-	INSERT INTO EmployeeDeduction VALUES ('100235','WHTX','2500');
-	INSERT INTO EmployeeDeduction VALUES ('100235','EIEE','0');
+	INSERT INTO EmployeeDeduction VALUES ('100235','MEDE',0);
+	INSERT INTO EmployeeDeduction VALUES ('100235','SS-E',750);
+	INSERT INTO EmployeeDeduction VALUES ('100235','LTFE',300);
+	INSERT INTO EmployeeDeduction VALUES ('100235','RMFE',300);
+	INSERT INTO EmployeeDeduction VALUES ('100235','WHTX',2500);
+	INSERT INTO EmployeeDeduction VALUES ('100235','EIEE',0);
 
-	INSERT INTO EmployeeDeduction VALUES ('104582','MEDE','0');
-	INSERT INTO EmployeeDeduction VALUES ('104582','SS-E','750');
-	INSERT INTO EmployeeDeduction VALUES ('104582','LTFE','500');
-	INSERT INTO EmployeeDeduction VALUES ('104582','RMFE','500');
-	INSERT INTO EmployeeDeduction VALUES ('104582','WHTX','3000');
-	INSERT INTO EmployeeDeduction VALUES ('104582','EIEE','0');
+	INSERT INTO EmployeeDeduction VALUES ('104582','MEDE',0);
+	INSERT INTO EmployeeDeduction VALUES ('104582','SS-E',750);
+	INSERT INTO EmployeeDeduction VALUES ('104582','LTFE',500);
+	INSERT INTO EmployeeDeduction VALUES ('104582','RMFE',500);
+	INSERT INTO EmployeeDeduction VALUES ('104582','WHTX',3000);
+	INSERT INTO EmployeeDeduction VALUES ('104582','EIEE',0);
 
-	INSERT INTO EmployeeDeduction VALUES ('400823','MEDE','100');
-	INSERT INTO EmployeeDeduction VALUES ('400823','SS-E','750');
-	INSERT INTO EmployeeDeduction VALUES ('400823','LTFE','300');
-	INSERT INTO EmployeeDeduction VALUES ('400823','RMFE','300');
-	INSERT INTO EmployeeDeduction VALUES ('400823','WHTX','3000');
-	INSERT INTO EmployeeDeduction VALUES ('400823','EIEE','0');
+	INSERT INTO EmployeeDeduction VALUES ('400823','MEDE',100);
+	INSERT INTO EmployeeDeduction VALUES ('400823','SS-E',750);
+	INSERT INTO EmployeeDeduction VALUES ('400823','LTFE',300);
+	INSERT INTO EmployeeDeduction VALUES ('400823','RMFE',300);
+	INSERT INTO EmployeeDeduction VALUES ('400823','WHTX',3000);
+	INSERT INTO EmployeeDeduction VALUES ('400823','EIEE',0);
 
-	INSERT INTO EmployeeDeduction VALUES ('341001','MEDE','0');
-	INSERT INTO EmployeeDeduction VALUES ('341001','SS-E','750');
-	INSERT INTO EmployeeDeduction VALUES ('341001','LTFE','200');
-	INSERT INTO EmployeeDeduction VALUES ('341001','RMFE','200');
-	INSERT INTO EmployeeDeduction VALUES ('341001','WHTX','3000');
-	INSERT INTO EmployeeDeduction VALUES ('341001','EIEE','0');
+	INSERT INTO EmployeeDeduction VALUES ('341001','MEDE',0);
+	INSERT INTO EmployeeDeduction VALUES ('341001','SS-E',750);
+	INSERT INTO EmployeeDeduction VALUES ('341001','LTFE',200);
+	INSERT INTO EmployeeDeduction VALUES ('341001','RMFE',200);
+	INSERT INTO EmployeeDeduction VALUES ('341001','WHTX',3000);
+	INSERT INTO EmployeeDeduction VALUES ('341001','EIEE',0);
 
 END;
