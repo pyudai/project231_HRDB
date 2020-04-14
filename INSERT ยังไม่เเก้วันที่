@@ -152,6 +152,8 @@ BEGIN
 	INSERT INTO EmployeeDeduction VALUES ('341001','RMFE',200);
 	INSERT INTO EmployeeDeduction VALUES ('341001','WHTX',3000);
 	INSERT INTO EmployeeDeduction VALUES ('341001','EIEE',0);
+END;
+
 	
 BEGIN
 	//100001 is GSM
@@ -175,4 +177,17 @@ BEGIN
 END;
 	// employeeincome เงินเดือนมาจาก position หรือเปล่านะ
 
+BEGIN
+	INSERT INTO Skill VALUES ('EN0001','English A1 (Beginner)','Can understand and use familiar everyday expressions and very basic phrases aimed at the satisfaction of needs of a concrete type');
+	INSERT INTO Skill VALUES ('EN0002','English A2 (Elementary)','Can understand sentences and frequently used expressions related to areas of most immediate relevance ');
+	INSERT INTO Skill VALUES ('EN0003','Enlish B1 (Intermediate)','Can understand the main points of clear standard input on familiar matters regularly encountered in work, school, leisure, etc');
+	INSERT INTO Skill VALUES ('EN0004','Enlish B2 (Upper-Intermediate)','Can understand the main ideas of complex text on both concrete and abstract topics, including technical discussions in his/her field of specialisation');
+	INSERT INTO Skill VALUES ('EN0005','English C1 (Advanced English)','Can understand a wide range of demanding, longer texts, and recognise implicit meaning. Can express him/herself fluently and spontaneously without much obvious searching for expressions');
+	INSERT INTO Skill VALUES ('EN0006','English C2 (Proficiency) ','Can understand with ease virtually everything heard or read. Can summarise information from different spoken and written sources, reconstructing arguments and accounts in a coherent presentation');
+	INSERT INTO Skill VALUES ('JLPT01','N1 (Advance)','Understand Japanese used in a variety of circumstances'
+	INSERT INTO Skill VALUES ('JLPT02','N2 (Upper-Intermediate)','Understand Japanese used in everyday situations, and in a variety of circumstances to a certain degree');
+	INSERT INTO Skill VALUES ('JLPT03','N3 (Intermediate)','Understand Japanese used in everyday situations to a certain degree');
+	INSERT INTO Skill VALUES ('JLPT04','N4 (Elementary)','Understand basic Japanese');
+	INSERT INTO Skill VALUES ('JLPT05','N5 (Beginner)','Understand some basic Japanese');
 END;
+
