@@ -153,7 +153,26 @@ BEGIN
 	INSERT INTO EmployeeDeduction VALUES ('341001','WHTX',3000);
 	INSERT INTO EmployeeDeduction VALUES ('341001','EIEE',0);
 	
-	
+BEGIN
+	//100001 is GSM
+	INSERT INTO EmployeeIncome VALUES ('100001','MTHS',27000);
+	INSERT INTO EmployeeIncome VALUES ('100001','BONU',);
+
+	//100234 is CHE
+	INSERT INTO EmployeeIncome VALUES ('100235','MTHS',19000);
+	INSERT INTO EmployeeIncome VALUES ('100235','BONU',);
+
+	//104582 is RSV
+	INSERT INTO EmployeeIncome VALUES ('104582','MTHS',15000)
+	INSERT INTO EmployeeIncome VALUES ('104582','BONU',)
+
+	//400823 is CFM
+	INSERT INTO EmployeeIncome VALUES ('400823','MTHS',27000)
+	INSERT INTO EmployeeIncome VALUES ('400823','BONU',)
+
+	//341001 is EXC
+	INSERT INTO EmployeeIncome VALUES ('341001','MTHS',22000)
+END;
 	// employeeincome เงินเดือนมาจาก position หรือเปล่านะ
 
 END;
