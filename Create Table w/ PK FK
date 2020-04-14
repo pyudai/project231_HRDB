@@ -204,7 +204,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeIncome (StaffID char(4) NOT NULL,IncomeCode char(4) NOT NULL,Amountin number(6) NOT NULL,
+    EXECUTE IMMEDIATE 'CREATE TABLE EmployeeIncome (StaffID char(6) NOT NULL,IncomeCode char(4) NOT NULL,Amountin number(6) NOT NULL,
     PRIMARY KEY (StaffID, IncomeCode),
     FOREIGN KEY (StaffID) REFERENCES EmployeeInfo(StaffID),
     FOREIGN KEY (IncomeCode) REFERENCES IncomeCode(IncomeCode))';
