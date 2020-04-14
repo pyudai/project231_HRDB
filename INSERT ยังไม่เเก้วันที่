@@ -190,5 +190,7 @@ BEGIN
 	INSERT INTO Skill VALUES ('JLPT04','N4 (Elementary)','Understand basic Japanese');
 	INSERT INTO Skill VALUES ('JLPT05','N5 (Beginner)','Understand some basic Japanese');
 	INSERT INTO Skill VALUES ('SFT001','Negotiation','Preparation, Discussion, Clarification of goals, Negotiate towards a Win-Win outcome, Agreement, Implementation of a course of action ');
+	INSERT INTO Skill VALUES ('SFT002','Judgement in Decision Making','Capacity to decide, Thought processes used to decide, Decision outcome that comes from exercising judgment');
+    INSERT INTO Skill VALUES ('SFT003','Emotional Intelligence','Recognize his emotions, understand what we're telling, and realize how his emotions affect people around him');
 END;
 
