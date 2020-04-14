@@ -1,0 +1,157 @@
+BEGIN 
+	INSERT INTO department VALUES ('HKP','Housekeeping')
+	INSERT INTO department VALUES ('MTN','Maintenance')
+	INSERT INTO department VALUES ('MNS','Marketing and Sales')
+	INSERT INTO department VALUES ('EPN','Event Planner')
+	INSERT INTO department VALUES ('FBS',' Food and Beverage Service')
+	INSERT INTO department VALUES ('FPD','Food Production')
+	INSERT INTO department VALUES ('FOF','Front Office')
+	INSERT INTO department VALUES ('HRS','Human Resource')
+	INSERT INTO department VALUES ('ANF','Accounting and Finance')
+	INSERT INTO department VALUES ('PUR','Purchase')
+	INSERT INTO department VALUES ('SEC','Security')
+	INSERT INTO department VALUES ('ITN','Information Technology')
+	INSERT INTO department VALUES ('AMO','Administrative Office')
+ END;
+
+ BEGIN 
+	INSERT INTO POSITION VALUES ('GSM','Guest Sevice Manager')
+	INSERT INTO POSITION VALUES ('FOM','Front Office Attendant')
+	INSERT INTO POSITION VALUES ('GSS','Guest Sevice Supervisor')
+	INSERT INTO POSITION VALUES ('FDA','Front Desk Assistant')
+	INSERT INTO POSITION VALUES ('RCT','Receptionist')
+	INSERT INTO POSITION VALUES ('RSV','Reservationist')
+	INSERT INTO POSITION VALUES ('EXC','Executive Chef')
+	INSERT INTO POSITION VALUES ('CFM','Cafe Manager')
+	INSERT INTO POSITION VALUES ('CTM','Catering Manager')
+	INSERT INTO POSITION VALUES ('FBM','Food and Beverage Manager')
+	INSERT INTO POSITION VALUES ('CHE','Chef')
+	INSERT INTO POSITION VALUES ('SCH','Sous Chef')
+	INSERT INTO POSITION VALUES ('KCM','Kitchen Manger')
+	INSERT INTO POSITION VALUES (NWB','Newbie')	
+ END;
+
+ BEGIN 
+	INSERT INTO absent VALUES (000001,'100001','2019-12-01')
+	INSERT INTO absent VALUES (000002,'100235','2019-12-01')
+	INSERT INTO absent VALUES (000003,'104582','2019-12-01')
+	INSERT INTO absent VALUES (000004,'400823','2019-12-01')
+	INSERT INTO absent VALUES (000005,'341001','2019-12-02')
+	INSERT INTO absent VALUES (000006,'100436','2019-12-02')
+	INSERT INTO absent VALUES (000007,'101112','2019-12-03')
+	INSERT INTO absent VALUES (000008,'236377','2019-12-03')
+	INSERT INTO absent VALUES (000009,'104097','2019-12-03')
+	INSERT INTO absent VALUES (000010,'618643','2019-12-05')
+ END;
+
+ BEGIN
+	INSERT INTO course VALUES ('EN1','English for Communication 1',' This course emphasizes the fundamental English language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('EN2','English for Communication 2',' This course emphasizes the intermediate English language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('CN1','Chinese for Communication 1','This course emphasizes the fundamental Chinese language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('CN2','Chinene for Communication 2','This course emphasizes the intermediate Chinese language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('SP1','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking')
+	INSERT INTO course VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals' )
+ 	INSERT INTO course VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills')
+	INSERT INTO course VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills')
+END;
+
+ BEGIN,
+	INSERT INTO degree VALUES ('B.A.','Bachelor of Arts')
+	INSERT INTO degree VALUES ('B.Acc.','Bachelor of Accounting')
+	INSERT INTO degree VALUES ('B.A.Sc','Bachelor of Applied Science')
+	INSERT INTO degree VALUES ('B.B.A','Bachelor of Business Administration')
+	INSERT INTO degree VALUES ('B.Com.','Bachelor of Commerce')
+	INSERT INTO degree VALUES ('B.Eng.','Bachelor of Engineering')
+	INSERT INTO degree VALUES ('B.F.A','Bachelor of Fine Arts')
+	INSERT INTO degree VALUES ('LL.B.','Bachelor of Law')
+	INSERT INTO degree VALUES ('B.Arch.','Bachelor of Architecture')
+	INSERT INTO degree VALUES ('B.I.T','Bachelor of Information Technology')
+	INSERT INTO degree VALUES ('M.A.','Master of Arts')
+	INSERT INTO degree VALUES ('M.B.A','Master of Business Administration')
+	INSERT INTO degree VALUES ('M.Eng','Master of Engineering')
+	INSERT INTO degree VALUES ('M.F.A','Master of Fine Arts')
+	INSERT INTO degree VALUES ('LL.M','Master of Laws')
+	INSERT INTO degree VALUES ('M.I.A.','Master of International Affairs')
+	INSERT INTO degree VALUES ('M.P.A.','Master of Public Administration')
+END; 
+
+BEGIN
+	INSERT INTO employeeBenefits VALUES ('0001','Uniform')
+	INSERT INTO employeeBenefits VALUES ('0002','Phone cost')
+	INSERT INTO employeeBenefits VALUES ('0003','Gym reimbursement')
+	INSERT INTO employeeBenefits VALUES ('0004','Dental Expense')
+	INSERT INTO employeeBenefits VALUES ('0005','Life insurance')
+	INSERT INTO employeeBenefits VALUES ('0006','Health Insurance ')
+	INSERT INTO employeeBenefits VALUES ('0007','Sick leave')
+END;
+
+BEGIN
+	INSERT INTO educationhistory VALUES ('100001','2017-06-30','B.A.','Bachelor')
+	INSERT INTO educationhistory VALUES ('100235','2017-05-31','B.Eng','Bacherlor')
+	INSERT INTO educationhistory VALUES ('104582','2000-03-31',NULL,'High School')
+	INSERT INTO educationhistory VALUES ('400823','1997-06-30','B.B.A','Bachelor')
+	INSERT INTO educationhistory VALUES ('341001','1993-05-31','B.Acc.','Bachelor')
+	INSERT INTO educationhistory VALUES ('100436','1989-06-30','B.B.A.','Bachelor')
+	INSERT INTO educationhistory VALUES ('101112','1981-06-30','B.I.T','Bachelor')
+	INSERT INTO educationhistory VALUES ('236377','1982-05-31','B.B.A','Bachelor')
+	INSERT INTO educationhistory VALUES ('236377','1984-05-31','M.B.A','Master')
+	INSERT INTO educationhistory VALUES ('104097','2016-06-30','LL.M','Bacherlor')
+	INSERT INTO educationhistory VALUES ('618643','2010-05-31','B.A.Sc','Bachelor')
+
+END; 
+
+BEGIN
+	INSERT INTO DeductionCode VALUES ('MEDE','Medicare')
+	INSERT INTO DeductionCode VALUES ('SS-E','Social Security')
+	INSERT INTO DeductionCode VALUES ('LTFE','Long Term Equity Fund')
+	INSERT INTO DeductionCode VALUES ('RMFE','Retirement Mutual Fund')
+	INSERT INTO DeductionCode VALUES ('WHTX','Withholding tax')
+	INSERT INTO DeductionCode VALUES ('EIEE','Employment Insurance')
+END;
+
+BEGIN
+	INSERT INTO IncomeCode VALUES ('MTHS','Monthly Salary')
+	INSERT INTO IncomeCode VALUES ('BONU','Bonus')
+	INSERT INTO IncomeCode VALUES ('OVRT','Over Time')
+	INSERT INTO IncomeCode VALUES ('CSUP','Child Support')
+
+BEGIN
+	INSERT INTO EmployeeDeduction VALUES ('100001','MEDE','300')
+	INSERT INTO EmployeeDeduction VALUES ('100001','SS-E','750')
+	INSERT INTO EmployeeDeduction VALUES ('100001','LTFE','500')
+	INSERT INTO EmployeeDeduction VALUES ('100001','RMFE','500')
+	INSERT INTO EmployeeDeduction VALUES ('100001','WHTX','2500')
+	INSERT INTO EmployeeDeduction VALUES ('100001','EIEE','0')
+
+	INSERT INTO EmployeeDeduction VALUES ('100235','MEDE','0')
+	INSERT INTO EmployeeDeduction VALUES ('100235','SS-E','750')
+	INSERT INTO EmployeeDeduction VALUES ('100235','LTFE','300')
+	INSERT INTO EmployeeDeduction VALUES ('100235','RMFE','300')
+	INSERT INTO EmployeeDeduction VALUES ('100235','WHTX','2500')
+	INSERT INTO EmployeeDeduction VALUES ('100235','EIEE','0')
+
+	INSERT INTO EmployeeDeduction VALUES ('104582','MEDE','0')
+	INSERT INTO EmployeeDeduction VALUES ('104582','SS-E','750')
+	INSERT INTO EmployeeDeduction VALUES ('104582','LTFE','500')
+	INSERT INTO EmployeeDeduction VALUES ('104582','RMFE','500')
+	INSERT INTO EmployeeDeduction VALUES ('104582','WHTX','3000')
+	INSERT INTO EmployeeDeduction VALUES ('104582','EIEE','0')
+
+	INSERT INTO EmployeeDeduction VALUES ('400823','MEDE','100')
+	INSERT INTO EmployeeDeduction VALUES ('400823','SS-E','750')
+	INSERT INTO EmployeeDeduction VALUES ('400823','LTFE','300')
+	INSERT INTO EmployeeDeduction VALUES ('400823','RMFE','300')
+	INSERT INTO EmployeeDeduction VALUES ('400823','WHTX','3000')
+	INSERT INTO EmployeeDeduction VALUES ('400823','EIEE','0')
+
+	INSERT INTO EmployeeDeduction VALUES ('341001','MEDE','0')
+	INSERT INTO EmployeeDeduction VALUES ('341001','SS-E','750')
+	INSERT INTO EmployeeDeduction VALUES ('341001','LTFE','200')
+	INSERT INTO EmployeeDeduction VALUES ('341001','RMFE','200')
+	INSERT INTO EmployeeDeduction VALUES ('341001','WHTX','3000')
+	INSERT INTO EmployeeDeduction VALUES ('341001','EIEE','0')
+
+END;
