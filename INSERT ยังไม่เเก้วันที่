@@ -153,5 +153,8 @@ BEGIN
 	INSERT INTO EmployeeDeduction VALUES ('341001','RMFE',200);
 	INSERT INTO EmployeeDeduction VALUES ('341001','WHTX',3000);
 	INSERT INTO EmployeeDeduction VALUES ('341001','EIEE',0);
+	
+	
+	// employeeincome เงินเดือนมาจาก position หรือเปล่านะ
 
 END;
