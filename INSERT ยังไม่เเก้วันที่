@@ -189,5 +189,6 @@ BEGIN
 	INSERT INTO Skill VALUES ('JLPT03','N3 (Intermediate)','Understand Japanese used in everyday situations to a certain degree');
 	INSERT INTO Skill VALUES ('JLPT04','N4 (Elementary)','Understand basic Japanese');
 	INSERT INTO Skill VALUES ('JLPT05','N5 (Beginner)','Understand some basic Japanese');
+	INSERT INTO Skill VALUES ('SFT001','Negotiation','Preparation, Discussion, Clarification of goals, Negotiate towards a Win-Win outcome, Agreement, Implementation of a course of action ');
 END;
 
