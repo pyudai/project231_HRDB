@@ -13,6 +13,8 @@ BEGIN
 	INSERT INTO department VALUES ('ITN','Information Technology');
 	INSERT INTO department VALUES ('AMO','Administrative Office');
  END;
+//ORA-12899: value too large for column "PROJECT_HR"."DEPARTMENT"."DEPARTMENT_NAME" (actual: 26, maximum: 20)
+//อักษรเกินที่ตั้งค่าไว้
 
  BEGIN 
 	INSERT INTO POSITION VALUES ('GSM','Guest Sevice Manager'27000);
@@ -30,6 +32,8 @@ BEGIN
 	INSERT INTO POSITION VALUES ('KCM','Kitchen Manger',27000);
 	INSERT INTO POSITION VALUES (NWB','Newbie',15000)	;
  END;
+//ORA-12899: value too large for column "PROJECT_HR"."POSITION"."POSITIONNAME" (actual: 22, maximum: 20)
+//อักษรเกินเช่นกัน
 
  BEGIN 
 	INSERT INTO absent VALUES (000001,'100001',TO_DATE('01-12-2019','DD-MM-YYYY'));
