@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 		<title>HRDB</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+body {
+	position: relative;
+	width : 1440px;
+	height : 1024px;
+	background-color : #F5F4F0;
+}	
+b.title {
+	font-size:20px;
+}
+.block {
+	background: #D3C0B6; 
+	color:black;
+}
+
+.checkbox {
+	color:black;
+	font-size:20px;
+}
+
+tr.title {
+	background: #CBB3A7;
+}
+
+tr.tb {
+	background: #FAFAFA;
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
+  		<h1 class="text-right" style="color:#B20E10; font-size:60px;">Monthly Pay Slip (Edit)</h1>
+	</div>
+
+
+<form class="container-fluid ">
+
+  <div class="mt-4 mx-auto pt-3 row input-group">
+     <div class=" input-group-prepend col-sm-3">
+      <span class=" block input-group-text" >StaffID</span>
+          <input type="text" class="form-control">
+    </div>
+    <div class="input-group-prepend col-sm-3">
+      <span class="block input-group-text">FirstName</span>
+          <input type="text" class="form-control">
+    </div>
+	<div class="input-group-prepend col-sm-3 ">
+     	<span class="block input-group-text">LastName</span>
+   		<input type="text" class="form-control">
+    </div>
+    <div class="input-group-prepend col-sm-3">
+     	<span class="block input-group-text">Position</span>
+   		<input type="text" class="form-control">
+    </div>
+  </div>
+
+ <div class=" mx-auto pt-3 row input-group">
+     <div class=" input-group-prepend col-sm-3">
+      <span class="block input-group-text">Department</span>
+          <input type="text" class="form-control">
+    </div>
+    <div class="input-group-prepend col-sm-3">
+      <span class="block input-group-text">Pay Date</span>
+          <input type="text" class="form-control">
+    </div>
+	<div class="input-group-prepend col-sm-3 ">
+     	<span class="block input-group-text">Payroll NO.</span>
+   		<input type="text" class="form-control">
+    </div>
+    <div class="input-group-prepend col-sm-3">
+     	<span class="block input-group-text">Account NO.</span>
+   		<input type="text" class="form-control">
+    </div>
+  </div>
+
+
+  <div class=" mx-auto pt-3 row input-group">
+     <div class=" input-group-prepend col-sm-3">
+      <span class="block input-group-text">Late</span>
+          <input type="text" class="form-control">
+    </div>
+    <div class="input-group-prepend col-sm-3">
+      <span class="block input-group-text">Absence</span>
+          <input type="text" class="form-control">
+    </div>
+	<div class="input-group-prepend col-sm-3 ">
+     	<span class="block input-group-text">Working Day</span>
+   		<input type="text" class="form-control">
+    </div>
+    <div class="input-group-prepend col-sm-3">
+     	<span class="block input-group-text">Vacation</span>
+   		<input type="text" class="form-control">
+    </div>
+  </div>
+</form>
+<div class="row text-right pt-3">
+  <div class=" col-9">
+    <input type="checkbox" class="form-check-input" checked disabled>
+    <label class="checkbox" >Salary</label>
+  </div>
+    <div class="col-2">
+    <input type="checkbox" class="form-check-input" disabled>
+    <label class="checkbox">Wages</label>
+  </div>
+</div>
+
+<div class="row pt-2">
+  <div class="col-6 pl-5">
+    <b class="title" >Income</b>
+  </div>
+    <div class="col-6 pl-5">
+    <b class="title">Deduction</b>
+  </div>
+</div>
+
+
+<div class="row pt-3 pl-3 pr-3">
+
+<div class="col">
+<table class="table table-bordered">
+  <thead>
+    <tr class="title text-center">
+      <th>Description</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tb">
+      <td class="text-center">Monthly Salary</td>
+      <td class="text-right" id="salary">0</td>
+    </tr>
+    <tr class="tb">
+      <td class="text-center">Bonus</td>
+      <td class="text-right" id="bonus">0</td>
+    </tr>
+    <tr class="tb">
+      <td class="text-center">Overtime</td>
+      <td class="text-right" id="overtime">0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-bordered">
+  <thead>
+    <tr class="title text-center">
+      <th>Description</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tb">
+      <td class="text-center">Social Insurance</td>
+      <td class="text-right" id="SoIn">0</td>
+    </tr>
+    <tr class="tb">
+      <td class="text-center">Individual Income Tax</td>
+      <td class="text-right" id="InTAX">0</td>
+    </tr>
+    <tr class="tb">
+      <td class="text-center">Withholding Tax</td>
+      <td class="text-right" id="HTAX">0</td>
+    </tr>
+        <tr class="tb">
+      <td class="text-center">Life Insurance</td>
+      <td class="text-right" id="lifeInsu">0</td>
+    </tr>
+        <tr class="tb">
+      <td class="text-center">LTF</td>
+      <td class="text-right" id="LTF">0</td>
+    </tr>
+        <tr class="tb">
+      <td class="text-center">RMF</td>
+      <td class="text-right" id="RMF">0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+<div class="row pt-3 pl-3 pr-3">
+	<div class="col-4 mx-auto">
+	<div class=" input-group-prepend">
+	<span class="block input-group-text" >Gross Income($)</span>
+          <input type="text" class="form-control">
+	</div>
+	</div>
+
+	<div class="col-4 mx-auto">
+	<div class=" input-group-prepend">
+		<span class="block input-group-text">Total Deduction($)</span>
+          <input type="text" class="form-control">
+    </div>
+	</div>
+</div>
+
+<div class="row pt-3 pl-3 pr-3 margin-right">
+	<div class="col-4 ml-auto">
+	<div class=" input-group-prepend">
+	<span class="block input-group-text" >Total ($)</span>
+          <input type="text" class="form-control">
+	</div>
+	</div>
+
+	<div class="col-4 ml-auto"></div>
+</div>
+<div class="row">
+	<div class="col-10">
+    </div>
+	<div class="col">
+		<button type ="button" class="btn btn-lg btn-success">Submit</button>
+    </div>
+</div>
+</body>
+</html>
