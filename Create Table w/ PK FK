@@ -247,7 +247,7 @@ BEGIN
     PRIMARY KEY (TrainingNo),
     FOREIGN KEY (StaffID) REFERENCES EmployeeInfo(StaffID),
     FOREIGN KEY (CourseID) REFERENCES Course(CourseID),
-    FOREIGN KEY (StaffID) REFERENCES EmployeeInfo(StaffID))';
+    FOREIGN KEY (SkillID) REFERENCES Skill(SkillID))';
     
     BEGIN
         EXECUTE IMMEDIATE 'DROP TABLE MonthlyPaySlip CASCADE CONSTRAINTS';
