@@ -227,7 +227,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Skill(SkillID char(6) NOT NULL,SkillName varchar(20) NOT NULL,SkillDescription varchar(50) NOT NULL,
+    EXECUTE IMMEDIATE 'CREATE TABLE Skill(SkillID char(6) NOT NULL,SkillName varchar(20) NOT NULL,SkillDescription varchar(100) NOT NULL,
     PRIMARY KEY (SkillID))';
     
 BEGIN
