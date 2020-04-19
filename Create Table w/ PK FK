@@ -51,7 +51,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Department(DepartmentID char(3) NOT NULL,Department_Name varchar(20) NOT NULL,
+    EXECUTE IMMEDIATE 'CREATE TABLE Department(DepartmentID char(3) NOT NULL,Department_Name varchar(50) NOT NULL,
     PRIMARY KEY (DepartmentID))';
     
     BEGIN
@@ -62,7 +62,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Position(PositionID char(3) NOT NULL,PositionName varchar(20) NOT NULL,StartSalary number(6) NOT NULL,
+    EXECUTE IMMEDIATE 'CREATE TABLE Position(PositionID char(3) NOT NULL,PositionName varchar(50) NOT NULL,StartSalary number(6) NOT NULL,
     PRIMARY KEY (PositionID))';
         
     BEGIN
