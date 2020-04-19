@@ -1,3 +1,35 @@
+Begin
+    INSERT INTO EmployeeInfo VALUES ('100001','Irene','Bae',TO_DATE('13-04-1985','DD-MM-YYYY'),'renebae@hotmail.com','N','1311001110022','0931117788','1234567891011',
+	    TO_DATE('03-03-2010','DD-MM-YYYY'),'1222333456777','1344556677998','F','128 Kanlapaphruek Rd. Bangkok 10151');
+    INSERT INTO EmployeeInfo VALUES('100235','Wendy','Son',TO_DATE('22-02-1988','DD-MM-YYYY'),'SonW@hotmail.com','N','1311001110023','0911122345','1234567891012',
+	    TO_DATE('10-03-2010','DD-MM-YYYY'),'1222333456778','1344556677999','F','24 NgamWongWan Rd. Bangkok 10140');
+    INSERT INTO EmployeeInfo VALUES('104582','Joy','Park',TO_DATE('22-07-1985','DD-MM-YYYY'),'Joyy@hotmail.com','Y','1311001110024','0911100345','1234567891013',
+	    TO_DATE('11-04-2011','DD-MM-YYYY'),'1222333456779','1344556677990','F','56 Chomthong Rd. Bangkok 10150');
+    INSERT INTO EmployeeInfo VALUES	('400823','Yeri','Kim',TO_DATE('16-03-1982','DD-MM-YYYY'),'Yerii@hotmail.com','Y','1311001110025','0911121346','1234567891014',
+    	TO_DATE('10-05-2012','DD-MM-YYYY'),'1222333456780','1344556677991','F','65 Charoenkrung Rd. Bangkok 10160');
+    INSERT INTO EmployeeInfo VALUES	('341001','Seulgi','Kang',TO_DATE('19-02-1984','DD-MM-YYYY'),'KSeul@hotmail.com','Y','1311001110026','0911124349','1234567891015',
+    	TO_DATE('11-04-2013','DD-MM-YYYY'),'1222333456781','1344556677992','F','22 Charoenkrung Rd. Bangkok 10160');
+    INSERT INTO EmployeeInfo VALUES	('100436','Seojoon','Park',TO_DATE('16-12-1988','DD-MM-YYYY'),'Seojooni@hotmail.com','N','1311001110027','0911133345','1234567891016',
+    	TO_DATE('10-12-2013','DD-MM-YYYY'),'1222333456782','1344556677993','M','66 Charoennakhon Rd. Bangkok 10170');
+    INSERT INTO EmployeeInfo VALUES	('101112','Minho','Lee',TO_DATE('19-06-1988','DD-MM-YYYY'),'minmin@hotmail.com','N','1311001110028','0999122345','1234567891017',
+    	TO_DATE('10-03-2014','DD-MM-YYYY'),'1222333456783','1344556677994','M','66 Charoenphatthana Rd. Bangkok 10180');
+    INSERT INTO EmployeeInfo VALUES	('236377','Taehyung','Kim',TO_DATE('30-12-1983','DD-MM-YYYY'),'VTaehyung@hotmail.com','N','1311001110029','0911177345','1234567891018',
+    	TO_DATE('10-03-2014','DD-MM-YYYY'),'1222333456784','1344556677995','M','75 Chaengwatthana Rd. Bangkok 10190');
+    INSERT INTO EmployeeInfo VALUES	('104097','Dongwook','Lee',TO_DATE('27-12-1981','DD-MM-YYYY'),'DongW@hotmail.com','Y','1311001110030','0911126545','1234567891019',
+    	TO_DATE('10-04-2015','DD-MM-YYYY'),'1222333456785','1344556677996','M','83 Chaengwatthana Rd. Bangkok 10190');
+    INSERT INTO EmployeeInfo VALUES	('618643','Dami','Kim',TO_DATE('08-04-1993','DD-MM-YYYY'),'Damii@hotmail.com','N','1311001110031','0914442345','1234567891020',
+    	TO_DATE('15-03-2018','DD-MM-YYYY'),'1222333456786','1344556677997','F','96 NgamWongWan Rd. Bangkok 10140');
+END;
+
+
+BEGIN
+    INSERT INTO Familymember VALUES ('100001','104582','Jimin Park',TO_DATE('15-09-2018','DD-MM-YYYY'));
+    INSERT INTO Familymember VALUES ('100002','104582','Saeroi Park',TO_DATE('19-10-2019','DD-MM-YYYY'));
+    INSERT INTO Familymember VALUES ('100003','100436','Minyoung Park',TO_DATE('20-03-2012','DD-MM-YYYY'));
+    INSERT INTO Familymember VALUES ('100004','104097','Jongsuk Lee',TO_DATE('01-01-2012','DD-MM-YYYY'));
+    INSERT INTO Familymember VALUES ('100005','341001','Miyeon Kim',TO_DATE('16-07-2019','DD-MM-YYYY'));
+END;
+
 BEGIN 
 	INSERT INTO department VALUES ('HKP','Housekeeping');
 	INSERT INTO department VALUES ('MTN','Maintenance');
@@ -14,7 +46,7 @@ BEGIN
 	INSERT INTO department VALUES ('AMO','Administrative Office');
 END;
 //ORA-12899: value too large for column "PROJECT_HR"."DEPARTMENT"."DEPARTMENT_NAME" (actual: 26, maximum: 20)
-//อักษรเกินที่ตั้งค่าไว้
+//อักษรเกินที่ตั้งค่าไว้   เเก้ในดาต้าเบสเเล้ว
 
 BEGIN 
 	INSERT INTO POSITION VALUES ('GSM','Guest Sevice Manager',27000);
@@ -33,7 +65,7 @@ BEGIN
 	INSERT INTO POSITION VALUES ('NWB','Newbie',15000);
 END;
 //ORA-12899: value too large for column "PROJECT_HR"."POSITION"."POSITIONNAME" (actual: 22, maximum: 20)
-//อักษรเกินเช่นกัน
+//อักษรเกินเช่นกัน เเก้ในดาต้าเบสเเล้ว
 
 BEGIN 
 	INSERT INTO absent VALUES (000001,'100001',TO_DATE('01-12-2019','DD-MM-YYYY'));
@@ -49,20 +81,20 @@ BEGIN
 END;
 
 BEGIN
-	INSERT INTO COURSE VALUES ('EN1','English for Communication 1',' This course emphasizes the fundamental English language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('EN2','English for Communication 2',' This course emphasizes the intermediate English language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('CN1','Chinese for Communication 1','This course emphasizes the fundamental Chinese language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('CN2','Chinene for Communication 2','This course emphasizes the intermediate Chinese language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking');
-	INSERT INTO COURSE VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals' );
- 	INSERT INTO COURSE VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills');
-	INSERT INTO COURSE VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills');
+	INSERT INTO COURSE VALUES ('EN1','English for Communication 1',' This course emphasizes the fundamental English language skills of reading, writing, speaking',TO_DATE('01-12-2019','DD-MM-YYYY'),TO_DATE('10-12-2019','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('EN2','English for Communication 2',' This course emphasizes the intermediate English language skills of reading, writing, speaking',TO_DATE('11-12-2019','DD-MM-YYYY'),TO_DATE('25-12-2019','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('CN1','Chinese for Communication 1','This course emphasizes the fundamental Chinese language skills of reading, writing, speaking',TO_DATE('01-12-2019','DD-MM-YYYY'),TO_DATE('20-12-2019','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('CN2','Chinene for Communication 2','This course emphasizes the intermediate Chinese language skills of reading, writing, speaking',TO_DATE('10-01-2020','DD-MM-YYYY'),TO_DATE('10-02-2020','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking',TO_DATE('15-01-2020','DD-MM-YYYY'),TO_DATE('15-02-2020','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking',TO_DATE('20-02-2020','DD-MM-YYYY'),TO_DATE('10-04-2020','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking',TO_DATE('01-12-2019','DD-MM-YYYY'),TO_DATE('10-12-2019','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking',TO_DATE('15-01-2020','DD-MM-YYYY'),TO_DATE('31-01-2020','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals'TO_DATE('16-01-2020','DD-MM-YYYY'),TO_DATE('17-01-2020','DD-MM-YYYY'));
+ 	INSERT INTO COURSE VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills'TO_DATE('16-03-2020','DD-MM-YYYY'),TO_DATE('18-03-2020','DD-MM-YYYY'));
+	INSERT INTO COURSE VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills',TO_DATE('25-02-2020','DD-MM-YYYY'),TO_DATE('27-02-2020','DD-MM-YYYY'));
 END;
 //ยังทำไม่เสร็จ
-//Not finish (not have startcourse and endcourse)
+//Not finish (not have startcourse and endcourse) = done
 
 BEGIN
 	INSERT INTO degree VALUES ('B.A.','Bachelor of Arts');
@@ -202,7 +234,44 @@ BEGIN
 	INSERT INTO Skill VALUES ('JLPT05','N5 (Beginner)','Understand some basic Japanese');
 	INSERT INTO Skill VALUES ('SFT001','Negotiation','Preparation, Discussion, Clarification of goals, Negotiate towards a Win-Win outcome, Agreement, Implementation of a course of action ');
 	INSERT INTO Skill VALUES ('SFT002','Judgement in Decision Making','Capacity to decide, Thought processes used to decide, Decision outcome that comes from exercising judgment');
-        INSERT INTO Skill VALUES ('SFT003','Emotional Intelligence','Recognize his emotions, understand what we are telling, and realize how his emotions affect people around him');
+    INSERT INTO Skill VALUES ('SFT003','Emotional Intelligence','Recognize his emotions, understand what we are telling, and realize how his emotions affect people around him');
 END;
 //ข้อมูลเกิน
+
+
+BEGIN
+    INSERT INTO Vacation VALUES (361001,'100001',TO_DATE('17-04-2010','DD-MM-YYYY'),TO_DATE('23-04-2010','DD-MM-YYYY'),1);
+    INSERT INTO Vacation VALUES (361002,'100001',TO_DATE('18-10-2010','DD-MM-YYYY'),TO_DATE('19-10-2010','DD-MM-YYYY'),2);
+    INSERT INTO Vacation VALUES (361003,'100001',TO_DATE('24-12-2010','DD-MM-YYYY'),TO_DATE('26-12-2012','DD-MM-YYYY'),3);
+    INSERT INTO Vacation VALUES (361004,'100001',TO_DATE('16-04-2011','DD-MM-YYYY'),TO_DATE('18-04-2011','DD-MM-YYYY'),4);
+    INSERT INTO Vacation VALUES (361005,'100001',TO_DATE('11-12-2011','DD-MM-YYYY'),TO_DATE('12-12-2011','DD-MM-YYYY'),5);
+    INSERT INTO Vacation VALUES (361006,'100001',TO_DATE('16-04-2012','DD-MM-YYYY'),TO_DATE('17-04-2012','DD-MM-YYYY'),6);
+    INSERT INTO Vacation VALUES (361007,'100001',TO_DATE('02-02-2015','DD-MM-YYYY'),TO_DATE('03-02-2015','DD-MM-YYYY'),7);
+    INSERT INTO Vacation VALUES (361008,'100001',TO_DATE('10-11-2018','DD-MM-YYYY'),TO_DATE('11-11-2018','DD-MM-YYYY'),8);
+    INSERT INTO Vacation VALUES (361009,'100001',TO_DATE('13-01-2020','DD-MM-YYYY'),TO_DATE('14-01-2020','DD-MM-YYYY'),9);
+    INSERT INTO Vacation VALUES (361010,'341001',TO_DATE('16-04-2014','DD-MM-YYYY'),TO_DATE('18-04-2014','DD-MM-YYYY'),1);
+    INSERT INTO Vacation VALUES (361011,'341001',TO_DATE('15-06-2015','DD-MM-YYYY'),TO_DATE('17-06-2015','DD-MM-YYYY'),2);
+    INSERT INTO Vacation VALUES (361012,'341001',TO_DATE('15-08-2017','DD-MM-YYYY'),TO_DATE('18-08-2017','DD-MM-YYYY'),3);
+    INSERT INTO Vacation VALUES (361013,'341001',TO_DATE('02-01-2019','DD-MM-YYYY'),TO_DATE('04-01-2019','DD-MM-YYYY'),4);
+    INSERT INTO Vacation VALUES (361014,'341001',TO_DATE('17-02-2020','DD-MM-YYYY'),TO_DATE('24-02-2020','DD-MM-YYYY'),5);
+    INSERT INTO Vacation VALUES (361015,'400823',TO_DATE('16-04-2012','DD-MM-YYYY'),TO_DATE('21-04-2012','DD-MM-YYYY'),1);
+    INSERT INTO Vacation VALUES (361016,'400823',TO_DATE('10-12-2013','DD-MM-YYYY'),TO_DATE('13-12-2013','DD-MM-YYYY'),2);
+    INSERT INTO Vacation VALUES (361017,'104097',TO_DATE('12-12-2017','DD-MM-YYYY'),TO_DATE('14-12-2017','DD-MM-YYYY'),1);
+END;
+
+BEGIN
+    INSERT INTO PerformanceReview VALUES ('100235',TO_DATE('31-11-2019','DD-MM-YYYY'),'4','5','4','Son Yejin')
+END;
+
+
+100001',TO_DATE('01-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000002,'100235',TO_DATE('01-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000003,'104582',TO_DATE('01-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000004,'400823',TO_DATE('01-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000005,'341001',TO_DATE('02-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000006,'100436',TO_DATE('02-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000007,'101112',TO_DATE('03-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000008,'236377',TO_DATE('03-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000009,'104097',TO_DATE('03-12-2019','DD-MM-YYYY'));
+	INSERT INTO absent VALUES (000010,'618643
 
