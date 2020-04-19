@@ -142,7 +142,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE PerformanceReview(StaffID char(6) NOT NULL,PerformanceReviewDate DATE NOT NULL,JobKnowledge char(1) NOT NULL,QuantityofWork char(1) NOT NULL,QualityofWork char(1) NOT NULL,Comments varchar(100) NOT NULL,
+    EXECUTE IMMEDIATE 'CREATE TABLE PerformanceReview(StaffID char(6) NOT NULL,PerformanceReviewDate DATE NOT NULL,JobKnowledge char(1) NOT NULL,QuantityofWork char(1) NOT NULL,QualityofWork char(1) NOT NULL,Comments varchar(100) NOT NULL,SupervisorName varchar(70) NOT NULL,
     PRIMARY KEY (StaffID, PerformanceReviewDate),
     FOREIGN KEY (StaffID) REFERENCES EmployeeInfo(StaffID))';
     
