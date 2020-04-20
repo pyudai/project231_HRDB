@@ -130,7 +130,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE Vacation (VacationNo number(6) NOT NULL,StaffID char(6) NOT NULL,VDateStart DATE NOT NULL,VDateEnd DATE NOT NULL,No number(2) NOT NULL,
+    EXECUTE IMMEDIATE 'CREATE TABLE Vacation (VacationNo number(6) NOT NULL,StaffID char(6) NOT NULL,No number(2) NOT NULL,VDateStart DATE NOT NULL,VDateEnd DATE NOT NULL,
     PRIMARY KEY (VacationNO),
     FOREIGN KEY (StaffID) REFERENCES EmployeeInfo(StaffID))';
     
