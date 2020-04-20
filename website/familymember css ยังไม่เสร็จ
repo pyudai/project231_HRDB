@@ -5,7 +5,18 @@ nav-bar{
     z-index:10;
 }
 .navbar {
+    border-radius: 10px;
   background:#E8D8C9;
+    margin: auto;
+    padding: 20px 10px 10px;
+}
+a1{
+    float:right;
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    color: #b20e10;
 }
 
 *{
