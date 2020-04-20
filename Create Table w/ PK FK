@@ -154,7 +154,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE WorkHistory (StaffID char(6) NOT NULL,CompanyName varchar(50) NOT NULL,StartMonth DATE NOT NULL,EndMonth DATE NOT NULL,HistoryPosition varchar(20) NOT NULL,ExitInterview varchar(100) NOT NULL,No number(2) DEFAULT NULL, 
+    EXECUTE IMMEDIATE 'CREATE TABLE WorkHistory (StaffID char(6) NOT NULL,No number(2) DEFAULT NULL,CompanyName varchar(50) NOT NULL,StartMonth DATE NOT NULL,EndMonth DATE NOT NULL,HistoryPosition varchar(20) NOT NULL,ExitInterview varchar(100) NOT NULL,
     PRIMARY KEY (StaffID, CompanyName, StartMonth),
     FOREIGN KEY (StaffID) REFERENCES EmployeeInfo(StaffID))';
     
@@ -217,7 +217,7 @@ BEGIN
                 RAISE;
             END IF;
     END;
-    EXECUTE IMMEDIATE 'CREATE TABLE EducationalHistory(StaffID char(6) NOT NULL,GraduationDate DATE NOT NULL,DegreeID varchar(10) NOT NULL,Levels varchar(20) NOT NULL,
+    EXECUTE IMMEDIATE 'CREATE TABLE EducationalHistory(StaffID char(6) NOT NULL,No number(2) DEFAULT NULL,GraduationDate DATE NOT NULL,DegreeID varchar(10) NOT NULL,Levels varchar(20) NOT NULL,
     PRIMARY KEY (StaffID, GraduationDate, Levels),
     FOREIGN KEY (StaffID) REFERENCES EmployeeInfo(StaffID),
     FOREIGN KEY (DegreeID) REFERENCES Degree(DegreeID))';
