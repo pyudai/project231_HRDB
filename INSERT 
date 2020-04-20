@@ -267,12 +267,19 @@ END;
 //ข้อมูลเกิน
 
 BEGIN
-    INSERT INTO EmployeeSkill VALUES ('100001','');
-    INSERT INTO EmployeeSkill VALUES ('100001','');
-    INSERT INTO EmployeeSkill VALUES ('100001','');
-    INSERT INTO EmployeeSkill VALUES ('100001','');
-    INSERT INTO EmployeeSkill VALUES ('100001','');
-    INSERT INTO EmployeeSkill VALUES ('100001','');
+    INSERT INTO EmployeeSkill VALUES ('100001','EN0005');
+    INSERT INTO EmployeeSkill VALUES ('100001','SFT001');
+    INSERT INTO EmployeeSkill VALUES ('100001','JLPT03');
+    INSERT INTO EmployeeSkill VALUES ('100235','EN0004');
+    INSERT INTO EmployeeSkill VALUES ('104582','EN0002');
+    INSERT INTO EmployeeSkill VALUES ('104582','JLPT05');
+    INSERT INTO EmployeeSkill VALUES ('100436','EN0006');
+    INSERT INTO EmployeeSkill VALUES ('100436','SFT001');
+    INSERT INTO EmployeeSkill VALUES ('100436','SFT002');
+    INSERT INTO EmployeeSkill VALUES ('236377','EN0005');
+    INSERT INTO EmployeeSkill VALUES ('236377','SFT001');
+    INSERT INTO EmployeeSkill VALUES ('236377','SFT002');
+    INSERT INTO EmployeeSkill VALUES ('236377','SFT003');
 END;
 
 BEGIN
