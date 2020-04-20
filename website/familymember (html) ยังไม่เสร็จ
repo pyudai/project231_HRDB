@@ -1,6 +1,7 @@
 <section id ="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#"><img src="centar.png"></a>
+        <a class="navbar-brand" href="#"><img src="centar.png">
+            <a1>Family Member</a1></a>
   
 </nav>
     </section>
@@ -10,7 +11,7 @@
         border:1px solid black;
     }
 </style>
-<h2>Responsive Table</h2>
+<h2></h2>
 <div class="table-wrapper">
     <link href="style1.css" rel="stylesheet" type="text/css">
     
