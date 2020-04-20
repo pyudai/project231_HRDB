@@ -128,7 +128,6 @@ BEGIN
 END;
 
 BEGIN
-    
     INSERT INTO Welfare VALUES ('100001','0002');
     INSERT INTO Welfare VALUES ('100001','0004');
     INSERT INTO Welfare VALUES ('100001','0005');
@@ -267,6 +266,14 @@ BEGIN
 END;
 //ข้อมูลเกิน
 
+BEGIN
+    INSERT INTO EmployeeSkill VALUES ('100001','');
+    INSERT INTO EmployeeSkill VALUES ('100001','');
+    INSERT INTO EmployeeSkill VALUES ('100001','');
+    INSERT INTO EmployeeSkill VALUES ('100001','');
+    INSERT INTO EmployeeSkill VALUES ('100001','');
+    INSERT INTO EmployeeSkill VALUES ('100001','');
+END;
 
 BEGIN
     INSERT INTO Vacation VALUES (361001,'100001',1,TO_DATE('17-04-2010','DD-MM-YYYY'),TO_DATE('23-04-2010','DD-MM-YYYY'));
