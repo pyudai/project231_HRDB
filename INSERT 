@@ -97,6 +97,11 @@ END;
 //Not finish (not have startcourse and endcourse) = done
 
 BEGIN
+    INSERT INTO TrainingHistory VALUES (120000,'100001',1,'LDS','SFT004',TO_DATE('17-01-2020','DD-MM-YYYY'),8);
+    INSERT INTO TrainingHistory VALUES (120000,'100001',2,'SVM','SFT004',TO_DATE('17-01-2020','DD-MM-YYYY'),8);
+END;
+
+BEGIN
 	INSERT INTO degree VALUES ('B.A.','Bachelor of Arts');
 	INSERT INTO degree VALUES ('B.Acc.','Bachelor of Accounting');
 	INSERT INTO degree VALUES ('B.A.Sc','Bachelor of Applied Science');
@@ -263,6 +268,11 @@ BEGIN
 	INSERT INTO Skill VALUES ('SFT001','Negotiation','Preparation, Discussion, Clarification of goals, Negotiate towards a Win-Win outcome, Agreement, Implementation of a course of action ');
 	INSERT INTO Skill VALUES ('SFT002','Judgement in Decision Making','Capacity to decide, Thought processes used to decide, Decision outcome that comes from exercising judgment');
     INSERT INTO Skill VALUES ('SFT003','Emotional Intelligence','Recognize his emotions, understand what we are telling, and realize how his emotions affect people around him');
+    INSERT INTO Skill VALUES ('SFT004','leadership','Ability to communicate well, motivate their team, handle and delegate responsibilities, listen to feedback, and have the flexibility to solve problems in an ever-changing workplace');
+    INSERT INTO Skill VALUES ('SFT005','Planning','Organize activities in line with set guidelines while still remaining within the limits of the available resources such as time, money, and labor');
+    INSERT INTO Skill VALUES ('SFT006','Communication','Relate well with the employees and thus, be able to achieve the company set goals and objectives easily');
+    INSERT INTO Skill VALUES ('SFT007','Delegation','Able to effectively and efficiently re-assign tasks and give authority to the right employees');
+    INSERT INTO Skill VALUES ('SFT008','Problem-solving','Identifying a certain problem or situation and then finding the best way to handle the problem and get the best solution');
 END;
 //ข้อมูลเกิน
 
