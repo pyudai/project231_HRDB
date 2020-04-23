@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 		<title>HRDB</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+body {
+	position: relative;
+	width : 1440px;
+	height : 1024px;
+	background-color : #F5F4F0;
+}	
+b.title {
+	font-size:20px;
+}
+.block {
+	background: #D3C0B6; 
+	color:black;
+}
+
+.checkbox {
+	color:black;
+	font-size:20px;
+}
+
+tr.title {
+	background: #CBB3A7;
+}
+
+tr.tb {
+	background: #FAFAFA;
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
+  		<h1 class="text-right" style="color:#B20E10; font-size:60px;">Training Reserve</h1>
+	</div>
+
+
+<form class="container-fluid ">
+
+  <div class="mt-4 mx-auto pt-4 row input-group">
+     <div class=" input-group-prepend col-sm-3">
+      <span class=" block input-group-text" >StaffID</span>
+          <input type="text" class="form-control">
+    </div>
+    <div class="input-group-prepend col-sm-4 ml-5">
+      <span class="block input-group-text">First Name</span>
+          <input type="text" class="form-control">
+    </div>
+	<div class="input-group-prepend col-sm-4 ml-5">
+    <span class="block input-group-text">Last Name</span>
+    <input type="text" class="form-control">
+    </div>
+  </div>
+  
+<div class="mt-4 mx-auto pt-2 row input-group">
+   <div class=" input-group-prepend col-sm-3">
+    <span class=" block input-group-text" >Department</span>
+        <input type="text" class="form-control">
+  </div>
+  <div class="input-group-prepend col-sm-4 ml-5">
+    <span class="block input-group-text">Position</span>
+        <input type="text" class="form-control">
+  </div>
+	<div class="col-sm-4 ml-5">
+  </div>
+</div>
+</form>
+
+<div class="row pt-5">
+	<div class="col text-center">
+    <button type ="button" class="btn btn-lg btn-success">Previous</button>
+		<button type ="button" class="btn btn-lg btn-success">Edit</button>
+    <button type ="button" class="btn btn-lg btn-success">Next</button>
+    </div>
+</div>
+</body>
+</html>
