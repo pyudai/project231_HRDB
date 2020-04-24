@@ -1,0 +1,89 @@
+<body>
+<style>
+.topnav {
+  overflow: hidden;
+  background-color:#E8D8C9;
+}
+
+.topnav a {
+  float: right;
+  color: #b20e10;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 56px;
+}
+.topnav a.text{
+ color: #b20e10;
+ font-family:Sarabun;
+}
+.topnav a.picture{
+float:left;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background:#F5F4F0;
+}
+</style>
+
+<div class="topnav">
+  <a class="text">Department Member</a>
+  <a class="picture"><img src="centar.png"></a>
+</div>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+ <div id="curve_chart" class="chart"></div>
+<style>
+.chart{
+margin: 70px auto;
+width:500px;
+height:250px;
+}
+</style>
+<button style="margin-right: 16px" type="button">Previous</button> 
+<style>
+button {
+  background-color:#4BD37B; /* Green */
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+
+}
+button{
+    border-radius:7px;
+}
+button{
+    float: right;
+}
+button:hover{
+     background-color: #3e8e41;
+}
+</style>
+</body>
