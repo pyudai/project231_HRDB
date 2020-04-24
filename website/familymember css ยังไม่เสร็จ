@@ -1,5 +1,5 @@
 
-nav-bar{
+#nav-bar{
     position: sticky;
     top:0;
     z-index:10;
@@ -12,11 +12,39 @@ nav-bar{
 }
 a1{
     float:right;
+    position: sticky;
+    right: 0;
     font-family: Sarabun;
     font-style: normal;
     font-weight: 500;
     font-size: 64px;
     color: #b20e10;
+}
+.block1{
+	color:black;
+    border-radius:10px; 
+    margin-top: 25;
+    margin-left: 25;
+}
+button {
+  background-color:#4BD37B; /* Green */
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+
+}
+button{
+    border-radius:7px;
+}
+button{
+    float: right;
+}
+button:hover{
+     background-color: #3e8e41;
 }
 
 *{
@@ -39,10 +67,12 @@ h2{
     padding: 30px 0;
 }
 
+
 /* Table Styles */
 
 .table-wrapper{
     margin: 10px 70px 70px;
+    margin-top: 25;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
 }
 
@@ -147,4 +177,11 @@ h2{
         display: block;
         text-align: center;
     }
+
 }
+.block2{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
