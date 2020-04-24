@@ -9,12 +9,13 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <style>
-body {
-	position: relative;
-	width : 1440px;
-	height : 1024px;
-	background-color : #F5F4F0;
-}	
+
+body{
+    font-family: Sarabun;
+    -webkit-font-smoothing: antialiased;
+    background:#F5F4F0;
+}
+
 b.title {
 	font-size:20px;
 }
@@ -36,16 +37,36 @@ tr.tb {
 	background: #FAFAFA;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color:#E8D8C9;
+}
+
+.topnav a {
+  float: right;
+  color: #b20e10;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 56px;
+}
+.topnav a.text{
+ color: #b20e10;
+ font-family:Sarabun;
+}
+.topnav a.picture{
+float:left;
+}
+
 </style>
 
 </head>
 
 <body>
 
-	<div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
-  		<h1 class="text-right" style="color:#B20E10; font-size:60px;">Monthly Pay Slip (Edit)</h1>
-	</div>
-
+    <div class="topnav">
+        <a class="text">Monthly Pay Slip (Edit)</a>
+        <a class="picture"><img src="centar.png"></a>
+    </div>
 
 <form class="container-fluid ">
 
