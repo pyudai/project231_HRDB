@@ -49,34 +49,93 @@ tr.tb {
 
 <form class="container-fluid ">
 
-  <div class="mt-4 mx-auto pt-4 row input-group">
-     <div class=" input-group-prepend col-sm-3">
-      <span class=" block input-group-text" >StaffID</span>
-          <input type="text" class="form-control">
-    </div>
-    <div class="input-group-prepend col-sm-4 ml-5">
-      <span class="block input-group-text">First Name</span>
-          <input type="text" class="form-control">
-    </div>
-	<div class="input-group-prepend col-sm-4 ml-5">
-    <span class="block input-group-text">Last Name</span>
-    <input type="text" class="form-control">
-    </div>
-  </div>
+  	<div class="mt-4 mx-auto pt-4 row input-group">
+     	<div class=" input-group-prepend col-sm-3">
+      		<span class=" block input-group-text" >StaffID</span>
+          	<input type="text" class="form-control">
+    	</div>
+    	<div class="input-group-prepend col-sm-4 ml-5">
+      		<span class="block input-group-text">First Name</span>
+          	<input type="text" class="form-control">
+    	</div>
+		<div class="input-group-prepend col-sm-4 ml-5">
+    		<span class="block input-group-text">Last Name</span>
+    		<input type="text" class="form-control">
+    	</div>
+  	</div>
   
-<div class="mt-4 mx-auto pt-2 row input-group">
-   <div class=" input-group-prepend col-sm-3">
-    <span class=" block input-group-text" >Department</span>
-        <input type="text" class="form-control">
-  </div>
-  <div class="input-group-prepend col-sm-4 ml-5">
-    <span class="block input-group-text">Position</span>
-        <input type="text" class="form-control">
-  </div>
-	<div class="col-sm-4 ml-5">
-  </div>
-</div>
+	<div class="mt-4 mx-auto pt-2 row input-group">
+   		<div class=" input-group-prepend col-sm-3">
+    		<span class=" block input-group-text" >Department</span>
+        	<input type="text" class="form-control">
+  		</div>
+  		<div class="input-group-prepend col-sm-4 ml-5">
+    		<span class="block input-group-text">Position</span>
+       	 	<input type="text" class="form-control">
+  		</div>
+		<div class="col-sm-4 ml-5">
+  		</div>
+	</div>
+
+	<div class="row mt-4">
+		<div class="col">
+    		<label for="exampleFormControlSelect1">Course Name</label>
+    		<select class="form-control" id="exampleFormControlSelect1">
+     			<option>1</option>
+      			<option>2</option>
+      			<option>3</option>
+      			<option>4</option>
+      			<option>5</option>
+    		</select>
+		</div>
+		
+		<div class="col"> <!--ยังไม่ได้แก้เป็น input date-->
+			<label for="exampleFormControlSelect1">Date</label>
+    		<label for="exampleFormControlSelect1">From</label>
+    		<select class="form-control" id="exampleFormControlSelect1">
+     			<option>1</option>
+      			<option>2</option>
+      			<option>3</option>
+      			<option>4</option>
+      			<option>5</option>
+    		</select>
+		</div>
+		<div class="col">
+    		<label for="exampleFormControlSelect1">To</label>
+    		<select class="form-control" id="exampleFormControlSelect1">
+     			<option>1</option>
+      			<option>2</option>
+      			<option>3</option>
+      			<option>4</option>
+      			<option>5</option>
+    		</select>
+		</div>
+	</div>
 </form>
+
+<div class="row pt-5 pl-5 pr-5">
+	<div class="col">
+		<table class="table table-bordered">
+		  	<thead>
+		   		<tr class="title text-center">
+		    	  	<th>No.</th>
+		    	  	<th>Course Name</th>
+		    	  	<th>Start Date</th>
+		    	  	<th>End Date</th>
+		    	</tr>
+		  	</thead>
+	  		<tbody>
+	    		<tr class="tb">
+	    	  		<td class="text-center">Monthly Salary</td>
+	    	  		<td class="text-center">0</td>
+	    	  		<td class="text-center">0</td>
+	    	  		<td class="text-center">0</td>
+	    		</tr>
+	  		</tbody>
+		</table>
+	</div>
+</div>
+
 
 <div class="row pt-5">
 	<div class="col text-center">
