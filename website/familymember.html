@@ -1,34 +1,36 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 <body>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
+body {
+  margin: 0;
+  font-family:Sarabun;
+}
 
-#nav-bar{
-    position: sticky;
-    top:0;
-    z-index:10;
+.topnav {
+  overflow: hidden;
+  background-color:#E8D8C9;
 }
-.navbar {
-    border-radius: 10px;
-  background:#E8D8C9;
-    margin: auto;
-    padding: 20px 10px 10px;
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 64px;
 }
-a1{
-    float:right;
-    position: sticky;
-    right: 0;
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 64px;
-    color: #b20e10;
+.topnav a.active {
+  color:#b20e10;
+}
+.topnav a.picture{
+float:left;
 }
 .block1{
 	color:black;
     border-radius:10px; 
     margin-top: 25;
     margin-left: 25;
+border-line
 }
 button {
   background-color:#4BD37B; /* Green */
@@ -191,12 +193,10 @@ h2{
     }
 </style>
 
-<section id ="nav-bar">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#"><img src="centar.png">
-            <a1>Family Member</a1></a>
-</nav>
-    </section>
+<div class="topnav">
+  <a class="active">Family member</a>
+  <a class="picture"><img src="centar.png"></a>
+</div>
 
 <div class = "block1">
         <span style="background:#D3C0B6">
@@ -225,7 +225,6 @@ h2{
 
       
 <div class="table-wrapper">
-    <link href="style1.css" rel="stylesheet" type="text/css">
     <table class="fl-table">
         <thead>
         <tr>
