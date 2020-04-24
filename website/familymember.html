@@ -1,210 +1,222 @@
+<!DOCTYPE html>
 <html>
-<title>Family Member</title>
+<head>
+  <title>Family Member</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<body>
-<style>
-.topnav {
-  overflow: hidden;
-  background-color:#E8D8C9;
-}
-
-.topnav a {
-  float: right;
-  color: #b20e10;
-  text-align: center;
-  padding: 14px 16px;
-  font-size: 56px;
-}
-.topnav a.text{
- color: #b20e10;
- font-family:Sarabun;
-}
-.topnav a.picture{
-float:left;
-}
-
-.block1{
-	color:black;
-    border-radius:10px; 
-    margin-top: 25;
-    margin-left: 25;
-}
-button {
-  background-color:#4BD37B; /* Green */
-  border: none;
-  color: black;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-
-}
-button{
-    border-radius:7px;
-}
-button{
-    float: right;
-}
-button:hover{
-     background-color: #3e8e41;
-}
-
-*{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-
-body{
-    font-family: Helvetica;
-    -webkit-font-smoothing: antialiased;
-    background:#F5F4F0;
-}
-h2{
-    text-align: center;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: black;
-    padding: 30px 0;
-}
-
-
-/* Table Styles */
-
-.table-wrapper{
-    margin: 10px 70px 70px;
-    margin-top: 25;
-    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
-}
-
-.fl-table {
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: normal;
-    border:1px solid black;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 100%;
-    white-space: nowrap;
-    background-color: #F5F4F0;
-}
-
-.fl-table td, .fl-table th {
-    text-align: center;
-    padding: 8px;
-}
-
-.fl-table td {
-    border-right: 1px solid black;
-    font-size: 12px;
-}
-
-.fl-table thead th {
-    color: black;
-    background: #CBB3A7;
-}
-
-
-.fl-table thead th:nth-child(odd) {
-    color: black;
-    background: #CBB3A7;
-}
-
-.fl-table tr:nth-child(even) {
-    background: #F8F8F8;
-}
-
-/* Responsive */
-
-@media (max-width: 767px) {
-    .fl-table {
-        display: block;
-        width: 100%;
+  <style type="text/css">
+    .topnav {
+      overflow: hidden;
+      background-color:#E8D8C9;
     }
-    .table-wrapper:before{
-        content: "Scroll horizontally >";
-        display: block;
-        text-align: right;
-        font-size: 11px;
-        color: white;
-        padding: 0 0 10px;
+    
+    .topnav a {
+      float: right;
+      color: #b20e10;
+      text-align: center;
+      padding: 14px 16px;
+      font-size: 56px;
     }
-    .fl-table thead, .fl-table tbody, .fl-table thead th {
-        display: block;
+    .topnav a.text{
+     color: #b20e10;
+     font-family:Sarabun;
     }
-    .fl-table thead th:last-child{
-        border-bottom: none;
+    .topnav a.picture{
+    float:left;
     }
-    .fl-table thead {
-        float: left;
+    
+    .block1{
+      color:black;
+        border-radius:10px; 
+        margin-top: 25;
+        margin-left: 25;
+        padding: 5px 15px;
     }
-    .fl-table tbody {
-        width: auto;
-        position: relative;
-        overflow-x: auto;
+    button {
+      background-color:#4BD37B; /* Green */
+      border: none;
+      color: black;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    
     }
-    .fl-table td, .fl-table th {
-        padding: 20px .625em .625em .625em;
-        height: 60px;
-        vertical-align: middle;
+    button{
+        border-radius:7px;
+    }
+    button{
+        float: right;
+    }
+    button:hover{
+         background-color: #3e8e41;
+    }
+    
+    *{
         box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: auto;
-        width: 120px;
-        font-size: 13px;
-        text-overflow: ellipsis;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
     }
-    .fl-table thead th {
-        text-align: left;
-        border-bottom: 1px solid black;
+    
+    body{
+        font-family: Sarabun;
+        font-size: 20px;
+        background:#F5F4F0;
     }
-    .fl-table tbody tr {
-        display: table-cell;
-    }
-    .fl-table tbody tr:nth-child(odd) {
-        background: none;
-    }
-    .fl-table tr:nth-child(even) {
-        background: transparent;
-    }
-    .fl-table tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tbody td {
-        display: block;
+    h2{
         text-align: center;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: black;
+        padding: 30px 0;
     }
-
-}
-.block2{
-        display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    
+    
+    /* Table Styles */
+    
+    .table-wrapper{
+        margin: 10px 70px 70px;
+        margin-top: 25;
+        box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
     }
-</style>
-
-<div class="topnav">
-  <a class="text">Family member</a>
+    
+    .fl-table {
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: normal;
+        border:1px solid black;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        white-space: nowrap;
+        background-color: #F5F4F0;
+    }
+    
+    .fl-table td, .fl-table th {
+        text-align: center;
+        padding: 8px;
+    }
+    
+    .fl-table td {
+        border-right: 1px solid black;
+        font-size: 12px;
+    }
+    
+    .fl-table thead th {
+        color: black;
+        background: #CBB3A7;
+    }
+    
+    
+    .fl-table thead th:nth-child(odd) {
+        color: black;
+        background: #CBB3A7;
+    }
+    
+    .fl-table tr:nth-child(even) {
+        background: #F8F8F8;
+    }
+    
+    /* Responsive */
+    
+    @media (max-width: 767px) {
+        .fl-table {
+            display: block;
+            width: 100%;
+        }
+        .table-wrapper:before{
+            content: "Scroll horizontally >";
+            display: block;
+            text-align: right;
+            font-size: 11px;
+            color: white;
+            padding: 0 0 10px;
+        }
+        .fl-table thead, .fl-table tbody, .fl-table thead th {
+            display: block;
+        }
+        .fl-table thead th:last-child{
+            border-bottom: none;
+        }
+        .fl-table thead {
+            float: left;
+        }
+        .fl-table tbody {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+        }
+        .fl-table td, .fl-table th {
+            padding: 20px .625em .625em .625em;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+        }
+        .fl-table thead th {
+            text-align: left;
+            border-bottom: 1px solid black;
+        }
+        .fl-table tbody tr {
+            display: table-cell;
+        }
+        .fl-table tbody tr:nth-child(odd) {
+            background: none;
+        }
+        .fl-table tr:nth-child(even) {
+            background: transparent;
+        }
+        .fl-table tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tr td:nth-child(even) {
+            border-right: 1px solid #E6E4E4;
+        }
+        .fl-table tbody td {
+            display: block;
+            text-align: center;
+        }
+    
+    }
+    .block2{
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+<div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
   <a class="picture"><img src="centar.png"></a>
+  <a class="text-right" style="color:#B20E10; float: right; font-size:56px; padding: 1px 10px 2px;">
+    Family member
+  </a>
 </div>
-
+<br>
 <div class = "block1">
-        <span style="background:#D3C0B6">
+        <span style="background:#D3C0B6; padding: 7px 15px;">
             StaffID
         </span>
         <input type="text"> 
-        <span style="background:#D3C0B6">
+        <span style="background:#D3C0B6; padding: 7px 15px;">
             FirstName
         </span>
         <input type= "text">
-        <span style="background:#D3C0B6">
+        <span style="background:#D3C0B6; padding: 7px 15px;">
             LastName
         </span>  
     <input type= "text">
@@ -262,7 +274,7 @@ h2{
 </div>
     
     <div class = "block2">
-        <span style="background:#D3C0B6">
+        <span style="background:#D3C0B6; padding: 3px 15px;">
             Total
         </span>
         <input type= "integer">
