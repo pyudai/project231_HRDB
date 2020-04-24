@@ -9,12 +9,12 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <style>
-body {
-	position: relative;
-	width : 1440px;
-	height : 1024px;
-	background-color : #F5F4F0;
-}	
+body{
+    font-family: Sarabun;
+    -webkit-font-smoothing: antialiased;
+    background:#F5F4F0;
+}
+
 b.title {
 	font-size:20px;
 }
@@ -36,16 +36,36 @@ tr.tb {
 	background: #FAFAFA;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color:#E8D8C9;
+}
+
+.topnav a {
+  float: right;
+  color: 
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 64px;
+}
+.topnav a.text {
+  color:#b20e10;
+}
+.topnav a.picture{
+float:left;
+}
+
+
 </style>
 
 </head>
 
 <body>
-
-	<div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
-  		<h1 class="text-right" style="color:#B20E10; font-size:60px;">Training Reserve</h1>
-	</div>
-
+    <div class="topnav">
+        <a class="text">Training Reserve</a>
+        <a class="picture"><img src="centar.png"></a>
+    </div>
 
 <form class="container-fluid ">
 
@@ -77,9 +97,9 @@ tr.tb {
   		</div>
 	</div>
 
-	<div class="row mt-4">
-		<div class="col">
-    		<label for="exampleFormControlSelect1">Course Name</label>
+	<div class="row mt-4 pt-4 mx-auto">
+		<div class="col input-group">
+			<span class="block input-group-text">Course Name</span>
     		<select class="form-control" id="exampleFormControlSelect1">
      			<option>1</option>
       			<option>2</option>
@@ -89,26 +109,14 @@ tr.tb {
     		</select>
 		</div>
 		
-		<div class="col"> <!--ยังไม่ได้แก้เป็น input date-->
-			<label for="exampleFormControlSelect1">Date</label>
-    		<label for="exampleFormControlSelect1">From</label>
-    		<select class="form-control" id="exampleFormControlSelect1">
-     			<option>1</option>
-      			<option>2</option>
-      			<option>3</option>
-      			<option>4</option>
-      			<option>5</option>
-    		</select>
-		</div>
-		<div class="col">
-    		<label for="exampleFormControlSelect1">To</label>
-    		<select class="form-control" id="exampleFormControlSelect1">
-     			<option>1</option>
-      			<option>2</option>
-      			<option>3</option>
-      			<option>4</option>
-      			<option>5</option>
-    		</select>
+		<div class="col input-group">
+  			<div class="input-group-prepend">
+    			<span class="block input-group-text" id="">Date</span>
+    			<span class="block input-group-text" id="">From</span>
+  			</div>
+  			<input type="date" class="form-control">
+  			<span class="block input-group-text" id="">To</span>
+  			<input type="date" class="form-control">
 		</div>
 	</div>
 </form>
@@ -126,7 +134,7 @@ tr.tb {
 		  	</thead>
 	  		<tbody>
 	    		<tr class="tb">
-	    	  		<td class="text-center">Monthly Salary</td>
+	    	  		<td class="text-center" id="No">1.</td>
 	    	  		<td class="text-center">0</td>
 	    	  		<td class="text-center">0</td>
 	    	  		<td class="text-center">0</td>
