@@ -1,3 +1,9 @@
+
+CREATE DATABASE hr_database
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_general_ci;
+
+
 /*		MySQL Create Database		*/
 CREATE TABLE EmployeeInfo (
 	StaffID 			char(6) 			NOT NULL,
