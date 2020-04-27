@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daily Time</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <style type="text/css">
+        body {
+            font-family: Sarabun;
+            font-size: 22px;
+            background-color: #F5F4F0 
+        }
+        .block {
+            background: #CBB3A7;
+            color: black;
+        }
+        br {
+            display: block;
+            content: " ";
+            margin: 15px;
+        }
+        .threeline {
+            display: block;
+            content: " ";
+            margin: 60px;
+        }
+        th {
+            background-color: #CBB3A7;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
+            <a class="picture"><img src="centar.png"></a>
+            <a class="text-right" style="color:#B20E10; float: right; font-size:56px;">
+                DailyTime
+            </a>
+        </div>
+
+        <form class="container-fluid ">
+            <div class="mt-4 mx-auto pt-3 row input-group">
+                <span class="block input-group-text">Timesheet</span>
+                <select id="select-testing" class="selectpicker col-2" data-live-search="true">
+                    <option>Reception</option>
+                    <option>Housekeeper</option>
+                </select>
+                <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+            </div>
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="title text-center">
+                            <th>StaffID</th>
+                            <th>Date</th>
+                            <th>Time IN</th>
+                            <th>Time OUT</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $conn = mysqli_connect("localhost", "root", "", "NAME_DATABASE");
+                            // Check connection
+                            if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                            }
+                            $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM DailyTimeCard";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["StaffID"]. "</td><td>" . $row["TCDate"]. "</td><td>" 
+                            . $row["TimeIn"]. "</td><td>" . $row["TimeOut"]. "</td><td>"  <!--. STATUS . "</td></tr>" -->;
+                            }
+                            echo "</table>";
+                            } else { echo "0 results"; }
+                            $conn->close();
+                            ?>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </body>
+</html>
