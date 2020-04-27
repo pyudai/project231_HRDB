@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 		<title>HRDB</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+body{
+    font-family: Sarabun;
+    -webkit-font-smoothing: antialiased;
+    background:#F5F4F0;
+}
+
+b.title {
+	font-size:20px;
+}
+.block {
+	background: #D3C0B6; 
+	color:black;
+}
+.button {
+    background: #B79584; 
+	color:black;
+}
+
+.checkbox {
+	color:black;
+	font-size:20px;
+}
+
+tr.title {
+	background: #CBB3A7;
+}
+
+tr.tb {
+	background: #FAFAFA;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:#E8D8C9;
+}
+
+.topnav a {
+  float: right;
+  color: 
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 64px;
+}
+.topnav a.text {
+  color:#b20e10;
+}
+.topnav a.picture{
+float:left;
+}
+
+
+</style>
+
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="text">All Absent</a>
+        <a class="picture"><img src="centar.png"></a>
+    </div>
+    
+<div class="row pt-5">
+	<div class="col text-right pr-5">
+        <button type ="button" class="btn btn-lg btn-success">Add</button>
+		<button type ="button" class="btn btn-lg btn-success">Edit</button>
+        <button type ="button" class="btn btn-lg btn-success">Next</button>
+    </div>
+</div>
+
+<form class="container-fluid ">
+
+	<div class="row mt-4 pt-4 mx-auto">
+		<div class="col input-group">
+			<span class="block input-group-text">Department</span>
+    		<select class="form-control" id="department">
+     			<option>1</option>
+      			<option>2</option>
+      			<option>3</option>
+      			<option>4</option>
+      			<option>5</option>
+    		</select>
+		</div>
+		
+		<div class="col input-group">
+  			<span class="block input-group-text">Timesheet</span>
+    		<select class="form-control" id="timesheet">
+     			<option>1</option>
+      			<option>2</option>
+      			<option>3</option>
+      			<option>4</option>
+      			<option>5</option>
+    		</select>
+		</div>
+		<div class="col-0">
+		<button class="button btn oi oi-magnifying-glass" id="search" >
+		    <img src="svg/magnifying-glass.svg" alt="search" style="width: 16px; height: 16px; ">
+		</button>
+		</div>
+	</div>
+</form>
+
+<div class="row pt-5 pl-5 pr-5">
+	<div class="col">
+		<table class="table table-bordered">
+		  	<thead>
+		   		<tr class="title text-center">
+		    	  	<th>No.</th>
+		    	  	<th>Course Name</th>
+		    	  	<th>Start Date</th>
+		    	  	<th>End Date</th>
+		    	</tr>
+		  	</thead>
+	  		<tbody>
+	    		<tr class="tb">
+	    	  		<td class="text-center" id="No">1.</td>
+	    	  		<td class="text-center">0</td>
+	    	  		<td class="text-center">0</td>
+	    	  		<td class="text-center">0</td>
+	    		</tr>
+	  		</tbody>
+		</table>
+	</div>
+</div>
+
+</body>
+</html>
