@@ -1,0 +1,254 @@
+/*		MySQL Create Database		*/
+CREATE TABLE EmployeeInfo (
+	StaffID 			char(6) 			NOT NULL,
+	F_Name 				varchar(20) 		NOT NULL,
+	L_Name 				varchar(50) 		NOT NULL,
+	DOB 				DATE 				NOT NULL,
+	Email 				varchar(30) 		DEFAULT NULL,
+	MaritalStatus 		char(1) 			NOT NULL,
+	CitizenID 			char(13) 			NOT NULL,
+	TelephoneNo 		char(10) 			NOT NULL,
+	TaxID 				char(13) 			NOT NULL,
+	StartDate 			DATE 				NOT NULL,
+	AccountNo 			varchar(13) 		NOT NULL,
+	InsuranceID 		char(13) 			NOT NULL,
+	Gender 				char(1) 			NOT NULL,
+	Address 			varchar(100) 		NOT NULL,
+    CONSTRAINT			PK_EmployeeInfo 	PRIMARY KEY (StaffID)
+	);
+
+CREATE TABLE EmployeeBenefits (
+	BenefitCode 			char(4) 			NOT NULL,
+	BeniefitsDescription 	varchar(50) 		NOT NULL,
+    CONSTRAINT				PK_EmployeeBenefits	PRIMARY KEY (BenefitCode)
+	);
+
+CREATE TABLE DeductionCode (
+	DeductionCode 		char(4) 			NOT NULL,
+	DescriptionDed 		varchar(50) 		NOT NULL,
+    CONSTRAINT			PK_DeductionCode	PRIMARY KEY (DeductionCode)
+	);
+
+CREATE TABLE IncomeCode (
+	IncomeCode 			char(4) 			NOT NULL,
+	DescriptionIn 		varchar(50)			NOT NULL,
+    CONSTRAINT			PK_IncomeCode		PRIMARY KEY (IncomeCode)
+	);
+
+CREATE TABLE Department (
+	DepartmentID 		char(3) 			NOT NULL,
+	Department_Name 	varchar(20) 		NOT NULL,
+    CONSTRAINT			PK_Department		PRIMARY KEY (DepartmentID)
+	);	    
+
+CREATE TABLE Position (
+	PositionID 			char(3) 			NOT NULL,
+	PositionName 		varchar(20) 		NOT NULL,
+	StartSalary 		int 			NOT NULL,
+    CONSTRAINT			PK_Position			PRIMARY KEY (PositionID)
+	);
+
+CREATE TABLE Degree (
+	DegreeID 			varchar(10) 		NOT NULL,
+	DegreeName 			varchar(50) 		NOT NULL,
+    CONSTRAINT			PK_Degree			PRIMARY KEY (DegreeID)
+	);
+
+CREATE TABLE Course (
+	CourseID 			char(3) 			NOT NULL,
+	CourseName 			varchar(20) 		NOT NULL,
+	CourseDescription 	varchar(100) 		NOT NULL,
+	StartCourse 		DATE 				NOT NULL,
+	EndCourse 			DATE 				NOT NULL,
+    CONSTRAINT			PK_Course			PRIMARY KEY (CourseID)
+	);
+    
+CREATE TABLE Skill (
+	SkillID 			char(6) 			NOT NULL,
+	SkillName 			varchar(20) 		NOT NULL,
+	SkillDescription 	varchar(50) 		NOT NULL,
+    CONSTRAINT			PK_Skill			PRIMARY KEY (SkillID)
+	);
+
+CREATE TABLE Familymember (
+	ChildID 			char(6) 			NOT NULL,
+	StaffID 			char(6) 			NOT NULL,
+	ChildName 			varchar(100) 		NOT NULL,
+	ChildDOB 			DATE 				NOT NULL,
+    CONSTRAINT			PK_Familymember		PRIMARY KEY (ChildID),
+    CONSTRAINT			FK_FM_EI			FOREIGN KEY (StaffID) 
+											REFERENCES EmployeeInfo(StaffID)
+	);
+
+CREATE TABLE Absent (
+	AbsentNo 			int 			NOT NULL,
+	StaffID 			char(6) 			NOT NULL,
+	AbsentDate 			DATE 				NOT NULL,
+    CONSTRAINT			PK_Abent			PRIMARY KEY (AbsentNo),
+    CONSTRAINT			FK_A_EI				FOREIGN KEY (StaffID) 		
+											REFERENCES EmployeeInfo(StaffID)
+	);
+
+CREATE TABLE Vacation (
+	VacationNo 			int 			NOT NULL,
+	StaffID 			char(6) 			NOT NULL,
+	VDateStart 			DATE 				NOT NULL,
+	VDateEnd 			DATE 				NOT NULL,
+	No 					int 			NOT NULL,
+    CONSTRAINT			PK_Vacation			PRIMARY KEY (VacationNO),
+    CONSTRAINT			FK_V_EI				FOREIGN KEY (StaffID)		 
+											REFERENCES EmployeeInfo(StaffID)
+	);
+
+CREATE TABLE PerformanceReview (
+	StaffID 				char(6) 				NOT NULL,
+	PerformanceReviewDate 	DATE 					NOT NULL,
+	JobKnowledge 			char(1) 				NOT NULL,
+	QuantityofWork 			char(1) 				NOT NULL,
+	QualityofWork 			char(1) 				NOT NULL,
+	Comments 				varchar(100) 			NOT NULL,
+    CONSTRAINT				PK_PerformanceReview	PRIMARY KEY (StaffID, PerformanceReviewDate),
+    CONSTRAINT				FK_PR_EI				FOREIGN KEY (StaffID) 
+													REFERENCES EmployeeInfo(StaffID)
+	);
+
+CREATE TABLE WorkHistory (
+	StaffID 			char(6)				NOT NULL,
+	CompanyName 		varchar(50) 		NOT NULL,
+	StartMonth 			DATE 				NOT NULL,
+	EndMonth 			DATE 				NOT NULL,
+	HistoryPosition 	varchar(20) 		NOT NULL,
+	ExitInterview 		varchar(100) 		NOT NULL,
+	No 					int 			DEFAULT NULL, 
+    CONSTRAINT			PK_WorkHistory		PRIMARY KEY (StaffID, CompanyName, StartMonth),
+    CONSTRAINT			FK_WH_EI			FOREIGN KEY (StaffID)		
+											REFERENCES EmployeeInfo(StaffID)
+	);
+
+CREATE TABLE DailyTimeCard (
+	StaffID 			char(6) 			NOT NULL,
+	TCDate				DATE 				NOT NULL,
+	TimeIn			 	DATETIME 			NOT NULL,
+	TimeOut 			DATETIME 			NOT NULL,
+    CONSTRAINT			PK_DailyTimeCard	PRIMARY KEY (StaffID, TCDate),
+    CONSTRAINT			FK_DTC_EI			FOREIGN KEY (StaffID) 		
+											REFERENCES EmployeeInfo(StaffID)
+	);
+
+CREATE TABLE Welfare (
+	StaffID 			char(6) 			NOT NULL,
+	BenefitCode 		char(4) 			NOT NULL,
+    CONSTRAINT			PK_Welfare			PRIMARY KEY (StaffID, BenefitCode),
+    CONSTRAINT			FK_W_BC				FOREIGN KEY (BenefitCode) 	
+											REFERENCES EmployeeBenefits(BenefitCode),
+    CONSTRAINT			FK_W_EI				FOREIGN KEY (StaffID) 		
+											REFERENCES EmployeeInfo(StaffID)
+	);
+    
+CREATE TABLE EmployeeDeduction (
+	StaffID 			char(6) 				NOT NULL,
+	DeductionCode 		char(4) 				NOT NULL,
+	AmountDed 			int 				NOT NULL,
+    CONSTRAINT			PK_EmployeeDeduction	PRIMARY KEY (StaffID, DeductionCode),
+    CONSTRAINT			FK_ED_EI				FOREIGN KEY (StaffID) 		
+												REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT			FK_ED_DC				FOREIGN KEY (DeductionCode) 
+												REFERENCES DeductionCode(DeductionCode)
+	);
+
+CREATE TABLE EmployeeIncome (
+	StaffID 			char(6) 			NOT NULL,
+	IncomeCode 			char(4) 			NOT NULL,
+	Amountin 			int 			NOT NULL,
+    CONSTRAINT			PK_EmployeeIncome	PRIMARY KEY (StaffID, IncomeCode),
+    CONSTRAINT			FK_EIn_EI			FOREIGN KEY (StaffID) 		
+											REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT			FK_EIn_IC			FOREIGN KEY (IncomeCode) 	
+											REFERENCES IncomeCode(IncomeCode)
+	);
+    
+CREATE TABLE EducationalHistory (
+	StaffID 			char(6) 				NOT NULL,
+	GraduationDate 		DATE 					NOT NULL,
+	DegreeID 			varchar(10) 			NOT NULL,
+	Levels 				varchar(20) 			NOT NULL,
+    CONSTRAINT			PK_EducationalHistory	PRIMARY KEY (StaffID, GraduationDate, Levels),
+    CONSTRAINT			FK_EH_EI				FOREIGN KEY (StaffID) 	
+												REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT			FK_EH_D					FOREIGN KEY (DegreeID) 	
+												REFERENCES Degree(DegreeID)
+	);
+
+CREATE TABLE EmployeeSkill (
+	StaffID 			char(6) 			NOT NULL,
+	SkillID 			char(6) 			NOT NULL,
+    CONSTRAINT			PK_EmployeeSkill	PRIMARY KEY (StaffID, SkillID),
+    CONSTRAINT			FK_ES_EI			FOREIGN KEY (StaffID)		
+											REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT			FK_ES_S				FOREIGN KEY (SkillID)		
+											REFERENCES Skill(SkillID)
+	);
+    
+CREATE TABLE TrainingHistory (
+	TrainingNo 			int 			NOT NULL,
+	StaffID 			char(6) 			NOT NULL,
+	CourseID 			char(3) 			NOT NULL,
+	SkillID 			char(6) 			NOT NULL,
+	THDate 				DATE 				NOT NULL,
+	No 					int 			NOT NULL,
+	Result 				int 			NOT NULL,
+    CONSTRAINT			PK_TrainingHistory	PRIMARY KEY (TrainingNo),
+    CONSTRAINT			FK_TH_EI			FOREIGN KEY (StaffID) 		
+											REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT			FK_TH_C				FOREIGN KEY (CourseID) 		
+											REFERENCES Course(CourseID),
+    CONSTRAINT			FK_TH_S				FOREIGN KEY (SkillID) 		
+											REFERENCES Skill(SkillID)
+	);
+    
+CREATE TABLE MonthlyPaySlip (
+	PayrollNo 			char(6) 			NOT NULL,
+	VacationNo 			int 			NOT NULL,
+	AbsentNo 			int 			NOT NULL,
+	StaffID 			char(6) 			NOT NULL,
+	PositionID 			char(3) 			NOT NULL,
+	DepartmentID 		char(3) 			NOT NULL,
+	PayDate 			DATE 				NOT NULL,
+	TCDate 				DATE 				NOT NULL,
+    CONSTRAINT			PK_MonthlyPaySlip	PRIMARY KEY (PayrollNo, AbsentNo),
+    CONSTRAINT			FK_MPS_V			FOREIGN KEY (VacationNo) 		
+											REFERENCES Vacation(VacationNo),
+    CONSTRAINT			FK_MPS_A			FOREIGN KEY (AbsentNo) 			
+											REFERENCES Absent(AbsentNo),
+    CONSTRAINT			FK_MPS_EI			FOREIGN KEY (StaffID) 			
+											REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT			FK_MPS_P			FOREIGN KEY (PositionID) 		
+											REFERENCES Position(PositionID),
+    CONSTRAINT			FK_MPS_D			FOREIGN KEY (DepartmentID) 		
+											REFERENCES Department(DepartmentID),
+    CONSTRAINT			FK_MPS_DTC			FOREIGN KEY (StaffID, TCDate) 	
+											REFERENCES DailyTimeCard(StaffID, TCDate)
+	);
+    
+CREATE TABLE PromotionalHistory (
+	StaffID 				char(6) 				NOT NULL,
+	PositionID 				char(3) 				NOT NULL,
+	DepartmentID 			char(3) 				NOT NULL,
+	TrainingNo 				int 				NOT NULL,
+	PerformanceReviewDate 	DATE 					NOT NULL,
+	PromotionDate 			DATE 					NOT NULL,
+	No 						int 				NOT NULL,
+	SuperVisorName 			varchar(70) 			NOT NULL,
+    CONSTRAINT				PK_PromotionalHistory	PRIMARY KEY (StaffID, PositionID),
+    CONSTRAINT				FK_PH_EI				FOREIGN KEY (StaffID) 							
+													REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT				FK_PH_P					FOREIGN KEY (PositionID) 						
+													REFERENCES Position(PositionID),
+    CONSTRAINT				FK_PH_D					FOREIGN KEY (DepartmentID)
+							 						REFERENCES Department(DepartmentID),
+    CONSTRAINT				FK_PH_TH				FOREIGN KEY (TrainingNo) 
+													REFERENCES TrainingHistory(TrainingNo),
+    CONSTRAINT				FK_PH_PR				FOREIGN KEY (StaffID, PerformanceReviewDate) 
+													REFERENCES PerformanceReview(StaffID, PerformanceReviewDate)
+	);
+
