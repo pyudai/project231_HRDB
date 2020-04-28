@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <style type="text/css">
+        body {
+            font-family: Sarabun;
+            font-size: 22px;
+            background-color: #F5F4F0 
+        }
+        .block {
+            background: #CBB3A7;
+            color: black;
+        }
+        br {
+            display: block;
+            content: " ";
+            margin: 15px;
+        }
+        .threeline {
+            display: block;
+            content: " ";
+            margin: 60px;
+        }
+        th {
+            background-color: #CBB3A7;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
+            <a class="picture"><img src="centar.png"></a>
+            <a class="text-right" style="color:#B20E10; float: right; font-size:56px; transform:translateX(-10%);">
+                HOME 
+            </a>
+        </div>
+        <br class="threeline">
+        <div class="dropdown" style="transform:translateX(45%)">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="http://127.0.0.1:5500/HTML_project.html">Performance Review</a>
+              <a class="dropdown-item" href="http://127.0.0.1:5500/DailyTime.html">DailyTime</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        
+        
+    </body>
+</html>
