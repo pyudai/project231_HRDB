@@ -46,7 +46,7 @@ CREATE TABLE Department (
     CONSTRAINT			PK_Department		PRIMARY KEY (DepartmentID)
 	);	    
 
-CREATE TABLE Positionn (
+CREATE TABLE Position (
 	PositionID 			char(3) 			NOT NULL,
 	PositionName 		varchar(50) 		NOT NULL,
 	StartSalary 		int 			NOT NULL,
