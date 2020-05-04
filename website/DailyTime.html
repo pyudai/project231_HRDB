@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daily Time</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+        <style type="text/css">
+        body {
+            font-family: Sarabun;
+            -webkit-font-smoothing: antialiased;
+            background:#F5F4F0;
+        }
+        
+        .block {
+            background: #D3C0B6; 
+        	color:black;       
+        }
+        
+        tr.title {
+        	background: #CBB3A7;
+        }
+        
+        tr.tb {
+        	background: #FAFAFA;
+        }
+        
+        .topnav {
+          overflow: hidden;
+          background-color:#E8D8C9;
+        }
+        
+        .topnav a {
+          float: right;
+          color: 
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 54px;
+        }
+        .topnav a.text {
+          color:#b20e10;
+        }
+        .topnav a.picture{
+            float:left;
+        }
+
+        
+        </style>
+    </head>
+    <body>
+
+        <div class="topnav">
+            <a class="text">DailyTime</a>
+            <a class="picture"><img src="centar.png"></a>
+        </div>
+
+     <form class="container-fluid ">
+            <div class="mt-4 mx-auto pt-3 row input-group">
+                <span class="block input-group-text">Timesheet</span>
+                <select id="select-testing" class="form-control selectpicker col-2" data-live-search="true">
+                    <option>Reception</option>
+                    <option>Housekeeper</option>
+                </select>
+                <input type="submit" name="submit" class="btn btn-info" value="Submit">
+            </div>
+    </form>
+            <div class="row pt-5 pl-5 pr-5">
+                <div class="col">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="title text-center">
+                                <th>StaffID</th>
+                                <th>Date</th>
+                                <th>Time IN</th>
+                                <th>Time OUT</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+             <?php
+                                $conn = mysqli_connect("localhost", "root", "", "NAME_DATABASE");
+                                // Check connection
+                                if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                                }
+                                $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM DailyTimeCard";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                echo "<tr><td>" . $row["StaffID"]. "</td><td>" . $row["TCDate"]. "</td><td>" 
+                                . $row["TimeIn"]. "</td><td>" . $row["TimeOut"]. "</td><td>"  <!--. STATUS . "</td></tr>" --> ;
+                                }
+                                echo "</table>";
+                                } else { echo "0 results"; }
+                                $conn->close();
+                                ?>
+                        </tbody>
+                    </table>
+                </div>
+    	    </div>
+    </body>
+</html>

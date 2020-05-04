@@ -1,137 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>All Today Vacation</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
- <link href="style3.css" rel="stylesheet" type="text/css">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+          <title>All Today Vacation</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="table2csv.js"></script>
 
-<style>
-button {
-      background-color:#4BD37B; /* Green */
-      border: none;
-      color: black;
-      padding: 5px 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-    margin-bottom: 25;
-    margin-right: 25;
-    
-    }
-    button{
-        border-radius:7px;
-    }
-    button{
-        float: right;
-    }
-    button:hover{
-         background-color: #3e8e41;
-    }
-    
-body{
-    font-family: Helvetica;
-    -webkit-font-smoothing: antialiased;
-    background:#F5F4F0;
-}
-h2{
-    text-align: center;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: black;
-    padding: 30px 0;
-}
+    <style>
+        body {
+            font-family: Sarabun;
+            -webkit-font-smoothing: antialiased;
+            background:#F5F4F0;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: black;
+            padding: 30px 0;
+        }
 
 
 /* Table Styles */
 
-.table-wrapper{
-    margin: 50px 70px 70px; 
-}
+        .table-wrapper{
+            margin: 50px 70px 70px; 
+        }
+        
+        .fl-table {
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: normal;
+            border:2px solid black
+            width: 200px;
+            height: 222px;
+            white-space: nowrap;
+            background-color: #F5F4F0;
+           float: left;
+            margin-left: 130px;
+            content: "Scroll vertically";
+            display: block;
+            text-align: right;
+        }
 
-.fl-table {
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: normal;
-    border:2px solid black
-    width: 200px;
-    height: 222px;
-    white-space: nowrap;
-    background-color: #F5F4F0;
-   float: left;
-    margin-left: 130px;
-    content: "Scroll vertically";
-    display: block;
-    text-align: right;
-}
+        .fl-table td, .fl-table th {
+            text-align: center;
+            padding: 15px;
+            border-left:1px solid black;
+            border-top:1px solid black;
+        }
+        
+        .fl-table td {
+            border-right: 1px solid black;
+            font-size: 12px;
+            padding: 8px;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        
+        .fl-table thead th {
+            color: black;
+            background: #CBB3A7;
+        }
 
-.fl-table td, .fl-table th {
-    text-align: center;
-    padding: 15px;
-    border-left:1px solid black;
-    border-top:1px solid black;
-}
+        
+        .fl-table thead th:nth-child(odd) {
+            color: black;
+            background: #CBB3A7;
+        }
+        
+        .fl-table tr:nth-child(even) {
+            background: #F8F8F8;
+        }
 
-.fl-table td {
-    border-right: 1px solid black;
-    font-size: 12px;
-    padding: 8px;
-    padding-left: 60px;
-    padding-right: 60px;
-}
+        .chart{
+            position:relative;
+            top: -20px;
+            float: left;
+            width:550px;
+            height:225px;
+            margin-left: 100px;
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color:#E8D8C9;
+        }
 
-.fl-table thead th {
-    color: black;
-    background: #CBB3A7;
-}
-
-
-.fl-table thead th:nth-child(odd) {
-    color: black;
-    background: #CBB3A7;
-}
-
-.fl-table tr:nth-child(even) {
-    background: #F8F8F8;
-}
-
-.chart{
-    position:relative;
-    top: -20px;
-    float: left;
-    width:550px;
-    height:225px;
-    margin-left: 100px;
-    
-}
-
-</style>
+        .topnav a {
+            float: right;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 54px;
+        }    
+        .topnav a.text {
+            color:#b20e10;
+        }
+        .topnav a.picture{
+            float:left;
+        }
+    </style>
 </head>
 
 
 <body>
-<div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
-  <a class="picture"><img src="centar.png"></a>
-  <a class="text-right" style="color:#B20E10; float: right; font-size:56px; padding: 1px 10px 2px;">
-    All Today Vacation
-  </a>
-</div>
-<br>
-<select id="select-testing" class="selectpicker" data-live-search="true">
-  <option>11-11-2011</option>
-  <option>12-12-2012</option>
-</select>
-    
-<button type="button" style="margin-bottom: 25;">Export to CSV</button>
-    
+    <div class="topnav">
+        <a class="text">All Today Vacation</a>
+        <a class="picture"><img src="centar.png"></a>
+    </div>
+
+    <div class="container-fluid row pt-4 mx-auto">
+        <div class="col">
+            <select id="select-testing" class="selectpicker" data-live-search="true">
+                <option>11-11-2011</option>
+                <option>12-12-2012</option>
+            </select>
+        </div>
+        <div class="col text-right">    
+            <button type="button" onclick="exportTableToCSV('allTodayVacation.csv')" class="btn btn-success" >Export to CSV</button>
+        </div>
+    </div>    
+
     <div class="table-wrapper">
     <table class="fl-table"style="overflow-y:scroll;">
         <thead>

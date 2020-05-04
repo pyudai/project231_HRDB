@@ -1,166 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 		<title>HRDB</title>
+ 		<title>Employee Information</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<style>
-
-body{
-    font-family: Sarabun;
-    -webkit-font-smoothing: antialiased;
-    background:#F5F4F0;
-}
-
-b.title {
-	font-size:20px;
-}
-
-.block {
-	background: #D3C0B6; 
-	color:black;
-}
-
-.checkbox {
-	color:black;
-	font-size:20px;
-}
-
-tr.title {
-	background: #CBB3A7;
-}
-
-tr.tb {
-	background: #FAFAFA;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color:#E8D8C9;
-}
-
-.topnav a {
-  float: right;
-  color: 
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 64px;
-}
-.topnav a.text {
-  color:#b20e10;
-}
-.topnav a.picture{
-float:left;
-}
-
-</style>
-
+    
+    <style>
+    
+        body{
+            font-family: Sarabun;
+            -webkit-font-smoothing: antialiased;
+            background:#F5F4F0;
+        }
+        
+        b.title {
+        	font-size:20px;
+        }
+        
+        .block {
+        	background: #D3C0B6; 
+        	color:black;
+        }
+        
+        .checkbox {
+        	color:black;
+        	font-size:20px;
+        }
+        
+        tr.title {
+        	background: #CBB3A7;
+        }
+        
+        tr.tb {
+        	background: #FAFAFA;
+        }
+        
+        .topnav {
+          overflow: hidden;
+          background-color:#E8D8C9;
+        }
+        
+        .topnav a {
+          float: right;
+          color: 
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 54px;
+        }
+        .topnav a.text {
+          color:#b20e10;
+        }
+        .topnav a.picture{
+        float:left;
+        }
+        
+    </style>
 </head>
 
 <body>
-
     <div class="topnav">
         <a class="text">Employee Information</a>
         <a class="picture"><img src="centar.png"></a>
     </div>
 
-<form class="container-fluid ">
-
-  <div class="mt-4 mx-auto pt-4 row input-group">
-     <div class=" input-group-prepend col-sm-4">
-      <span class=" block input-group-text" >StaffID</span>
-          <input type="text" class="form-control">
+    <form class="container-fluid ">
+    
+      <div class="mt-4 mx-auto pt-4 row input-group">
+         <div class=" input-group-prepend col-sm-4">
+          <span class=" block input-group-text" >StaffID</span>
+              <input type="text" class="form-control">
+        </div>
+        <div class="input-group-prepend col-sm-4">
+          <span class="block input-group-text">Start Date</span>
+              <input type="text" class="form-control">
+        </div>
+    	<div class="col-sm-4 ">
+        </div>
+      </div>
+    
+     <div class=" mx-auto pt-4 row input-group">
+         <div class=" input-group-prepend col-sm-4">
+          <span class="block input-group-text">First Name</span>
+              <input type="text" class="form-control">
+        </div>
+        <div class="input-group-prepend col-sm-4">
+          <span class="block input-group-text">Last Name</span>
+              <input type="text" class="form-control">
+        </div>
+    	<div class="input-group-prepend col-sm-4">
+         	<span class="block input-group-text">Gender</span>
+       		<input type="text" class="form-control">
+        </div>
+      </div>
+    
+    
+      <div class=" mx-auto pt-4 row input-group">
+         <div class=" input-group-prepend col-sm-4">
+          <span class="block input-group-text">CitizenID</span>
+              <input type="text" class="form-control">
+        </div>
+        <div class="input-group-prepend col-sm-4">
+          <span class="block input-group-text">Birth Date</span>
+              <input type="text" class="form-control">
+        </div>
+    	<div class="input-group-prepend col-sm-4 ">
+         	<span class="block input-group-text">Age</span>
+       		<input type="text" class="form-control">
+        </div>
+      </div>
+      
+      <div class=" mx-auto pt-4 row input-group">
+         <div class=" input-group-prepend col-sm-4">
+          <span class="block input-group-text">Marital Status</span>
+              <input type="text" class="form-control">
+        </div>
+        <div class="input-group-prepend col-sm-4">
+          <span class="block input-group-text">Telephone</span>
+              <input type="text" class="form-control">
+        </div>
+      	<div class="input-group-prepend col-sm-4 ">
+         	<span class="block input-group-text">Email</span>
+       		<input type="text" class="form-control">
+        </div>
+      </div>
+      
+      <div class=" mx-auto pt-4 row input-group">
+         <div class=" input-group-prepend col-sm-5">
+          <span class="block input-group-text">CitizenID</span>
+              <input type="text" class="form-control">
+        </div>
+        <div class="col-sm-5">
+        </div>
+      </div>
+      
+      <div class=" mx-auto pt-4 row input-group">
+         <div class=" input-group-prepend col-sm-4">
+          <span class="block input-group-text">Account No.</span>
+              <input type="text" class="form-control">
+        </div>
+        <div class="input-group-prepend col-sm-4">
+          <span class="block input-group-text">TaxID</span>
+              <input type="text" class="form-control">
+        </div>
+      	<div class="input-group-prepend col-sm-4 ">
+         	<span class="block input-group-text">InsuranceID</span>
+       		<input type="text" class="form-control">
+        </div>
+      </div>
+    </form>
+    
+    <div class="row pt-5">
+    	<div class="col text-center">
+            <button type ="button" class="btn btn-success">Previous</button>
+    		<button type ="button" class="btn btn-success">Edit</button>
+            <button type ="button" class="btn btn-success">Next</button>
+        </div>
     </div>
-    <div class="input-group-prepend col-sm-4">
-      <span class="block input-group-text">Start Date</span>
-          <input type="text" class="form-control">
-    </div>
-	<div class="col-sm-4 ">
-    </div>
-  </div>
-
- <div class=" mx-auto pt-4 row input-group">
-     <div class=" input-group-prepend col-sm-4">
-      <span class="block input-group-text">First Name</span>
-          <input type="text" class="form-control">
-    </div>
-    <div class="input-group-prepend col-sm-4">
-      <span class="block input-group-text">Last Name</span>
-          <input type="text" class="form-control">
-    </div>
-	<div class="input-group-prepend col-sm-4">
-     	<span class="block input-group-text">Gender</span>
-   		<input type="text" class="form-control">
-    </div>
-  </div>
-
-
-  <div class=" mx-auto pt-4 row input-group">
-     <div class=" input-group-prepend col-sm-4">
-      <span class="block input-group-text">CitizenID</span>
-          <input type="text" class="form-control">
-    </div>
-    <div class="input-group-prepend col-sm-4">
-      <span class="block input-group-text">Birth Date</span>
-          <input type="text" class="form-control">
-    </div>
-	<div class="input-group-prepend col-sm-4 ">
-     	<span class="block input-group-text">Age</span>
-   		<input type="text" class="form-control">
-    </div>
-  </div>
-  
-  <div class=" mx-auto pt-4 row input-group">
-     <div class=" input-group-prepend col-sm-4">
-      <span class="block input-group-text">Marital Status</span>
-          <input type="text" class="form-control">
-    </div>
-    <div class="input-group-prepend col-sm-4">
-      <span class="block input-group-text">Telephone</span>
-          <input type="text" class="form-control">
-    </div>
-  	<div class="input-group-prepend col-sm-4 ">
-     	<span class="block input-group-text">Email</span>
-   		<input type="text" class="form-control">
-    </div>
-  </div>
-  
-  <div class=" mx-auto pt-4 row input-group">
-     <div class=" input-group-prepend col-sm-5">
-      <span class="block input-group-text">CitizenID</span>
-          <input type="text" class="form-control">
-    </div>
-    <div class="col-sm-5">
-    </div>
-  </div>
-  
-  <div class=" mx-auto pt-4 row input-group">
-     <div class=" input-group-prepend col-sm-4">
-      <span class="block input-group-text">Account No.</span>
-          <input type="text" class="form-control">
-    </div>
-    <div class="input-group-prepend col-sm-4">
-      <span class="block input-group-text">TaxID</span>
-          <input type="text" class="form-control">
-    </div>
-  	<div class="input-group-prepend col-sm-4 ">
-     	<span class="block input-group-text">InsuranceID</span>
-   		<input type="text" class="form-control">
-    </div>
-  </div>
-</form>
-
-<div class="row pt-5">
-	<div class="col text-center">
-    <button type ="button" class="btn btn-lg btn-success">Previous</button>
-		<button type ="button" class="btn btn-lg btn-success">Edit</button>
-    <button type ="button" class="btn btn-lg btn-success">Next</button>
-    </div>
-</div>
 </body>
 </html>

@@ -1,109 +1,123 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Age</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <head>
+        <title>Age</title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
-
-<style>
-.block1{
-    margin-left:50;
-      color:black;
-        border-radius:10px; 
-        padding: 5px 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
- button {
-      background-color:#4BD37B; /* Green */
-      border: none;
-      color: black;
-      padding: 5px 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
+        <style>
+            .block1{
+                margin-left:50;
+                color:black;
+                border-radius:10px; 
+                padding: 5px 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .block {
+	            background: #D3C0B6; 
+	            color:black;
+            }
     
-    }
-    button{
-        border-radius:7px;
-    }
-    button{
-        float: right;
-    }
-    button:hover{
-         background-color: #3e8e41;
-    }
+            body {
+                font-family: Sarabun;
+                -webkit-font-smoothing: antialiased;
+                background:#F5F4F0;
+            }
+            
+            .chart{
+                margin: 50px auto;
+                width:660px;
+                height:330px;
+            }
+            
+           .topnav {
+                overflow: hidden;
+                background-color:#E8D8C9;
+            }
     
-body{
-    background:#F5F4F0;
-}
-.chart{
-margin: 70px auto;
-width:660px;
-height:330px;
-}
-</style>
-</head>
+            .topnav a {
+                float: right;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 54px;
+            }    
+            .topnav a.text {
+                color:#b20e10;
+            }
+            .topnav a.picture{
+                float:left;
+            }
+        </style>
+    </head>
 
-<body>
-<div class="container-fluid pt-3 pb-3" style="background: #E8D8C9;">
-  <a class="picture"><img src="centar.png"></a>
-  <a class="text-right" style="color:#B20E10; float: right; font-size:56px; padding: 1px 10px 2px;">
-    Age
-  </a>
-</div>
-<br>
-<select id="select-testing" class="selectpicker" data-live-search="true">
-  <option>Reception</option>
-  <option>Housekeeper</option>
-</select>
+    <body>
+        <div class="topnav">
+            <a class="text">Age</a>
+            <a class="picture"><img src="centar.png"></a>
+        </div>
+        
+        <div class="container-fluid col pt-3">
+        <select id="select-testing" class="selectpicker" data-live-search="true">
+            <option>Reception</option>
+            <option>Housekeeper</option>
+        </select>
+        </div>
+             <div class="row pt-3">
+             <div class="col-4"></div>
+            	<div class="input-group-prepend col-4">
+                    <span class=" block input-group-text" >Retiring this year</span>
+            	    <input type="integer" class="form-control">
+                </div>
+            </div>
 
-     <div class = "block1">
-        <span style="background:#D3C0B6; padding: 7px 15px;">
-            Retiring this year
-        </span>
-        <input type="integer"> 
-    </div>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['bar']});
+            google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses', 'Profit'],
-          ['2014', 1000, 400, 200],
-          ['2015', 1170, 460, 250],
-          ['2016', 660, 1120, 300],
-          ['2017', 1030, 540, 350]
-        ]);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Year', 'Sales', 'Expenses', 'Profit'],
+                    ['2014', 1000, 400, 200],
+                    ['2015', 1170, 460, 250],
+                    ['2016', 660, 1120, 300],
+                    ['2017', 1030, 540, 350]
+                ]);
 
-        var options = {
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-          }
-        };
+                var options = {
+                    chart: {
+                        title: 'Company Performance',
+                        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                    }
+                };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+                var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>
-  <body>
-    <div id="columnchart_material" class="chart"></div>
-  </body>
-    
-<button type="button" style="margin-bottom: 25;">Other Department</button>
-</body>
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            }
+        </script>
+        
+        <body>
+            <div id="columnchart_material" class="chart"></div>
+        </body>
+        
+        <div class="container row pb-4">
+        	<div class="col text-right">
+                <button type ="button" class="btn btn-success">Other Department</button>
+            </div>
+        </div>
+        
+    </body>
 </html>
