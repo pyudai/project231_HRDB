@@ -54,7 +54,7 @@ BEGIN
     INSERT INTO POSITIONJOB VALUES ('GSS','Guest Sevice Supervisor',22000);
     INSERT INTO POSITIONJOB VALUES ('FDA','Front Desk Assistant',20000);
     INSERT INTO POSITIONJOB VALUES ('RCT','Receptionist',15000);
-    INSERT INTO POSITIONJOB VALUES ('RSV','Reservationist',15000);
+    INSERT INTO POSITIONJOB VALUES ('RSV','Reservationist',16000);
     INSERT INTO POSITIONJOB VALUES ('EXC','Executive Chef',22000);
     INSERT INTO POSITIONJOB VALUES ('CFM','Cafe Manager',27000);
     INSERT INTO POSITIONJOB VALUES ('CTM','Catering Manager',27000);
@@ -63,6 +63,7 @@ BEGIN
     INSERT INTO POSITIONJOB VALUES ('SCH','Sous Chef',16000);
     INSERT INTO POSITIONJOB VALUES ('KCM','Kitchen Manger',27000);
     INSERT INTO POSITIONJOB VALUES ('NWB','Newbie',15000);
+    INSERT INTO POSITIONJOB VALUES ('HEM','Head of Engineering ',28000);
 END;
 //ORA-12899: value too large for column "PROJECT_HR"."POSITION"."POSITIONNAME" (actual: 22, maximum: 20)
 //อักษรเกินเช่นกัน เเก้ในดาต้าเบสเเล้ว
@@ -238,12 +239,12 @@ BEGIN
 	INSERT INTO EmployeeIncome VALUES ('100001','MTHS',27000);
 	INSERT INTO EmployeeIncome VALUES ('100001','BONU',);
 
-	//100234 is CHE
-	INSERT INTO EmployeeIncome VALUES ('100235','MTHS',19000);
+	//100235 is HEM
+	INSERT INTO EmployeeIncome VALUES ('100235','MTHS',28000);
 	INSERT INTO EmployeeIncome VALUES ('100235','BONU',);
 
 	//104582 is RSV
-	INSERT INTO EmployeeIncome VALUES ('104582','MTHS',15000)
+	INSERT INTO EmployeeIncome VALUES ('104582','MTHS',16000)
 	INSERT INTO EmployeeIncome VALUES ('104582','BONU',)
 
 	//400823 is CFM
@@ -316,14 +317,18 @@ BEGIN
 END;
 
 BEGIN
-    INSERT INTO PerformanceReview VALUES ('100001',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'4','5','4','Continues to grow and improve, always come in on time.','Son Yejin')
-    INSERT INTO PerformanceReview VALUES ('100235',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'3','3','4','You communicate openly with your team, You have started delivering low quality work just to finish your work on time','Kim Taepyoung')
-    INSERT INTO PerformanceReview VALUES ('104582',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'5','5','4','You can be relied upon by team members','Lee Jieun')
-    INSERT INTO PerformanceReview VALUES ('400823',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'4','5','5','Clients usually seek your guidance and expertise, You are inconsiderate towards others opinions and ideas','Kwon Jiyong')
-    INSERT INTO PerformanceReview VALUES ('341001',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'4','5','4','Even when disagreeing with others, you do it gracefully and respectfully','Min Taeku')
-    INSERT INTO PerformanceReview VALUES ('100436',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'4','3','2','Your work doesnt comply with the required output standards','Son Yejin')
-    INSERT INTO PerformanceReview VALUES ('100001',STR_TO_DATE('30-10-2019','%d-%m-%Y'),'4','5','3','You dont tend to listen to and take other people’s opinions into consideration',Son Yejin')
-    INSERT INTO PerformanceReview VALUES ('400823',STR_TO_DATE('30-10-2019','%d-%m-%Y'),'4','5','5','You have displayed a highly consistent level of performance in your work','Kwon Jiyong')
+    INSERT INTO PerformanceReview VALUES ('100001',STR_TO_DATE('31-08-2005','%d-%m-%Y'),'5','5','5','Impressive performance, always come in on time.','Hyun Bin');
+    INSERT INTO PerformanceReview VALUES ('100001',STR_TO_DATE('31-11-2011','%d-%m-%Y'),'5','5','5','Continues to grow and improve, always come in on time.','Son Yejin');
+    INSERT INTO PerformanceReview VALUES ('100235',STR_TO_DATE('31-06-2009','%d-%m-%Y'),'5','5','5','Great personality, good work and well prepared','Kim Taepyoung');
+    INSERT INTO PerformanceReview VALUES ('100235',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'3','3','4','You communicate openly with your team, You have started delivering low quality work just to finish your work on time','Kim Taepyoung');
+    INSERT INTO PerformanceReview VALUES ('104582',STR_TO_DATE('31-11-2010','%d-%m-%Y'),'5','5','5','Great work','Lee Jieun');
+    INSERT INTO PerformanceReview VALUES ('104582',STR_TO_DATE('31-09-2006','%d-%m-%Y'),'0','0','0','Newbie','Lee Jieun');
+    INSERT INTO PerformanceReview VALUES ('104582',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'5','5','4','You can be relied upon by team members','Lee Jieun');
+    INSERT INTO PerformanceReview VALUES ('400823',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'4','5','5','Clients usually seek your guidance and expertise, You are inconsiderate towards others opinions and ideas','Kwon Jiyong');
+    INSERT INTO PerformanceReview VALUES ('341001',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'4','5','4','Even when disagreeing with others, you do it gracefully and respectfully','Min Taeku');
+    INSERT INTO PerformanceReview VALUES ('100436',STR_TO_DATE('31-11-2019','%d-%m-%Y'),'4','3','2','Your work doesnt comply with the required output standards','Son Yejin');
+    INSERT INTO PerformanceReview VALUES ('100001',STR_TO_DATE('30-10-2019','%d-%m-%Y'),'4','5','3','You dont tend to listen to and take other people’s opinions into consideration',Son Yejin');
+    INSERT INTO PerformanceReview VALUES ('400823',STR_TO_DATE('30-10-2019','%d-%m-%Y'),'4','5','5','You have displayed a highly consistent level of performance in your work','Kwon Jiyong');
 END;
 
 BEGIN
@@ -411,15 +416,19 @@ INSERT INTO DailyTimeCard VALUES ('400823',STR_TO_DATE('06-12-2019','%d-%m-%Y'),
 
 INSERT INTO MonthlyPaySlip VALUES ('300891','100001','GSM','FOF',STR_TO_DATE('31-12-2019','%d-%m-%Y'));
 
-INSERT INTO MonthlyPaySlip VALUES ('300892','100235','CHE','FBS',STR_TO_DATE('31-12-2019','%d-%m-%Y'));
+INSERT INTO MonthlyPaySlip VALUES ('300892','100235','HEM','MTN',STR_TO_DATE('31-12-2019','%d-%m-%Y'));
 
 INSERT INTO MonthlyPaySlip VALUES ('300893','104582','RSV','FOF',STR_TO_DATE('31-12-2019','%d-%m-%Y'));
 
 INSERT INTO MonthlyPaySlip VALUES ('300894','400823','CFM','FBS',STR_TO_DATE('31-12-2019','%d-%m-%Y'));
 
 
-
-
+// ไม่มี training no เพราะว่าเชื่อมผ่าน staffid
+INSERT INTO PromotionalHistory VALUES ('100001',1,'GSS','FOF',STR_TO_DATE('31-08-2005','%d-%m-%Y'),STR_TO_DATE('01-10-2005','%d-%m-%Y'),'Hyun Bin');
+INSERT INTO PromotionalHistory VALUES ('100001',2,'GSM','FOF',STR_TO_DATE('31-11-2011','%d-%m-%Y'),STR_TO_DATE('01-01-2012','%d-%m-%Y'),'Son Yejin');
+INSERT INTO PromotionalHistory VALUES ('100235','1','HEM','MTN',STR_TO_DATE('31-06-2009','%d-%m-%Y'),STR_TO_DATE('01-01-2012','%d-%m-%Y'),'Kim Taepyoung'));
+INSERT INTO PromotionalHistory VALUES ('104582','1','NWB','FOF',STR_TO_DATE('31-09-2006','%d-%m-%Y'),STR_TO_DATE('01-10-2006','%d-%m-%Y'),'Lee Jieun');
+INSERT INTO PromotionalHistory VALUES ('104582','2','RSV','FOF',STR_TO_DATE('31-11-2010','%d-%m-%Y'),STR_TO_DATE('01-01-2010','%d-%m-%Y'),'Lee Jieun');
 
 
 
