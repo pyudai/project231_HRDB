@@ -407,6 +407,8 @@ INSERT INTO DailyTimeCard VALUES ('400823',STR_TO_DATE('06-12-2019','%d-%m-%Y'),
 
 
 
+// slip ที่มีเเค่ Staffid payrollNo Position department วันที่จ่ายเงิน
+
 INSERT INTO MonthlyPaySlip VALUES ('300891','100001','GSM','FOF',STR_TO_DATE('31-12-2019','%d-%m-%Y'));
 
 INSERT INTO MonthlyPaySlip VALUES ('300892','100235','CHE','FBS',STR_TO_DATE('31-12-2019','%d-%m-%Y'));
