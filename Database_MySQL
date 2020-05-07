@@ -61,7 +61,7 @@ CREATE TABLE Degree (
 
 CREATE TABLE Course (
 	CourseID 			char(3) 			NOT NULL,
-	CourseName 			varchar(20) 		NOT NULL,
+	CourseName 			varchar(50) 		NOT NULL,
 	CourseDescription 	varchar(100) 		NOT NULL,
 	StartCourse 		DATE 				NOT NULL,
 	EndCourse 			DATE 				NOT NULL,
@@ -256,5 +256,24 @@ CREATE TABLE PromotionalHistory (
 													REFERENCES TrainingHistory(TrainingNo),
     CONSTRAINT				FK_PH_PR				FOREIGN KEY (StaffID, PerformanceReviewDate) 
 													REFERENCES PerformanceReview(StaffID, PerformanceReviewDate)
+	);
+
+
+///////////
+CREATE TABLE MonthlyPaySlip (
+	PayrollNo 			char(6) 			NOT NULL,
+	StaffID 			char(6) 			NOT NULL,
+	PositionJobID 			char(3) 			NOT NULL,
+	DepartmentID 		char(3) 			NOT NULL,
+	PayDate 			DATE 				NOT NULL,
+    CONSTRAINT			PK_MonthlyPaySlip	PRIMARY KEY (PayrollNo),
+    CONSTRAINT			FK_MPS_EI			FOREIGN KEY (StaffID) 			
+											REFERENCES EmployeeInfo(StaffID),
+    CONSTRAINT			FK_MPS_P			FOREIGN KEY (PositionJobID) 		
+											REFERENCES PositionJob(PositionJobID),
+    CONSTRAINT			FK_MPS_D			FOREIGN KEY (DepartmentID) 		
+											REFERENCES Department(DepartmentID),
+    CONSTRAINT			FK_MPS_DTC			FOREIGN KEY (StaffID) 	
+											REFERENCES DailyTimeCard(StaffID)
 	);
 
