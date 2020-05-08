@@ -1,9 +1,7 @@
+<!DOCTYPE html>
 <html>
-
-<!-- /ชื่อหัว -->
-
 <head>
-    <title>Couse</title>
+    <title>Courses</title>
     <script src="table2csv.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -38,11 +36,25 @@
         .topnav a.picture {
             float: left;
         }
+
+        .block1{
+          color:black;
+            border-radius:10px; 
+            margin-top: 25;
+            margin-left: 25;
+            padding: 5px 15px;
+        }
+        
+        .block {
+              background: #D3C0B6; 
+              color:black;
+            }
             
         body {
             font-family: Sarabun;
             font-size: 20px;
             background: #F5F4F0;
+            counter-reset: Serial;   
         }
         
         tr.title {
@@ -52,6 +64,11 @@
         tr.tb {
         	background: #FAFAFA;
         }
+        tr td:first-child:before
+            {
+              counter-increment: Serial;      /* Increment the Serial counter */
+              content: " " counter(Serial); /* Display the counter */
+          }
         
     </style>
 </head>
@@ -61,6 +78,26 @@
         <a class="text">Courses</a>
         <a class="picture"><img src="centar.png"></a>
     </div>
+    <form class="container-fluid ">
+            <div class="mx-auto pt-4 row input-group">
+             <div class=" input-group-prepend col-sm-4">
+              <span class="block input-group-text">StaffID</span>
+                  <input type="text" class="form-control">
+            </div>
+            <div class="input-group-prepend col-sm-4">
+              <span class="block input-group-text">First Name</span>
+                  <input type="text" class="form-control">
+            </div>
+          <div class="input-group-prepend col-sm-4">
+              <span class="block input-group-text">Last Name</span>
+              <input type="text" class="form-control">
+            </div>
+    </div>
+    <div class="text-right pt-3 pr-4">
+            <button type="button"  class="btn btn-success">Edit</button>
+            <button  type="button"  class="btn btn-success">Add</button>
+    </div>
+    </form>
 
     <div class="row pt-5 pl-5 pr-5">
         <table class="table table-bordered" style="font-size: 16px;">
@@ -75,12 +112,25 @@
             </thead>
             <tbody>
 	    		<tr class="tb">
-	    	  		<td class="text-center" id="No">1.</td>
+	    	  		<td class="text-center" id="No"></td>
 	    	  		<td class="text-center">0</td>
 	    	  		<td class="text-center">0</td>
 	    	  		<td class="text-center">0</td>
 	    	  		<td class="text-center">0</td>
 	    		</tr>
+                <tr>
+                    <td class="text-center" id="No"></td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                </tr>
+                <td class="text-center" id="No"></td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+
 	  		</tbody>
         </table>
     </div>
