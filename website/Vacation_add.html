@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Vacation (ADD)</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+      <style type="text/css">
+        .topnav {
+          overflow: hidden;
+          background-color:#E8D8C9;
+        }
+        
+        .topnav a {
+          float: right;
+          color: #b20e10;
+          text-align: center;
+          padding: 14px 16px;
+          font-size: 54px;
+        }
+        .topnav a.text{
+         color: #b20e10;
+         font-family:Sarabun;
+        }
+        .topnav a.picture{
+        float:left;
+        }
+        
+        .block1{
+          color:black;
+            border-radius:10px; 
+            margin-top: 25;
+            margin-left: 25;
+            padding: 5px 15px;
+        }
+        
+        .block {
+              background: #D3C0B6; 
+              color:black;
+            }
+    
+         body{
+                font-family: Sarabun;
+                -webkit-font-smoothing: antialiased;
+                background:#F5F4F0;
+            }
+            
+            tr.title {
+              background: #CBB3A7;
+            }
+            
+            tbody.tb {
+              background: #FAFAFA;
+            }
+     
+        </style>
+        
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="text">Vacation (ADD)</a>
+            <a class="picture"><img src="centar.png"></a>
+        </div>
+    
+        <form class="container-fluid ">
+            <div class="mx-auto pt-4 row input-group">
+             <div class=" input-group-prepend col-sm-4">
+              <span class="block input-group-text">StaffID</span>
+                  <input type="text" class="form-control">
+            </div>
+            <div class="input-group-prepend col-sm-4">
+              <span class="block input-group-text">First Name</span>
+                  <input type="text" class="form-control">
+            </div>
+          <div class="input-group-prepend col-sm-4">
+              <span class="block input-group-text">Last Name</span>
+              <input type="text" class="form-control">
+            </div>
+          <div class="mt-4 mx-auto pt-2 row input-group">
+          <div class=" input-group-prepend col-sm-4">
+          <span class=" block input-group-text" >Department</span>
+          <input type="text" class="form-control">
+          </div>
+          <div class=" input-group-prepend col-sm-4">
+          <span class=" block input-group-text" >Position</span>
+          <input type="text" class="form-control">
+          </div>
+        <div class="mt-4 mx-auto pt-3 row input-group">  
+        <div class="col input-group">
+        <div class="input-group-prepend">
+          <span class="block input-group-text" id="">Start Date</span>
+        </div>
+        <input type="date" class="form-control">
+        <span class="block input-group-text" id="">End Date</span>
+        <input type="date" class="form-control">
+    </div>
+          </div> 
+  </div>
+        </form>
+        <form class="container-fluid ">
+            <div class="mx-auto pt-5 row input-group">
+                <div class = "col-sm-4"></div> 
+                <div class = "input-group-prepend col-sm-4">
+                    <span class="block input-group-text"> Vacation left (day)</span>
+                    <input type= "integer" class="form-control">
+                </div>
+            </div>
+        </form>
+    <div class="col-4 ml-auto"></div>
+    </div>
+    <div class="row pb-6">
+      <div class="col-10">
+        </div>
+      <div class="col">
+        <button type ="button" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+    </body>
+</html>
