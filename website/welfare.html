@@ -1,0 +1,106 @@
+<html>
+
+<!-- /ชื่อหัว -->
+
+<head>
+    <title>Employee Welfare</title>
+    <script src="table2csv.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: Sarabun;
+            -webkit-font-smoothing: antialiased;
+            background: #F5F4F0;
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color: #E8D8C9;
+        }
+        
+        .topnav a {
+            float: right;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 54px;
+        }
+        
+        .topnav a.text {
+            color: #b20e10;
+        }
+        
+        .topnav a.picture {
+            float: left;
+        }
+        
+        body {
+            font-family: Sarabun;
+            font-size: 20px;
+            background: #F5F4F0;
+        }
+        
+        tr.title {
+            background: #CBB3A7;
+        }
+        
+        tr.tb {
+            background: #FAFAFA;
+        }
+        
+        body {
+            font-family: Sarabun;
+            -webkit-font-smoothing: antialiased;
+            background: #F5F4F0;
+            counter-reset: Serial;
+        }
+        
+        tr td:first-child:before {
+            counter-increment: Serial;
+            content: " " counter(Serial);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="text">Courses</a>
+        <a class="picture"><img src="centar.png"></a>
+    </div>
+
+    <div class="row pt-5 pl-5 pr-5">
+        <table class="table table-bordered" style="font-size: 16px;">
+            <thead>
+                <tr class="title text-center">
+                    <th>StaffID</th>
+                    <th>Benefit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tb">
+                    <td class="text-center" id="No">1.</td>
+                    <td class="text-center">0</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="row pt-5">
+        <div class="col text-right pr-5">
+            <button onclick="exportTableToCSV('CourseRank.csv')" type="button" class="btn btn-success">Export to CSV</button>
+            <button type="button" class="btn btn-success">Next</button>
+            <button type="button" class="btn btn-success">Previous</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
