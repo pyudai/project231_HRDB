@@ -47,6 +47,7 @@
                 font-family: Sarabun;
                 -webkit-font-smoothing: antialiased;
                 background:#F5F4F0;
+                counter-reset: Serial;           /* Set the Serial counter to 0 */
             }
             
             tr.title {
@@ -56,13 +57,18 @@
             tbody.tb {
               background: #FAFAFA;
             }
+            tr td:first-child:before
+            {
+              counter-increment: Serial;      /* Increment the Serial counter */
+              content: " " counter(Serial); /* Display the counter */
+          }
      
         </style>
         
     </head>
     <body>
         <div class="topnav">
-            <a class="text">Vacation</a>
+            <a class="text">Vacation (EDIT)</a>
             <a class="picture"><img src="centar.png"></a>
         </div>
     
@@ -80,13 +86,8 @@
               <span class="block input-group-text">Last Name</span>
               <input type="text" class="form-control">
             </div>
-          </div>
+  </div>
         </form>
-        <div class="text-right pt-3 pr-5">
-            <button type="button"  class="btn btn-success">Edit</button>
-            <button  type="button"  class="btn btn-success">Add</button>
-        </div>
-      
         <div class="row pt-5 pl-5 pr-5">
           <div class="col">
             <table class="table table-bordered">
@@ -98,32 +99,32 @@
                         </tr>
                     </thead>
                     <tbody class="tb">
-                        <tr>
-                            <td class="text-center" id="No">1.</td>
+                        <tr class="auto-index">
+                            <td class="text-center" id="No"></td>
                             <td class="text-center" >Content 1</td>
                             <td class="text-center" >Content 1</td>
 
                         </tr>
                         <tr>
-                            <td class="text-center" id="No">2.</td>
+                            <td class="text-center" id="No"></td>
                             <td class="text-center">Content 2</td>
                             <td class="text-center">Content 2</td>
 
                         </tr>
                         <tr>
-                            <td class="text-center" id="No">3.</td>
+                            <td class="text-center" id="No"></td>
                             <td class="text-center">Content 3</td>
                             <td class="text-center">Content 3</td>
                             
                         </tr>
                         <tr>
-                            <td class="text-center" id="No">4.</td>
+                            <td class="text-center" id="No"></td>
                             <td class="text-center">Content 4</td>
                             <td class="text-center">Content 4</td>
                             
                         </tr>
                         <tr>
-                            <td class="text-center" id="No">5.</td>
+                            <td class="text-center" id="No"></td>
                             <td class="text-center">Content 5</td>
                             <td class="text-center">Content 5</td>
                             
