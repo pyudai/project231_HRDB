@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 		<title>Employee Information</title>
+ 		<title>Employee Information (Edit)</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -65,15 +65,38 @@
         .topnav a.picture{
         float:left;
         }
-        input{
+        /*input{
             pointer-events:none;
         }
-        
+        */
     </style>
+    <script>
+        function done() {
+              if (confirm("Are you sure?")) {
+                  <?php
+                                include('connectDB.php'); 
+                                $F_Name = $_POST["F_Name"];
+                                $L_Name = $_POST["L_Name"];
+                                $MaritalStatus = $_POST["MaritalStatus"];
+                                $TelephoneNo = $_POST["TelephoneNo"];
+                                $AccountNo = $_POST["AccountNo"];
+                                $Email = $_POST["Email"];
+                                $Address = $_POST["Address"];
+                                
+                               $sql = "UPDATE EmployeeInfo SET F_Name='$F_Name' ,L_Name='$L_Name' ,MaritalStatus='$MaritalStatus',TelephoneNo='$TelephoneNo',Email='$Email',Address='$Address',AccountNo='$AccountNo' WHERE StaffID='$StaffID' ";
+                               $con->query($sql);                        
+                               $con->close();
+                    ?>
+                location.href='EmployeeInfo.php'; 
+              } else {
+              }
+        }
+    </script>
 </head>
+
 <body>
     <div class="topnav">
-        <a class="text">Employee Information</a>
+        <a class="text">Employee Information (Edit)</a>
         <a class="picture"><img src="centar.png"></a>
     </div>
     
@@ -183,8 +206,7 @@
         </div>
       </div>
     </form>
-    
-    <!-- educational His เพิ่ม -->
+
     <div class="row">
         <div class ="col pt-4 pl-5">
             <b style="font-size:20px;">Educational History</b>
@@ -224,54 +246,11 @@
             </div>
         </div>
 
+    
     <div class="row pt-5">
-
-<!--<?php 
-    echo "<script>";
-    echo "function editdone(){";
-        echo 'if(document.getElementById("edit").innerHTML=="Edit" ){
-            for(var i= 0;i<document.getElementsByTagName("input").length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName("input")[i].style.cssText = "pointer-events:auto;" ;
-            }
-            document.getElementById("edit").innerHTML="Done" ;
-        }
-        else{
-            for(var i= 0;i<document.getElementsByTagName("input").length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName("input")[i].style.cssText = "pointer-events:none;";
-            }';//ยังแก้ไม่ได้ edit ไม่ได้ done แล้วข้อมูลหาย //echo $F_Name."  ". $L_Name."  ".$MaritalStatus ."  ".$TelephoneNo."  ".$AccountNo." ".$Email." ".$Address;
-            //writeMsg();
-            echo 'document.getElementById("edit").innerHTML="Edit" ;
-        }
-    }
-    </script>';
-    ?> -->
-<!-- ไม่ทำ JS ละสร้างหน้าใหม่ดีกว่า -->
-    <!-- <script>
-    function editdone(){
-        if(document.getElementById('edit').innerHTML=="Edit" ){
-            for(var i= 0;i<document.getElementsByTagName('input').length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName('input')[i].style.cssText = 'pointer-events:auto;' ;
-            }
-            document.getElementById('edit').innerHTML="Done" ;
-            document.getElementById("edit").type="submit";
-        }
-        else{
-            for(var i= 0;i<document.getElementsByTagName('input').length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName('input')[i].style.cssText = 'pointer-events:none;' ;
-            }//ยังแก้ไม่ได้ edit ไม่ได้ done แล้วข้อมูลหาย //echo $F_Name."  ". $L_Name."  ".$MaritalStatus ."  ".$TelephoneNo."  ".$AccountNo." ".$Email." ".$Address;
-            document.getElementById('edit').innerHTML="Edit" ;
-            document.getElementById("edit").type="button";
-        }
-    }
-    </script> -->
     	<div class="col text-center">
             <button type ="button" class="btn btn-success">Previous</button>
-    		<button type ="button" class="btn btn-success" onclick="location.href='EmInEdit.php'; " id="edit" >Edit</button>
-            <!--  -->
+    		<button type ="submit" class="btn btn-success" onclick="done();" method="post">Done</button>
             <button type ="button" class="btn btn-success">Next</button>
         </div>
     </div>
