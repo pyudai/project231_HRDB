@@ -182,7 +182,7 @@
        		<input type="text" class="form-control" value='<?php echo $InsuranceID; ?>' >
         </div>
       </div>
-    </form>
+
     
     <!-- educational His เพิ่ม -->
     <div class="row">
@@ -225,55 +225,12 @@
         </div>
 
     <div class="row pt-5">
-
-<!--<?php 
-    echo "<script>";
-    echo "function editdone(){";
-        echo 'if(document.getElementById("edit").innerHTML=="Edit" ){
-            for(var i= 0;i<document.getElementsByTagName("input").length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName("input")[i].style.cssText = "pointer-events:auto;" ;
-            }
-            document.getElementById("edit").innerHTML="Done" ;
-        }
-        else{
-            for(var i= 0;i<document.getElementsByTagName("input").length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName("input")[i].style.cssText = "pointer-events:none;";
-            }';//ยังแก้ไม่ได้ edit ไม่ได้ done แล้วข้อมูลหาย //echo $F_Name."  ". $L_Name."  ".$MaritalStatus ."  ".$TelephoneNo."  ".$AccountNo." ".$Email." ".$Address;
-            //writeMsg();
-            echo 'document.getElementById("edit").innerHTML="Edit" ;
-        }
-    }
-    </script>';
-    ?> -->
-<!-- ไม่ทำ JS ละสร้างหน้าใหม่ดีกว่า -->
-    <!-- <script>
-    function editdone(){
-        if(document.getElementById('edit').innerHTML=="Edit" ){
-            for(var i= 0;i<document.getElementsByTagName('input').length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName('input')[i].style.cssText = 'pointer-events:auto;' ;
-            }
-            document.getElementById('edit').innerHTML="Done" ;
-            document.getElementById("edit").type="submit";
-        }
-        else{
-            for(var i= 0;i<document.getElementsByTagName('input').length ;i++){
-                if(i==2 || i==3 || (i>=8 && i<=12))
-                document.getElementsByTagName('input')[i].style.cssText = 'pointer-events:none;' ;
-            }//ยังแก้ไม่ได้ edit ไม่ได้ done แล้วข้อมูลหาย //echo $F_Name."  ". $L_Name."  ".$MaritalStatus ."  ".$TelephoneNo."  ".$AccountNo." ".$Email." ".$Address;
-            document.getElementById('edit').innerHTML="Edit" ;
-            document.getElementById("edit").type="button";
-        }
-    }
-    </script> -->
     	<div class="col text-center">
             <button type ="button" class="btn btn-success">Previous</button>
     		<button type ="button" class="btn btn-success" onclick="location.href='EmInEdit.php'; " id="edit" >Edit</button>
-            <!--  -->
             <button type ="button" class="btn btn-success">Next</button>
         </div>
     </div>
+</form>
 </body>
 </html>

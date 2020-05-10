@@ -70,28 +70,6 @@
         }
         */
     </style>
-    <script>
-        function done() {
-              if (confirm("Are you sure?")) {
-                  <?php
-                                include('connectDB.php'); 
-                                $F_Name = $_POST["F_Name"];
-                                $L_Name = $_POST["L_Name"];
-                                $MaritalStatus = $_POST["MaritalStatus"];
-                                $TelephoneNo = $_POST["TelephoneNo"];
-                                $AccountNo = $_POST["AccountNo"];
-                                $Email = $_POST["Email"];
-                                $Address = $_POST["Address"];
-                                
-                               $sql = "UPDATE EmployeeInfo SET F_Name='$F_Name' ,L_Name='$L_Name' ,MaritalStatus='$MaritalStatus',TelephoneNo='$TelephoneNo',Email='$Email',Address='$Address',AccountNo='$AccountNo' WHERE StaffID='$StaffID' ";
-                               $con->query($sql);                        
-                               $con->close();
-                    ?>
-                location.href='EmployeeInfo.php'; 
-              } else {
-              }
-        }
-    </script>
 </head>
 
 <body>
@@ -122,7 +100,7 @@
                     $con->close();
     ?>
 
-    <form class="container-fluid ">
+    <form class="container-fluid " method="get" >
       <div class="mt-4 mx-auto pt-4 row input-group">
          <div class=" input-group-prepend col-sm-4">
           <span class=" block input-group-text" >StaffID</span>
@@ -205,7 +183,7 @@
        		<input type="text" class="form-control" value='<?php echo $InsuranceID; ?>' >
         </div>
       </div>
-    </form>
+
 
     <div class="row">
         <div class ="col pt-4 pl-5">
@@ -250,9 +228,36 @@
     <div class="row pt-5">
     	<div class="col text-center">
             <button type ="button" class="btn btn-success">Previous</button>
-    		<button type ="submit" class="btn btn-success" onclick="done();" method="post">Done</button>
+    		<button type ="submit" class="btn btn-success" name="done" id="done" >Done</button>
             <button type ="button" class="btn btn-success">Next</button>
         </div>
     </div>
+</form>
+                  <?php
+                  		if( isset($_GET['done']) )
+            			{
+                                include('connectDB.php'); 
+                                $F_Name = $_GET["F_Name"];
+                                $L_Name = $_GET["L_Name"];
+                                $MaritalStatus = $_GET["MaritalStatus"];
+                                $TelephoneNo = $_GET["TelephoneNo"];
+                                $AccountNo = $_GET["AccountNo"];
+                                $Email = $_GET["Email"];
+                                $Address = $_GET["Address"];
+                                
+                               $sql = "UPDATE EmployeeInfo SET F_Name='$F_Name' ,L_Name='$L_Name' ,MaritalStatus='$MaritalStatus',TelephoneNo='$TelephoneNo',Email='$Email',Address='$Address',AccountNo='$AccountNo' WHERE StaffID='$StaffID' ";
+                               $con->query($sql);                        
+                               $con->close();
+                               
+                               //header('EmployeeInfo.php'); 
+                              echo "
+                              <script>
+                                  alert('updated information!');
+                                window.location.href='EmployeeInfo.php';
+                            </script>";
+                        }
+                    ?>
+
+
 </body>
 </html>
