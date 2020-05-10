@@ -78,8 +78,8 @@
     </div>
     
     <?php include('connectDB.php'); 
-                    $StaffID = "341001"; //staffIDค่อยใส่
-                    $sql0 = "SELECT * FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
+                    $StaffID = "100001"; //staffIDค่อยใส่
+                    $sql0 = "SELECT *,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), '%Y')+0 AS age  FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
                   while ($row = $result->fetch_assoc()) {
                         $F_Name = $row["F_Name"];
@@ -95,6 +95,7 @@
                         $InsuranceID = $row["InsuranceID"];
                         $Gender = $row["Gender"];
                         $Address = $row["Address"];
+                        $Age=$row["age"];
                     }
                     $con->close();
     ?>

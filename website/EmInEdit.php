@@ -78,9 +78,9 @@
         <a class="picture"><img src="centar.png"></a>
     </div>
     
-    <?php include('connectDB.php'); 
-                    $StaffID = "341001"; //staffIDค่อยใส่
-                    $sql0 = "SELECT * FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
+    <?php include('connectDB.php'); //ยังไม่ได้แก้กัน input
+                    $StaffID = "100001"; //staffIDค่อยใส่//ต้องแก้เป็นดึงมาจากอีกหน้า
+                    $sql0 = "SELECT *,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), '%Y')+0 AS age  FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
                   while ($row = $result->fetch_assoc()) {
                         $F_Name = $row["F_Name"];
@@ -96,6 +96,7 @@
                         $InsuranceID = $row["InsuranceID"];
                         $Gender = $row["Gender"];
                         $Address = $row["Address"];
+                        $Age=$row["age"];
                     }
                     $con->close();
     ?>
@@ -200,6 +201,7 @@
                             <th>Levels</th>
                             <th>Degree</th>
                             <th>Graduation Date</th>
+                            
                         </tr>
                     </thead>
                     <tbody class="tb">
@@ -211,11 +213,12 @@
                                 while($row2 = $result->fetch_assoc()) {
                                     
                                     echo "<tr><td></td><td>" . $row2["Levels"]. "</td><td>" 
-                                    . $row2["DegreeID"]. "</td><td>" . $row2["GraduationDate"]. 
-                                    
-                                    "</td></tr>";
+                                    . $row2["DegreeID"]. "</td><td>" . $row2["GraduationDate"]. a href="delete-script.php?recordId=<?php echo $recordId?>" 
+                                    "</td><td> <button type ='submit' class='btn btn-danger' name='delete' id='delete' >delete</button>
+                                    </td></tr>";
                                 }
                                 echo "</table>";
+                                echo $result->fetch_assoc();
                             } else { echo "0 results"; }
                             $con->close();
                             ?>
@@ -234,6 +237,15 @@
     </div>
 </form>
                   <?php
+                        if( isset($_GET['delete']) )
+            			{
+                                include('connectDB.php'); 
+                        $sql = "DELETE FROM EducationHistory WHERE StaffID='$StaffID' AND GraduationDate='$gradDate' AND DegreeID='$DegreeID';";//editด้วย เพิ่มเอา gradDate & DegreeID มาจากตาราง
+                        echo "
+                              <script>
+                                window.location.href='EmInEdit.php';
+                            </script>";
+                        }
                   		if( isset($_GET['done']) )
             			{
                                 include('connectDB.php'); 
