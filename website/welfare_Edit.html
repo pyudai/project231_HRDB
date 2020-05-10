@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Welfare (EDIT)</title>
+    <script src="table2csv.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: Sarabun;
+            -webkit-font-smoothing: antialiased;
+            background: #F5F4F0;
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color: #E8D8C9;
+        }
+        
+        .topnav a {
+            float: right;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 54px;
+        }
+        
+        .topnav a.text {
+            color: #b20e10;
+        }
+        
+        .topnav a.picture {
+            float: left;
+        }
+        .block1{
+          color:black;
+            border-radius:10px; 
+            margin-top: 25;
+            margin-left: 25;
+            padding: 5px 15px;
+        }
+        
+        .block {
+              background: #D3C0B6; 
+              color:black;
+            }
+        
+        body {
+            font-family: Sarabun;
+            font-size: 20px;
+            background: #F5F4F0;
+        }
+        
+        tr.title {
+            background: #CBB3A7;
+        }
+        
+        tr.tb {
+            background: #FAFAFA;
+        }
+        
+        body {
+            font-family: Sarabun;
+            -webkit-font-smoothing: antialiased;
+            background: #F5F4F0;
+            counter-reset: Serial;
+        }
+        
+        tr td:first-child:before {
+            counter-increment: Serial;
+            content: " " counter(Serial);
+        }
+         td.a{
+            position: center;
+             background: #F5F4F0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="text">Employee Welfare (EDIT)</a>
+        <a class="picture"><img src="centar.png"></a>
+    </div>
+ <form class="container-fluid ">
+            <div class="mx-auto pt-4 row input-group">
+             <div class=" input-group-prepend col-sm-4">
+              <span class="block input-group-text">StaffID</span>
+                  <input type="text" class="form-control">
+            </div>
+            <div class="input-group-prepend col-sm-4">
+              <span class="block input-group-text">First Name</span>
+                  <input type="text" class="form-control">
+            </div>
+          <div class="input-group-prepend col-sm-4">
+              <span class="block input-group-text">Last Name</span>
+              <input type="text" class="form-control">
+            </div>
+    </div>
+    </form>
+    <div class="row pt-5 pl-5 pr-5">
+        <table class="table table-bordered" style="font-size: 16px;">
+            <thead>
+                <tr class="title text-center">
+                    <th>No.</th>
+                    <th>StaffID</th>
+                    <th>Benefit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tb">
+                    <td class="text-center" id="No"></td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                     <td class ="a"width="7%"> 
+                        <a href""  class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+                 <tr class="tb">
+                    <td class="text-center" id="No"></td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                     <td class ="a" width="7%"> 
+                        <a href""  class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+                 <tr class="tb">
+                    <td class="text-center" id="No"></td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                     <td class ="a" width="7%"> 
+                        <a href""  class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="row pt-5">
+        <div class="col text-right pr-5">
+            <button type="button" class="btn btn-success">SAVE</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
