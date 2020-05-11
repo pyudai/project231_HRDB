@@ -46,7 +46,7 @@
     INSERT INTO POSITIONJOB VALUES ('GMG','General Manager',500000);
     INSERT INTO POSITIONJOB VALUES ('FOM','Front Office Manager',150000);
 	INSERT INTO POSITIONJOB VALUES ('GSM','Guest Sevice Manager',27000);
-    INSERT INTO POSITIONJOB VALUES ('FOM','Front Office Attendant',15000);
+    INSERT INTO POSITIONJOB VALUES ('FOA','Front Office Attendant',15000);
     INSERT INTO POSITIONJOB VALUES ('GSS','Guest Sevice Supervisor',22000);
     INSERT INTO POSITIONJOB VALUES ('FDA','Front Desk Assistant',20000);
     INSERT INTO POSITIONJOB VALUES ('RCT','Receptionist',15000);
@@ -92,7 +92,7 @@
 	INSERT INTO COURSE VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('15-02-2020','%d-%m-%Y'));
 	INSERT INTO COURSE VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking',STR_TO_DATE('20-02-2020','%d-%m-%Y'),STR_TO_DATE('10-04-2020','%d-%m-%Y'));
 	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('31-01-2020','%d-%m-%Y'));
+	INSERT INTO COURSE VALUES ('SP2','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('31-01-2020','%d-%m-%Y'));
 	INSERT INTO COURSE VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals',STR_TO_DATE('16-01-2020','%d-%m-%Y'),STR_TO_DATE('17-01-2020','%d-%m-%Y'));
  	INSERT INTO COURSE VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills',STR_TO_DATE('16-03-2020','%d-%m-%Y'),STR_TO_DATE('18-03-2020','%d-%m-%Y'));
 	INSERT INTO COURSE VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills',STR_TO_DATE('25-02-2020','%d-%m-%Y'),STR_TO_DATE('27-02-2020','%d-%m-%Y'));
@@ -109,19 +109,19 @@
 
 	INSERT INTO degree VALUES ('B.A.','Bachelor of Arts');
 	INSERT INTO degree VALUES ('B.Acc.','Bachelor of Accounting');
-	INSERT INTO degree VALUES ('B.A.Sc','Bachelor of Applied Science');
-	INSERT INTO degree VALUES ('B.B.A','Bachelor of Business Administration');
+	INSERT INTO degree VALUES ('B.A.Sc.','Bachelor of Applied Science');
+	INSERT INTO degree VALUES ('B.B.A.','Bachelor of Business Administration');
 	INSERT INTO degree VALUES ('B.Com.','Bachelor of Commerce');
 	INSERT INTO degree VALUES ('B.Eng.','Bachelor of Engineering');
-	INSERT INTO degree VALUES ('B.F.A','Bachelor of Fine Arts');
+	INSERT INTO degree VALUES ('B.F.A.','Bachelor of Fine Arts');
 	INSERT INTO degree VALUES ('LL.B.','Bachelor of Law');
 	INSERT INTO degree VALUES ('B.Arch.','Bachelor of Architecture');
-	INSERT INTO degree VALUES ('B.I.T','Bachelor of Information Technology');
+	INSERT INTO degree VALUES ('B.I.T.','Bachelor of Information Technology');
 	INSERT INTO degree VALUES ('M.A.','Master of Arts');
-	INSERT INTO degree VALUES ('M.B.A','Master of Business Administration');
-	INSERT INTO degree VALUES ('M.Eng','Master of Engineering');
-	INSERT INTO degree VALUES ('M.F.A','Master of Fine Arts');
-	INSERT INTO degree VALUES ('LL.M','Master of Laws');
+	INSERT INTO degree VALUES ('M.B.A.','Master of Business Administration');
+	INSERT INTO degree VALUES ('M.Eng.','Master of Engineering');
+	INSERT INTO degree VALUES ('M.F.A.','Master of Fine Arts');
+	INSERT INTO degree VALUES ('LL.M.','Master of Laws');
 	INSERT INTO degree VALUES ('M.I.A.','Master of International Affairs');
 	INSERT INTO degree VALUES ('M.P.A.','Master of Public Administration');
 
@@ -194,23 +194,22 @@
     INSERT INTO Welfare VALUES ('618643','0004');
     INSERT INTO Welfare VALUES ('618643','0005');
     INSERT INTO Welfare VALUES ('618643','0006');
-    INSERT INTO Welfare VALUES ('618643','0006');
     INSERT INTO Welfare VALUES ('618643','0007');
 
 
 
 
 	INSERT INTO educationalhistory VALUES ('100001',1,STR_TO_DATE('30-06-1987','%d-%m-%Y'),'B.A.','Bachelor');
-	INSERT INTO educationalhistory VALUES ('100235',1,STR_TO_DATE('31-05-1985','%d-%m-%Y'),'B.Eng','Bacherlor');
+	INSERT INTO educationalhistory VALUES ('100235',1,STR_TO_DATE('31-05-1985','%d-%m-%Y'),'B.Eng.','Bacherlor');
 	INSERT INTO educationalhistory VALUES ('104582',1,STR_TO_DATE('31-03-2000','%d-%m-%Y'), NULL,'High School');
-	INSERT INTO educationalhistory VALUES ('400823',1,STR_TO_DATE('30-06-1997','%d-%m-%Y'),'B.B.A','Bachelor');
+	INSERT INTO educationalhistory VALUES ('400823',1,STR_TO_DATE('30-06-1997','%d-%m-%Y'),'B.B.A.','Bachelor');
 	INSERT INTO educationalhistory VALUES ('341001',1,STR_TO_DATE('31-05-1993','%d-%m-%Y'),'B.Acc.','Bachelor');
 	INSERT INTO educationalhistory VALUES ('100436',1,STR_TO_DATE('30-06-1989','%d-%m-%Y'),'B.B.A.','Bachelor');
-	INSERT INTO educationalhistory VALUES ('101112',1,STR_TO_DATE('30-06-1985','%d-%m-%Y'),'B.I.T','Bachelor');  
-	INSERT INTO educationalhistory VALUES ('236377',1,STR_TO_DATE('31-05-1995','%d-%m-%Y'),'B.B.A','Bachelor');
-	INSERT INTO educationalhistory VALUES ('236377',2,STR_TO_DATE('31-05-2002','%d-%m-%Y'),'M.B.A','Master');
-	INSERT INTO educationalhistory VALUES ('104097',1,STR_TO_DATE('30-06-2003','%d-%m-%Y'),'B.Com','Bacherlor');
-	INSERT INTO educationalhistory VALUES ('618643',1,STR_TO_DATE('31-05-2015','%d-%m-%Y'),'B.A.Sc','Bachelor');
+	INSERT INTO educationalhistory VALUES ('101112',1,STR_TO_DATE('30-06-1985','%d-%m-%Y'),'B.I.T.','Bachelor');  
+	INSERT INTO educationalhistory VALUES ('236377',1,STR_TO_DATE('31-05-1995','%d-%m-%Y'),'B.B.A.','Bachelor');
+	INSERT INTO educationalhistory VALUES ('236377',2,STR_TO_DATE('31-05-2002','%d-%m-%Y'),'M.B.A.','Master');
+	INSERT INTO educationalhistory VALUES ('104097',1,STR_TO_DATE('30-06-2003','%d-%m-%Y'),'B.Com.','Bacherlor');
+	INSERT INTO educationalhistory VALUES ('618643',1,STR_TO_DATE('31-05-2015','%d-%m-%Y'),'B.A.Sc.','Bachelor');
 
 
 
