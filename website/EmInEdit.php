@@ -8,6 +8,8 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     
     <style>
     
@@ -79,7 +81,7 @@
     </div>
     
     <?php include('connectDB.php'); //ยังไม่ได้แก้กัน input
-                    $StaffID = "100001"; //staffIDค่อยใส่//ต้องแก้เป็นดึงมาจากอีกหน้า
+                    $StaffID = "236377"; //staffIDค่อยใส่//ต้องแก้เป็นดึงมาจากอีกหน้า
                     $sql0 = "SELECT *,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), '%Y')+0 AS age  FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
                   while ($row = $result->fetch_assoc()) {
@@ -187,16 +189,19 @@
 
 
     <div class="row">
-        <div class ="col pt-4 pl-5">
+        <div class ="col-8 pt-4 pl-5">
             <b style="font-size:20px;">Educational History</b>
         </div>        
+        <!-- <div class ="col-3 pt-4 pl-5">
+            <button type ="submit" class="btn btn-success btn-sm" name="add">Add Educational History</button>
+        </div>    อาจจะทำ ขอแก้แบบโง่ๆไปก่อน-->
     </div>
     
     <div class="row justify-content-center">
             <div class="col-8">
                 <table class="table table-bordered">
                     <thead>
-                        <tr class="title">
+                        <tr class="title text-center">
                             <th>No.</th>
                             <th>Levels</th>
                             <th>Degree</th>
@@ -212,9 +217,9 @@
                             // output data of each row
                                 while($row2 = $result->fetch_assoc()) {
                                     
-                                    echo "<tr><td></td><td>" . $row2["Levels"]. "</td><td>" 
-                                    . $row2["DegreeID"]. "</td><td>" . $row2["GraduationDate"]. a href="delete-script.php?recordId=<?php echo $recordId?>" 
-                                    "</td><td> <button type ='submit' class='btn btn-danger' name='delete' id='delete' >delete</button>
+                                    echo "<tr><td class='text-center'></td><td>" . $row2["Levels"]. "</td><td>" 
+                                    . $row2["DegreeID"]. "</td><td>" . $row2["GraduationDate"].
+                                    "</td><td class='text-center'> <button type ='submit' class='btn btn-danger  btn-sm' name='delete' id='delete'  value=".$row2['GraduationDate']."|".$row2['Levels']." >delete</button>
                                     </td></tr>";
                                 }
                                 echo "</table>";
@@ -222,6 +227,22 @@
                             } else { echo "0 results"; }
                             $con->close();
                             ?>
+                            <tr>
+                                <td class="text-center"></td>
+                                <td class="text-center">
+                                    <select name="Levels" class="selectpicker" data-live-search="true">
+                                        <option>ALL</option><!-- แก้ตัวเลือกด้วย -->
+                                        <option> ALL </option>
+                                        <option> ALL </option>
+                                        <option> ALL </option>
+                                        <option> ALL </option>
+                                    </select>
+                                </td>
+                                <td id="Degree" class="text-center" contenteditable='true'><!-- fetch หา ใน DB และถ้าไม่มีก็เพิ่มใหม่ --></td>
+                                <td id="Graduation_Date" class="text-center" contenteditable='true'><!-- input ที่ format เป็นวัน --></td>
+                                <td class="text-center"> <button type ="submit" class="btn btn-success btn-sm" name="add" id="add">Add</button> </td>
+                            </tr>
+                            
                     </tbody>
                 </table>
             </div>
@@ -240,9 +261,13 @@
                         if( isset($_GET['delete']) )
             			{
                                 include('connectDB.php'); 
-                        $sql = "DELETE FROM EducationHistory WHERE StaffID='$StaffID' AND GraduationDate='$gradDate' AND DegreeID='$DegreeID';";//editด้วย เพิ่มเอา gradDate & DegreeID มาจากตาราง
-                        echo "
+                                list($gradDate, $Levels) = explode("|", $_GET['delete']);
+                        $sql = "DELETE FROM EducationalHistory WHERE StaffID='$StaffID' AND GraduationDate='$gradDate' AND Levels='$Levels' ";//อาจจะแก้เป็นกด done แล้วค่อยลบ จะแก้ถ้าเวลาเหลือ
+                        $con->query($sql);                        
+                        $con->close();
+                       echo "
                               <script>
+                                alert('delete education history!!!');
                                 window.location.href='EmInEdit.php';
                             </script>";
                         }
@@ -260,13 +285,19 @@
                                $sql = "UPDATE EmployeeInfo SET F_Name='$F_Name' ,L_Name='$L_Name' ,MaritalStatus='$MaritalStatus',TelephoneNo='$TelephoneNo',Email='$Email',Address='$Address',AccountNo='$AccountNo' WHERE StaffID='$StaffID' ";
                                $con->query($sql);                        
                                $con->close();
-                               
-                               //header('EmployeeInfo.php'); 
                               echo "
                               <script>
-                                  alert('updated information!');
+                                  alert('updated information!!!');
                                 window.location.href='EmployeeInfo.php';
                             </script>";
+                        }
+                        if(isset($_GET['add']) )
+                        {
+                            $depart = $_GET['depart'];
+                            echo "<script> //document.getElementById('add').value=document.getElementById('Levels').innerHTML;
+//                             alert(document.getElementById('Levels').querySelector('[contenteditable]').textContent);
+                            </script>";
+                            //echo "--".$_GET['add']."--"; //for test
                         }
                     ?>
 
