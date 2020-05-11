@@ -176,7 +176,7 @@ CREATE TABLE EducationalHistory (
 	StaffID 			char(6) 				NOT NULL,
 	No 					int 			DEFAULT NULL,
 	GraduationDate 		DATE 					NOT NULL,
-	DegreeID 			varchar(10) 			NOT NULL,
+	DegreeID 			varchar(10) 			NULL,
 	Levels 				varchar(20) 			NOT NULL,
     CONSTRAINT			PK_EducationalHistory	PRIMARY KEY (StaffID, GraduationDate, Levels),
     CONSTRAINT			FK_EH_EI				FOREIGN KEY (StaffID) 	
