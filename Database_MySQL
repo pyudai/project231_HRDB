@@ -62,7 +62,7 @@ CREATE TABLE Degree (
 CREATE TABLE Course (
 	CourseID 			char(3) 			NOT NULL,
 	CourseName 			varchar(50) 		NOT NULL,
-	CourseDescription 	varchar(100) 		NOT NULL,
+	CourseDescription 	varchar(250) 		NOT NULL,
 	StartCourse 		DATE 				NOT NULL,
 	EndCourse 			DATE 				NOT NULL,
     CONSTRAINT			PK_Course			PRIMARY KEY (CourseID)
@@ -71,7 +71,7 @@ CREATE TABLE Course (
 CREATE TABLE Skill (
 	SkillID 			char(6) 			NOT NULL,
 	SkillName 			varchar(20) 		NOT NULL,
-	SkillDescription 	varchar(100) 		NOT NULL,
+	SkillDescription 	varchar(250) 		NOT NULL,
     CONSTRAINT			PK_Skill			PRIMARY KEY (SkillID)
 	);
 
