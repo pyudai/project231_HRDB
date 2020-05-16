@@ -10,7 +10,9 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/> <!-- auto complete box -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> <!-- auto complete box -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> <!-- auto complete box -->
     <style>
     
         body{
@@ -228,18 +230,38 @@
                             $con->close();
                             ?>
                             <tr>
-                                <td class="text-center"></td>
+                                <td class="text-center" name="No"></td>
                                 <td class="text-center">
-                                    <select name="Levels" class="selectpicker" data-live-search="true">
-                                        <option>ALL</option><!-- แก้ตัวเลือกด้วย -->
-                                        <option> ALL </option>
-                                        <option> ALL </option>
-                                        <option> ALL </option>
-                                        <option> ALL </option>
+                                    <select name="Levels" class="selectpicker">
+                                        <option>High School</option>
+                                        <option>Bachelor</option>
+                                        <option>Master</option>
+                                        <option>Doctor</option>
                                     </select>
                                 </td>
-                                <td id="Degree" class="text-center" contenteditable='true'><!-- fetch หา ใน DB และถ้าไม่มีก็เพิ่มใหม่ --></td>
-                                <td id="Graduation_Date" class="text-center" contenteditable='true'><!-- input ที่ format เป็นวัน --></td>
+                                <td class="text-center"><input type="text" name="Degree" id="Degree"></td>
+                                    <?php
+                                        include('connectDB.php'); 
+                                        $sql = "SELECT * FROM Degree";
+                                        $query = $con->query($sql);
+                                    ?>
+                                     <script type="text/javascript"> <!-- auto complete box -->
+                                         var DegreeID = [
+                                            <?php
+                                                $province = "";
+                                                while ($result = $query->fetch_assoc()) {
+                                                     $DegreeID .= "'" . $result['DegreeID'] . "',";
+                                                }
+                                                echo rtrim($DegreeID, ",");
+                                            ?>
+                                         ];
+                                         $(function () {
+                                             $("input#Degree").autocomplete({
+                                                 source: DegreeID
+                                             });
+                                         });
+                                     </script> <!-- auto complete box -->
+                                <td id="Graduation_Date" class="text-center"><input type="date" name="Graduation_Date" value="<?php echo date('Y-m-d'); ?>"></td>
                                 <td class="text-center"> <button type ="submit" class="btn btn-success btn-sm" name="add" id="add">Add</button> </td>
                             </tr>
                             
@@ -293,14 +315,24 @@
                         }
                         if(isset($_GET['add']) )
                         {
-                            $depart = $_GET['depart'];
-                            echo "<script> //document.getElementById('add').value=document.getElementById('Levels').innerHTML;
-//                             alert(document.getElementById('Levels').querySelector('[contenteditable]').textContent);
-                            </script>";
-                            //echo "--".$_GET['add']."--"; //for test
+                            $Levels = $_GET['Levels'];
+                            $Degree = $_GET['Degree'];
+                            $Graduation_Date = $_GET['Graduation_Date'];
+                            $No = $_GET['No'];//get ไม่ได้
+                            echo "--".$Levels ."++".$Degree ."++".$Graduation_Date ."++".$No."--";
+                            // include('connectDB.php'); 
+                                
+                            //$sql = "INSERT INTO educationalhistory VALUES ('$StaffID','$No',STR_TO_DATE('$Graduation_Date','%Y-%m-%d'),'$Degree','$Levels')";//อาจจะแก้เป็นกด done แล้วค่อยเพิ่ม จะแก้ถ้าเวลาเหลือ // เอา No. ออกด้วย
+                            //$con->query($sql);                        
+                           // $con->close();
+
+                            /*echo "
+                              <script>
+                                alert('add education history!!!');
+                                window.location.href='EmInEdit.php';
+                            </script>";*/
                         }
                     ?>
-
 
 </body>
 </html>
