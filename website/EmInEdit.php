@@ -230,7 +230,7 @@
                             $con->close();
                             ?>
                             <tr>
-                                <td class="text-center" name="No"></td>
+                                <td class="text-center"></td>
                                 <td class="text-center">
                                     <select name="Levels" class="selectpicker">
                                         <option>High School</option>
@@ -318,19 +318,17 @@
                             $Levels = $_GET['Levels'];
                             $Degree = $_GET['Degree'];
                             $Graduation_Date = $_GET['Graduation_Date'];
-                            $No = $_GET['No'];//get ไม่ได้
-                            echo "--".$Levels ."++".$Degree ."++".$Graduation_Date ."++".$No."--";
-                            // include('connectDB.php'); 
+                            include('connectDB.php'); 
                                 
-                            //$sql = "INSERT INTO educationalhistory VALUES ('$StaffID','$No',STR_TO_DATE('$Graduation_Date','%Y-%m-%d'),'$Degree','$Levels')";//อาจจะแก้เป็นกด done แล้วค่อยเพิ่ม จะแก้ถ้าเวลาเหลือ // เอา No. ออกด้วย
-                            //$con->query($sql);                        
-                           // $con->close();
+                            $sql = "INSERT INTO educationalhistory VALUES ('$StaffID',STR_TO_DATE('$Graduation_Date','%Y-%m-%d'),'$Degree','$Levels')";//อาจจะแก้เป็นกด done แล้วค่อยเพิ่ม จะแก้ถ้าเวลาเหลือ
+                            $con->query($sql);                        
+                           $con->close();
 
-                            /*echo "
+                            echo "
                               <script>
                                 alert('add education history!!!');
                                 window.location.href='EmInEdit.php';
-                            </script>";*/
+                            </script>";
                         }
                     ?>
 
