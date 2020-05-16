@@ -78,7 +78,7 @@
     </div>
     
     <?php include('connectDB.php'); 
-                    $StaffID = "100001"; //staffIDค่อยใส่
+                    $StaffID = "236377"; //staffIDค่อยใส่
                     $sql0 = "SELECT *,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), '%Y')+0 AS age  FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
                   while ($row = $result->fetch_assoc()) {
@@ -205,7 +205,7 @@
                     </thead>
                     <tbody class="tb">
                         <?php include('connectDB.php'); 
-                                $sql = "SELECT Levels, DegreeID, GraduationDate FROM EducationalHistory WHERE StaffID='$StaffID' ORDER BY GraduationDate";
+                            $sql = "SELECT Levels, DegreeID, GraduationDate FROM EducationalHistory WHERE StaffID='$StaffID' ORDER BY GraduationDate";
                             $result = $con->query($sql);
                             if ($result->num_rows > 0) {
                             // output data of each row
