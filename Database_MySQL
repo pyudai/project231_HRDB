@@ -70,7 +70,7 @@ CREATE TABLE Course (
     
 CREATE TABLE Skill (
 	SkillID 			char(6) 			NOT NULL,
-	SkillName 			varchar(20) 		NOT NULL,
+	SkillName 			varchar(30) 		NOT NULL,
 	SkillDescription 	varchar(250) 		NOT NULL,
     CONSTRAINT			PK_Skill			PRIMARY KEY (SkillID)
 	);
@@ -111,7 +111,7 @@ CREATE TABLE PerformanceReview (
 	JobKnowledge 			char(1) 				NOT NULL,
 	QuantityofWork 			char(1) 				NOT NULL,
 	QualityofWork 			char(1) 				NOT NULL,
-	Comments 				varchar(100) 			NOT NULL,
+	Comments 				varchar(150) 			NOT NULL,
 	SupervisorName          varchar(70)             NOT NULL,
     CONSTRAINT				PK_PerformanceReview	PRIMARY KEY (StaffID, PerformanceReviewDate),
     CONSTRAINT				FK_PR_EI				FOREIGN KEY (StaffID) 
