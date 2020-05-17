@@ -96,6 +96,7 @@ BEGIN
 END;
 //ยังทำไม่เสร็จ
 //Not finish (not have startcourse and endcourse) = done
+//ERROR SP1 ซึ่งเป็น Primary Key ซ้ำ Duplicate
 
 BEGIN
     INSERT INTO TrainingHistory VALUES (120000,'100001',1,'LDS','SFT004',STR_TO_DATE('17-01-2020','%d-%m-%Y'),8);
