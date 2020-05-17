@@ -85,7 +85,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Skill','N'],
                   <?php
-                  $sql="SELECT SkillID,COUNT(StaffID) AS N FROM traininghistory GROUP BY SkillID;";
+                  $sql="SELECT SkillID,COUNT(StaffID) AS N FROM employeeskill GROUP BY SkillID;";
                   $fire=mysqli_query($con,$sql);
                   while($result=mysqli_fetch_assoc($fire)){
                     echo"['".$result['SkillID']."',".$result['N']."],";
