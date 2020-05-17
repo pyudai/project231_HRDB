@@ -124,7 +124,7 @@ CREATE TABLE WorkHistory (
 	CompanyName 		varchar(50) 		NOT NULL,
 	StartMonth 			DATE 				NOT NULL,
 	EndMonth 			DATE 				NOT NULL,
-	HistoryPositionJob 	varchar(20) 		NOT NULL,
+	HistoryPositionJob 	varchar(35) 		NOT NULL,
 	ExitInterview 		varchar(100) 		NOT NULL,
     CONSTRAINT			PK_WorkHistory		PRIMARY KEY (StaffID, CompanyName, StartMonth),
     CONSTRAINT			FK_WH_EI			FOREIGN KEY (StaffID)		
