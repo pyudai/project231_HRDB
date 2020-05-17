@@ -99,14 +99,6 @@
 
 
 
-    INSERT INTO TrainingHistory VALUES (120000,'100001',1,'LDS','SFT004',STR_TO_DATE('17-01-2020','%d-%m-%Y'),8);
-    INSERT INTO TrainingHistory VALUES (120001,'100001',2,'SVM','SFT006',STR_TO_DATE('18-02-2020','%d-%m-%Y'),9);
-    INSERT INTO TrainingHistory VALUES (120002,'618643',1,'JP1','SFT006',STR_TO_DATE('15-02-2020','%d-%m-%Y'),10);
-    INSERT INTO TrainingHistory VALUES (120003,'104097',1,'SVM','SFT006',STR_TO_DATE('18-03-2020','%d-%m-%Y'),7);
-    INSERT INTO TrainingHistory VALUES (120004,'100436',1,'SVM','SFT006',STR_TO_DATE('18-03-2020','%d-%m-%Y'),9);
-
-
-
 	INSERT INTO degree VALUES ('B.A.','Bachelor of Arts');
 	INSERT INTO degree VALUES ('B.Acc.','Bachelor of Accounting');
 	INSERT INTO degree VALUES ('B.A.Sc.','Bachelor of Applied Science');
@@ -309,8 +301,8 @@
 	INSERT INTO EmployeeIncome VALUES ('100235','BONU',7000);
 
 	//104582 is RSV
-	INSERT INTO EmployeeIncome VALUES ('104582','MTHS',16000)
-	INSERT INTO EmployeeIncome VALUES ('104582','BONU',2000)
+	INSERT INTO EmployeeIncome VALUES ('104582','MTHS',16000);
+	INSERT INTO EmployeeIncome VALUES ('104582','BONU',2000);
 
 	//400823 is CFM
 	INSERT INTO EmployeeIncome VALUES ('400823','MTHS',27000);
@@ -377,8 +369,6 @@
     INSERT INTO EmployeeSkill VALUES ('236377','SFT003');
     INSERT INTO EmployeeSkill VALUES ('236377','JLPT01');
     INSERT INTO EmployeeSkill VALUES ('100436','EN0005');
-    INSERT INTO EmployeeSkill VALUES ('100436','SFT001');
-    INSERT INTO EmployeeSkill VALUES ('100436','SFT002');
     INSERT INTO EmployeeSkill VALUES ('100436','SFT003');
     INSERT INTO EmployeeSkill VALUES ('101112','EN0003');
     INSERT INTO EmployeeSkill VALUES ('101112','SFT003');
@@ -393,6 +383,21 @@
     INSERT INTO EmployeeSkill VALUES ('618643','SFT003');
     INSERT INTO EmployeeSkill VALUES ('618643','EN0004');
 
+
+
+	INSERT INTO TrainingHistory VALUES (120000,'100001',1,'LDS','SFT004',STR_TO_DATE('17-01-2020','%d-%m-%Y'),8);
+    INSERT INTO TrainingHistory VALUES (120001,'100001',2,'SVM','SFT006',STR_TO_DATE('18-02-2020','%d-%m-%Y'),9);
+    INSERT INTO TrainingHistory VALUES (120002,'618643',1,'JP1','SFT006',STR_TO_DATE('15-02-2020','%d-%m-%Y'),10);
+    INSERT INTO TrainingHistory VALUES (120003,'104097',1,'SVM','SFT006',STR_TO_DATE('18-03-2020','%d-%m-%Y'),7);
+    INSERT INTO TrainingHistory VALUES (120004,'100436',1,'SVM','SFT006',STR_TO_DATE('18-03-2020','%d-%m-%Y'),9);
+    INSERT INTO traininghistory VALUES (100011,'100235',5,'EN1','EN0001',STR_TO_DATE('01-12-2019','%d-%m-%Y'),10);
+	INSERT INTO traininghistory VALUES (100012,'100235',6,'EN2','EN0002',STR_TO_DATE('11-12-2019','%d-%m-%Y'),10);
+	INSERT INTO traininghistory VALUES (100013,'101112',1,'EN1','EN0001',STR_TO_DATE('01-12-2019','%d-%m-%Y'),5);
+	INSERT INTO traininghistory VALUES (100014,'101112',2,'EN2','EN0002',STR_TO_DATE('11-12-2019','%d-%m-%Y'),7);
+	INSERT INTO traininghistory VALUES (100018,'104582',1,'EN1','EN0001',STR_TO_DATE('01-12-2019','%d-%m-%Y'),8);
+	INSERT INTO traininghistory VALUES (100019,'104582',2,'EN2','EN0002',STR_TO_DATE('11-12-2019','%d-%m-%Y'),7);
+	INSERT INTO traininghistory VALUES (100111,'100235',7,'LDS','SFT004',STR_TO_DATE('01-12-2019','%d-%m-%Y'),10);
+	INSERT INTO traininghistory VALUES (100890,'341001',1,'LDS','SFT004',STR_TO_DATE('11-12-2019','%d-%m-%Y'),10);
 
 
 
@@ -465,25 +470,16 @@ INSERT INTO PromotionalHistory VALUES ('618643','NWB','ITN',STR_TO_DATE('01-08-2
 INSERT INTO PromotionalHistory VALUES ('618643','ITT','ITN',STR_TO_DATE('30-08-2015','%d-%m-%Y'),STR_TO_DATE('01-09-2015','%d-%m-%Y'),'Woo Dohwan');
 
 
-    INSERT INTO WorkHistory VALUES ('100001',1,'Dusit International',STR_TO_DATE('08-1987','%m-%Y'),STR_TO_DATE('10-2000','%m-%Y'),'Front Desk Manager','Need new experience');
-    INSERT INTO WorkHistory VALUES ('100001',2,'The Erawan Group Public Co. Ltd.',STR_TO_DATE('12-2000','%m-%Y'),STR_TO_DATE('05-2005','%m-%Y'),'Front Office Maneger','Not challenging');
-	INSERT INTO WorkHistory VALUES ('100235',1,'Anantara Hotels Resorts and Spas',STR_TO_DATE('09-1985','%m-%Y'),STR_TO_DATE('05-1995','%m-%Y'),'Maintenance Manager','Cannot get along with new boss');
-	INSERT INTO WorkHistory VALUES ('104582',1,'Bella Villa Group of Hotels',STR_TO_DATE('06-2000','%m-%Y'),STR_TO_DATE('05-2005','%m-%Y'),'Cleaner','Health problem');
-	INSERT INTO WorkHistory VALUES ('100436',1,'The Erawan Group Public Co. Ltd.',STR_TO_DATE('08-1989','%m-%Y'),STR_TO_DATE('05-2004','%m-%Y'),'Senior Sales Manager','Need new environment');
-	INSERT INTO WorkHistory VALUES ('101112',1,'Baan Krating Resorts',STR_TO_DATE('07-1985','%m-%Y'),STR_TO_DATE('05-2000','%m-%Y'),'Director of Information Technology','Move household due to personal issue');
-	INSERT INTO WorkHistory VALUES ('236377',1,'Grande Centre Point Hotels',STR_TO_DATE('03-12-1995','%m-%Y'),STR_TO_DATE('05-1999','%m-%Y'),'Business Development','Study master degree');
-	INSERT INTO WorkHistory VALUES ('236377',2,'Imperial Hotels GroupTO_DATE',STR_TO_DATE('06-2002','%m-%Y'),STR_TO_DATE('05-2003','%m-%Y'),'Marketing Manager','Not suit for the job');
-	INSERT INTO WorkHistory VALUES ('236377',3,'Anantara Hotels Resorts and Spas',STR_TO_DATE('08-2003','%m-%Y'),STR_TO_DATE('05-2010','%m-%Y'),'Head of Business Development','Not challenging');
+    INSERT INTO WorkHistory VALUES ('100001',1,'Dusit International',STR_TO_DATE('01-08-1987','%d-%m-%Y'),STR_TO_DATE('01-10-2000','%d-%m-%Y'),'Front Desk Manager','Need new experience');
+    INSERT INTO WorkHistory VALUES ('100001',2,'The Erawan Group Public Co. Ltd.',STR_TO_DATE('01-12-2000','%d-%m-%Y'),STR_TO_DATE('01-05-2005','%d-%m-%Y'),'Front Office Maneger','Not challenging');
+	INSERT INTO WorkHistory VALUES ('100235',1,'Anantara Hotels Resorts and Spas',STR_TO_DATE('01-09-1985','%d-%m-%Y'),STR_TO_DATE('01-05-1995','%d-%m-%Y'),'Maintenance Manager','Cannot get along with new boss');
+	INSERT INTO WorkHistory VALUES ('104582',1,'Bella Villa Group of Hotels',STR_TO_DATE('01-06-2000','%d-%m-%Y'),STR_TO_DATE('01-05-2005','%d-%m-%Y'),'Cleaner','Health problem');
+	INSERT INTO WorkHistory VALUES ('100436',1,'The Erawan Group Public Co. Ltd.',STR_TO_DATE('01-08-1989','%d-%m-%Y'),STR_TO_DATE('01-05-2004','%d-%m-%Y'),'Senior Sales Manager','Need new environment');
+	INSERT INTO WorkHistory VALUES ('101112',1,'Baan Krating Resorts',STR_TO_DATE('01-07-1985','%d-%m-%Y'),STR_TO_DATE('01-05-2000','%d-%m-%Y'),'Director of Information Technology','Move household due to personal issue');
+	INSERT INTO WorkHistory VALUES ('236377',1,'Grande Centre Point Hotels',STR_TO_DATE('01-12-1995','%d-%m-%Y'),STR_TO_DATE('01-05-1999','%d-%m-%Y'),'Business Development','Study master degree');
+	INSERT INTO WorkHistory VALUES ('236377',2,'Imperial Hotels GroupTO_DATE',STR_TO_DATE('01-06-2002','%d-%m-%Y'),STR_TO_DATE('01-05-2003','%d-%m-%Y'),'Marketing Manager','Not suit for the job');
+	INSERT INTO WorkHistory VALUES ('236377',3,'Anantara Hotels Resorts and Spas',STR_TO_DATE('01-08-2003','%d-%m-%Y'),STR_TO_DATE('01-05-2010','%d-%m-%Y'),'Head of Business Development','Not challenging');
 
-
-INSERT INTO traininghistory VALUES (100011,'100235',5,'EN1','EN0001',STR_TO_DATE('01-12-2019','%d-%m-%Y'),10);
-INSERT INTO traininghistory VALUES (100012,'100235',6,'EN2','EN0002',STR_TO_DATE('11-12-2019','%d-%m-%Y'),10);
-INSERT INTO traininghistory VALUES (100013,'101112',1,'EN1','EN0001',STR_TO_DATE('01-12-2019','%d-%m-%Y'),5);
-INSERT INTO traininghistory VALUES (100014,'101112',2,'EN2','EN0002',STR_TO_DATE('11-12-2019','%d-%m-%Y'),7);
-INSERT INTO traininghistory VALUES (100018,'104582',1,'EN1','EN0001',STR_TO_DATE('01-12-2019','%d-%m-%Y'),8);
-INSERT INTO traininghistory VALUES (100019,'104582',2,'EN2','EN0002',STR_TO_DATE('11-12-2019','%d-%m-%Y'),7);
-INSERT INTO traininghistory VALUES (100111,'100235',7,'LDS','SFT004',STR_TO_DATE('01-12-2019','%d-%m-%Y'),10);
-INSERT INTO traininghistory VALUES (100890,'341001',1,'LDS','SFT004',STR_TO_DATE('11-12-2019','%d-%m-%Y'),10);
 
 
 INSERT INTO DailyTimeCard VALUES ('100001',STR_TO_DATE('01-12-2019','%d-%m-%Y'),TIME('08:00:20'),TIME('17:00:20'));
