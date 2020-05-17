@@ -59,7 +59,7 @@
         <form class="container-fluid ">
         <div class='form-check'>
             <div>
-                <div class="row mt-4 pt-4 mx-auto">
+                <div class="row mt-3 pt-2 mx-auto">
                     <div class="input-group-prepend col-sm-3">
                         <span class="block input-group-text">Review date</span>
                             <?php 
@@ -70,11 +70,12 @@
                             ?>
                     </div>
                     <div class="col input-group">
-                        <span class="block input-group-text">Department</span>
+                        <span class="block input-group-text">Staff</span>
                         <select id="staff" name="staff" class="selectpicker" data-live-search="true"> 
                             <option value="0"> SELECT </option>
                             <?php
-                                $sql0 = "SELECT * FROM employeeinfo WHERE StaffID IN (SELECT StaffID FROM promotionalhistory) ORDER BY StaffID;";
+                                $sql0 = "SELECT * FROM employeeinfo WHERE StaffID IN (SELECT StaffID FROM performancereview WHERE StaffID NOT IN 
+                                (SELECT StaffID FROM promotionalhistory WHERE PositionJobID = 'GSM' Or PositionJobID = 'HEM' GROUP BY StaffID)) ORDER BY StaffID;";
                                 $result0 = mysqli_query($con, $sql0);
                                 while($row0 = $result0->fetch_assoc()):
                             ?>
@@ -84,12 +85,12 @@
                     </div>
 
                     <div class="col input-group">
-                        <span class="block input-group-text">Department</span>
+                        <span class="block input-group-text">Supervisor</span>
                         <select id="supervisor" name="supervisor" class="selectpicker" data-live-search="true"> 
                             <option value="0"> SELECT </option>
                             <?php
                                 $sql1 = "SELECT * FROM employeeinfo WHERE StaffID IN (SELECT StaffID FROM performancereview r WHERE r.PerformanceReviewDate IN
-                                (SELECT MAX(p.PerformanceReviewDate) FROM promotionalhistory p, positionjob j WHERE p.PositionJobID = j.PositionJobID AND j.PositionJobID = 'GSM'));";                        
+                                (SELECT p.PerformanceReviewDate FROM promotionalhistory p, positionjob j WHERE p.PositionJobID = j.PositionJobID AND (j.PositionJobID = 'GSM' OR j.PositionJobID = 'HEM')));";                        
                                 $result1 = mysqli_query($con, $sql1);
                                 while($row1 = $result1->fetch_assoc()):
                             ?>
