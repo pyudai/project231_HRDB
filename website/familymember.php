@@ -68,81 +68,98 @@
             if (mysqli_connect_error()) {
                 echo "Failed to Connect to MySQL : " . mysqli_connect_error();
             }
+            $fam = NULL;
+            $parent_name = NULL;
         ?>
-
         <div class="topnav">
             <a class="text">Family member</a>
             <a class="picture"><img src="centar.png"></a>
         </div>
-        <form class="container-fluid ">
+        <form class="container-fluid pt-3">
             <div>
                 <select id="fam" name="fam" class="selectpicker" data-live-search="true"> 
                     <option> ALL </option>
                     <?php
-                        $sql0 = "SELECT * FROM employeeinfo ORDER BY StaffID;";
+                        $sql0 = "SELECT e.* FROM employeeinfo e, familymember f WHERE e.StaffID = f.StaffID GROUP BY StaffID ORDER BY StaffID;";
                         $result0 = mysqli_query($con, $sql0);
                         while($row0 = $result0->fetch_assoc()):
                     ?>
                     <option value="<?php echo $row0["StaffID"];?>"> <?php echo $row0["StaffID"].' '.$row0["F_Name"].' '.$row0["L_Name"];?> </option>
                     <?php endwhile;?>
                 </select>
-                <input value="submit" type ="submit" name="submit" class="btn btn-lg btn-success" style="transform:translateX(105%);">
-            </div>
-            
-                <div class="mx-auto pt-4 row input-group">
-                    <div class=" input-group-prepend col-sm-4">
-                        <span class="block input-group-text">StaffID</span>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="input-group-prepend col-sm-4">
-                        <span class="block input-group-text">First Name</span>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="input-group-prepend col-sm-4">
-                        <span class="block input-group-text">Last Name</span>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
+                <input value="submit" type ="submit" name="submit" class="btn btn-lg btn-success">
+                
+                <?php 
+                    if (isset($_GET['submit'])) {
+                        $fam = $_GET['fam'];
+                        //echo "   ".$fam."  ";
+                        if ($fam == 'ALL') {
+                            $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB"; 
+                        } else {
+                            $check = 1;
+                            $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB";  //Not finish
+                        }  
+                    } else {
+                        $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB"; 
+                    }
+                ?>
 
-            <div class="text-right pt-3 pr-5">
-                <button type="button"  class="btn btn-success">Edit</button>
-                <button  type="button"  class="btn btn-success">Add</button>
+                <div class="mt-1 mx-auto pt-2 row input-group col-7">
+                    <div class="input-group col-9 pt-2">
+                        <span class="block input-group-text" style="background: #E8D8C9; padding: 4px 20px;">
+                            Parent ID
+                        </span>
+                        <input id="parent" name="parent" type="text" class="form-control" value="<?php echo $fam;?>" style="width: 1000px;" readonly>
+
+                        <span class="block input-group-text" style="background: #E8D8C9; padding: 4px 20px;">
+                            Parent
+                        </span>
+                        <?php $sql3 = "SELECT * FROM employeeinfo WHERE StaffID = '$fam' GROUP BY StaffID"; 
+                            $result3 = mysqli_query($con, $sql3);
+                            while($row3 = $result3->fetch_assoc()):
+                        ?>
+                        <input id="p_name" name="p_name" type="text" class="form-control" value="<?php echo $row3["F_Name"].' '.$row3["L_Name"];?>" style="width: 1000px;" readonly>
+                        <?php endwhile;?>
+                    </div>
+                    <div class="input-group col-9 pt-2">
+                        <span class="block input-group-text" style="background: #E8D8C9; padding: 4px 20px;">
+                            Child Name    
+                        </span>
+                        <input id="childname" name="childname" type="text" placeholder="Your Child Name" class="form-control" style="width: 1000px;">
+                    </div>
+                    <div class="input-group col-9 pt-2">
+                        <span class="block input-group-text" style="background: #E8D8C9; padding: 4px 20px;">
+                            Date of Birth    
+                        </span>
+                        <input id="DOB" name="DOB" type="text" placeholder="Your Child Date of Birth : YYYY-MM-DD" class="form-control" style="width: 1000px;">
+                    </div>
+                    <input name = "add" type = "submit" id = "add" value = "Add" class="btn btn-lg btn-success">
+                </div>
             </div>
         
-            <div class="row pt-5 pl-5 pr-5">
+            <div class="row pt-2 pl-5 pr-5">
                 <div class="col">
+                    
                     <table class="table table-bordered">
                         <thead>
                             <tr class="title text-center">
-                                <th>ChildName 1</th>
+                                <th>ChildName</th>
                                 <th>Date of Birth</th>
+                                <th>Edit</th>
                             </tr>
                         </thead>
-
+                        
                         <tbody>
                             <?php
-                            
-                                if (isset($_GET['submit'])) {
-                                    $fam = $_GET['fam'];
-                                    echo "   ".$fam."  ";
-                                    if ($fam == 'ALL') {
-                                        echo 1;
-                                        $sql = "SELECT * FROM familymember ORDER BY ChildDOB"; 
-                                    } else {
-                                        echo 4;
-                                        $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB";  //Not finish
-                                    }  
-                                } else {
-                                    $sql = "SELECT * FROM familymember ORDER BY ChildDOB"; 
-                                }
-                        
                                 $result = $con->query($sql);
                                 if ($result->num_rows > 0) {
                                 // output data of each row
-                                    echo $result->num_rows;
+                                    //echo $result->num_rows;
                                     while($row2 = $result->fetch_assoc()) {
-                                    
-                                        echo "<tr><td>" . $row2["ChildName"]. "</td><td>" . $row2["ChildDOB"]. "</td></tr>";
+                                        
+                                        echo "<tr><td>". $row2["ChildName"]. "</td><td>". $row2["ChildDOB"]. "</td><td>" ?>
+                                        <input class="form-check-input col-2" type="radio" name="child" id="child" value="<?php echo $row2["childID"];?> ">
+                                        <?php "</td></tr>";
                                     }
                                     
                                     echo "</table>";
@@ -152,24 +169,48 @@
 
                         </tbody>
                     </table>
-                    <a class="nav-link" href="HOME.php">back</a>
+                    <input name = "delete" type = "submit" id = "delete" value = "Delete" class="btn btn-lg btn-success">
+                    <?php 
+                        if(isset($_GET['delete'])) {
+                            $con = mysqli_connect("localhost", "root", "", "hr_database");
+                            $childID = $_GET['child'];
+                            echo $childID;
+                            $sql = "DELETE FROM familymember WHERE childID = $childID" ;
+                            $retval = $con->query($sql);
+                            
+                            if(! $retval ) {
+                            die('Could not delete data: ' . mysqli_connect_error());
+                            } else {
+                                echo "Deleted data successfully\n";
+                                $con->close();
+                            }
+                        } elseif(isset($_GET['add'])) {
+                            $con = mysqli_connect("localhost", "root", "", "hr_database");
+                            $childname = $_GET['childname'];
+                            $dob = $_GET['DOB'];
+                            $staffid = $_GET['parent'];
+                            echo $childname. $dob. $staffid;
+                            $sql = "INSERT INTO familymember (childID, StaffID, ChildName, ChildDOB)
+                                    VALUES (NULL, '$staffid', '$childname', '$dob')";
+                            if ($con->query($sql) === TRUE) {
+                                echo "New record in familymember created successfully";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $con->error;
+                                $con->close();
+                            }
+                        } else {
+                            echo "error";
+                        }
+                    ?>
                 </div>
             </div>
-        
-            <form class="container-fluid ">
-                <div class="mx-auto pt-4 row input-group">
-                    <div class = "col-sm-4"></div> 
-                    <div class = "input-group-prepend col-sm-4">
-                        <span class="block input-group-text">Total</span>
-                        <input type= "integer" class="form-control">
-                    </div>
-                </div>
-            </form>
+            
+            <!-- <div class="text-right pt-3 pr-5">
+                <a class="btn btn-success" href="FamilyMemberEdit.php" role="button">EDIT</a>
+            </div> -->
 
-            <div class="text-right pr-5">
-                <button type ="button" class="btn btn-success">Next</button>
-                <button type ="button" class="btn btn-success">Previous</button> 
-            </div>
         </form>
+        <br>
+        <a class="btn btn-success" href="HOME.php" role="button">BACK</a>
     </body>
 </html>
