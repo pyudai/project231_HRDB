@@ -78,8 +78,8 @@ height:500px;
             }
         </script>
 <div id="columnchart_material" class="chart"></div>
-<div class="row pt-5">
-  <div class="col text-right pr-5">
+<div class="row pt-4">
+  <div class="col text-center pr-4">
          <a href="HOME.php" class="btn btn-success">BACK</a>
     </div>
 </div>
