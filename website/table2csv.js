@@ -23,6 +23,7 @@ function downloadCSV(csv, filename) {
     // Click download link
     downloadLink.click();
 }
+
 function exportTableToCSV(filename) {
     var csv = [];
     var rows = document.querySelectorAll("table tr");
@@ -31,8 +32,12 @@ function exportTableToCSV(filename) {
         var row = [], cols = rows[i].querySelectorAll("td, th");
         
         for (var j = 0; j < cols.length; j++) 
-            row.push(cols[j].innerText);
-        
+        {
+            if(cols[j].innerText=="")
+                row.push(i);
+            else
+                row.push(cols[j].innerText);
+        }
         csv.push(row.join(","));        
     }
 
