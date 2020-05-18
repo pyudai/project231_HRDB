@@ -103,7 +103,6 @@ session_start();
             
             <div class="text-right pt-3 pr-4">
                 <button type="submit"  class="btn btn-success" name="edit">Edit</button>
-                <button  type="submit"  class="btn btn-success" name="add">Add</button>
             </div>
 
             <div class="row pt-5 pl-5 pr-5">
@@ -136,18 +135,6 @@ session_start();
                     </table>
                 </div>
             </div>
-            
-            
-            
-            <!-- max(No)+1 , MAX(VacationNo)+1 
-            INSERT INTO Vacation VALUES ('$maxVNo','$StaffID','$maxNo',STR_TO_DATE('$VStart','%Y-%m-%d'),STR_TO_DATE('$VEnd','%Y-%m-%d'));
-VacationNo 	
-	StaffID 		
-	No 	
-	VDateStart 
-	VDateEnd 
-	 value="<?php echo 'h'; ?>" -->
-	
 	
         	<?php include('connectDB.php');
                             $AmountDay=0;
@@ -202,15 +189,6 @@ VacationNo
         </form>
 
         <?php 
-        
-             if(isset($_POST['add']) )
-                        {
-                            echo "
-                              <script>
-                                window.location.href='Vacation_add.php';
-                            </script>";
-                            $_SESSION["StaffID"] = $StaffID;
-                        }
                         
             if(isset($_POST['edit']) )
                         {

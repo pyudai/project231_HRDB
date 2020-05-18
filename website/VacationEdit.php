@@ -59,12 +59,6 @@ session_start();
             tbody.tb {
               background: #FAFAFA;
             }
-            
-          input.Nedit{
-                pointer-events:none;
-                color:gray;
-            }
-            
         </style>
         
     </head>
@@ -74,7 +68,7 @@ session_start();
             <a class="picture"><img src="centar.png"></a>
         </div>
     
-            <?php include('connectDB.php'); //ยังไม่ได้แก้กัน input เป็น input ได้บางอันด้วย
+            <?php include('connectDB.php');
                     $StaffID =  $_SESSION['StaffID'];
                     $sql0 = "SELECT F_Name,L_Name FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
@@ -82,6 +76,23 @@ session_start();
                         $F_Name = $row["F_Name"];
                         $L_Name = $row["L_Name"];
                     }
+                    
+                    // ใช้เวลา insert ค่า
+                        $sql = "SELECT MAX(No) AS maxNo FROM Vacation WHERE StaffID='$StaffID' LIMIT 1";
+                        $result = $con->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row2 = $result->fetch_assoc()) {
+                              $maxNo=$row2["maxNo"];
+                            }
+                        }
+                        
+                        $sql = "SELECT MAX(VacationNo) AS maxVNo FROM Vacation LIMIT 1";
+                        $result = $con->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row2 = $result->fetch_assoc()) {
+                              $maxVNo=$row2["maxVNo"];
+                            }
+                        }
                     $con->close();
         ?>
         
@@ -89,15 +100,15 @@ session_start();
             <div class="mx-auto pt-4 row input-group">
                    <div class=" input-group-prepend col-sm-4">
                       <span class="block input-group-text">StaffID</span>
-                      <input type="text" class="form-control Nedit" name="StaffID" value="<?php echo $StaffID; ?>">
+                      <input type="text" class="form-control" name="StaffID" value="<?php echo $StaffID; ?>" readonly>
                   </div>
                   <div class="input-group-prepend col-sm-4">
                       <span class="block input-group-text" >First Name</span>
-                      <input type="text" class="form-control Nedit" value="<?php echo $F_Name; ?>">
+                      <input type="text" class="form-control" value="<?php echo $F_Name; ?>" readonly>
                   </div>
                   <div class="input-group-prepend col-sm-4">
                       <span class="block input-group-text">Last Name</span>
-                      <input type="text" class="form-control Nedit" value="<?php echo $L_Name; ?>">
+                      <input type="text" class="form-control" value="<?php echo $L_Name; ?>" readonly>
                 </div>
             </div>
 
@@ -122,10 +133,15 @@ session_start();
                                     echo "<tr><td class='text-center'>". $row2["No"]."</td><td>" . $row2["VDateStart"]. "</td><td>" 
                                     . $row2["VDateEnd"]. "</td><td><button class='btn btn-danger' type='submit' name='delete' value=".$row2["VacationNo"].">Delete</button></td></tr>";
                                 }
-                               // echo $result->fetch_assoc();
                             } else { echo "0 results"; }
                             $con->close();
                             ?>
+                            <tr>
+                                <td class='text-center'></td>
+                                <td><input type="date" class="form-control" name="VStart"></td>
+                                <td> <input type="date" class="form-control" name="VEnd"></td>
+                                <td><button class='btn btn-success' type='submit' name='add' >Add</button></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -167,25 +183,14 @@ session_start();
         
         </form>
 
-      <!-- max(No)+1 , MAX(VacationNo)+1 
-            INSERT INTO Vacation VALUES ('$maxVNo','$StaffID','$maxNo',STR_TO_DATE('$VStart','%Y-%m-%d'),STR_TO_DATE('$VEnd','%Y-%m-%d'));
-            DELETE FROM Vacation WHERE VacationNo='$_POST['delete'])';
-VacationNo 	
-	StaffID 		
-	No 	
-	VDateStart 
-	VDateEnd  -->
-
         <?php 
         
              if(isset($_POST['done']) )
                         {
-                            
                             echo "
                               <script>
                                 window.location.href='Vacation.php';
                             </script>";
-                            echo ($maxNo+1)."--".($maxVNo+1);
                         }
                         
             if(isset($_POST['delete']) )
@@ -199,8 +204,8 @@ VacationNo
                                 $VDateEnd = $row["VDateEnd"];
                                 $No = $row["No"];
                             }
-//                             echo strtotime($VDateEnd);
-                            if( (strtotime($VDateStart)>strtotime("now")) || (strtotime($VDateEnd)>strtotime("now")) ){
+                            
+                            if( (strtotime($VDateStart)>strtotime("now")) && (strtotime($VDateEnd)>strtotime("now")) ){
                                $sql0 = "DELETE FROM Vacation WHERE VacationNo='$delete' ";
                                 $con->query($sql0);  
                                 $sql0 = "UPDATE Vacation SET No=(No-1) WHERE StaffID='$StaffID' AND No>'$No' ";
@@ -219,9 +224,39 @@ VacationNo
                                     window.location.href='VacationEdit.php';
                                 </script>";
                             }
-//                             echo $_POST['delete'].'+++';
-//                             
-//                             echo ($maxNo+1)."--".($maxVNo+1);
+                        }
+                        
+                    if(isset($_POST['add']))
+                        {
+                            $VStart=$_POST['VStart'];
+                            $VEnd=$_POST['VEnd'];
+                            if(strtotime($VStart)>strtotime($VEnd))
+                            {
+                                echo "
+                                                  <script>
+                                                    alert('incorrect date range!!!');
+                                                </script>";
+                            }
+                            else if ( (strtotime($VStart)<strtotime("now") ) || (strtotime($VEnd)<strtotime("now")) )
+                            {
+                                echo "
+                                      <script>
+                                        alert('Date is in the past!!!');
+                                    </script>";
+                            }
+                            else{
+                                include('connectDB.php');
+                                   $sql0 = "INSERT INTO Vacation VALUES ('$maxVNo'+1,'$StaffID','$maxNo'+1,STR_TO_DATE('$VStart','%Y-%m-%d'),STR_TO_DATE('$VEnd','%Y-%m-%d'))";
+                                   $con->query($sql0);  
+                                   $con->close();
+                    
+                                echo $VStart."+".$VEnd."+++".($maxNo+1)."--".($maxVNo+1);
+                                echo "
+                                  <script>
+                                    alert('add vacation!!!');
+                                    window.location.href='VacationEdit.php';
+                                </script>";
+                            }
                         }
         ?>
         
