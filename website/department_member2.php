@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <title>Department Member</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <body>
 <style>
 .topnav {
@@ -26,6 +30,11 @@ body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
     background:#F5F4F0;
+}
+.chart{
+margin: 70px auto;
+width:1000px;
+height:500px;
 }
 </style>
 <?php
@@ -69,35 +78,10 @@ body{
             }
         </script>
 <div id="columnchart_material" class="chart"></div>
-<style>
-.chart{
-margin: 70px auto;
-width:500px;
-height:250px;
-}
-</style>
-<button style="margin-right: 16px" type="button">Previous</button> 
-<style>
-button {
-  background-color:#4BD37B; /* Green */
-  border: none;
-  color: black;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-
-}
-button{
-    border-radius:7px;
-}
-button{
-    float: right;
-}
-button:hover{
-     background-color: #3e8e41;
-}
-</style>
+<div class="row pt-5">
+  <div class="col text-right pr-5">
+         <a href="HOME.php" class="btn btn-success">BACK</a>
+    </div>
+</div>
 </body>
 </html>
