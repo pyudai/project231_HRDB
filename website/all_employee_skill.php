@@ -37,8 +37,8 @@
             
             .chart{
                 margin: 50px auto;
-                width:660px;
-                height:330px;
+                width:1000px;
+                height:500px;
             }
             
            .topnav {
@@ -83,12 +83,13 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Skill','N'],
+          ['SkillName','N'],
                   <?php
-                  $sql="SELECT SkillID,COUNT(StaffID) AS N FROM employeeskill GROUP BY SkillID;";
+                  $sql="SELECT e.SkillID,COUNT(StaffID) AS N ,s.SkillID, s.SkillName FROM employeeskill e ,skill s 
+                  WHERE e.SkillID=s.SkillID  GROUP BY e.SkillID;";
                   $fire=mysqli_query($con,$sql);
                   while($result=mysqli_fetch_assoc($fire)){
-                    echo"['".$result['SkillID']."',".$result['N']."],";
+                    echo"['".$result['SkillName']."',".$result['N']."],";
                   }
                   ?>
         ]);
@@ -108,7 +109,7 @@
   </body>
 
         <div class="col text-center pr-5">
-                <button type ="button" class="btn btn-success">BACK</button>
+                 <a href="HOME.php" class="btn btn-success">BACK</a>
             </div>
         </div>
         
