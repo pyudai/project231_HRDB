@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +81,8 @@
     </div>
     
     <?php include('connectDB.php'); 
-                    $StaffID = "236377"; //staffIDค่อยใส่
+                    $StaffID = "100001"; 
+                    $_SESSION["StaffID"] = $StaffID;
                     $sql0 = "SELECT *,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), '%Y')+0 AS age  FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
                   while ($row = $result->fetch_assoc()) {
@@ -100,7 +104,13 @@
                     $con->close();
     ?>
 
-    <form class="container-fluid ">
+    <form class="container-fluid " method="post">
+        <div class="row pt-4 pr-5">
+    	<div class="col text-right">
+    		<button type ="submit" class="btn btn-success" name="edit" >Edit</button>
+        </div>
+    </div>
+    
       <div class="mt-4 mx-auto pt-4 row input-group">
          <div class=" input-group-prepend col-sm-4">
           <span class=" block input-group-text" >StaffID</span>
@@ -140,7 +150,7 @@
               <input type="text" class="form-control" value='<?php echo $DOB; ?>' >
         </div>
     	<div class="input-group-prepend col-sm-4 ">
-         	<span class="block input-group-text">Age</span> <!-- แก้เป็นคำนวณ -->
+         	<span class="block input-group-text">Age</span>
        		<input type="text" class="form-control" value='<?php echo $Age; ?>' >
         </div>
       </div>
@@ -184,8 +194,7 @@
         </div>
       </div>
 
-    
-    <!-- educational His เพิ่ม -->
+
     <div class="row">
         <div class ="col pt-4 pl-5">
             <b style="font-size:20px;">Educational History</b>
@@ -227,11 +236,21 @@
 
     <div class="row pt-5">
     	<div class="col text-center">
-            <button type ="button" class="btn btn-success">Previous</button>
-    		<button type ="button" class="btn btn-success" onclick="location.href='EmInEdit.php'; " id="edit" >Edit</button>
-            <button type ="button" class="btn btn-success">Next</button>
+    		<button type ="submit" class="btn btn-success" name="home" >Back</button>
         </div>
     </div>
 </form>
+<?php 
+    if(isset($_POST['edit']) ){
+        echo "<script> window.location.href='EmInEdit.php';</script>";
+    }
+             if(isset($_POST['home']))
+                {
+                     echo "
+                      <script>
+                        window.location.href='HOME.php'; 
+                    </script>";
+                }
+?>
 </body>
 </html>

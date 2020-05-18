@@ -172,7 +172,7 @@ session_start();
                 <div class = "col-sm-4"></div> 
                 <div class = "input-group-prepend col-sm-4">
                     <span class="block input-group-text"> Vacation left (day)</span>
-                    <input type= "integer" class="form-control" value="<?php echo ($totalDay-$AmountDay); ?>">
+                    <input type= "integer" class="form-control" name="Vleft" value="<?php echo ($totalDay-$AmountDay); ?>">
                 </div>
             </div>
 
@@ -230,6 +230,8 @@ session_start();
                         {
                             $VStart=$_POST['VStart'];
                             $VEnd=$_POST['VEnd'];
+                            $Vleft=$_POST['Vleft'];
+                            
                             if(strtotime($VStart)>strtotime($VEnd))
                             {
                                 echo "
@@ -244,13 +246,18 @@ session_start();
                                         alert('Date is in the past!!!');
                                     </script>";
                             }
+                            else if ($Vleft<=0){
+                                echo "
+                                      <script>
+                                        alert('You are out of vacation day!!!');
+                                    </script>";
+                            }
                             else{
                                 include('connectDB.php');
                                    $sql0 = "INSERT INTO Vacation VALUES ('$maxVNo'+1,'$StaffID','$maxNo'+1,STR_TO_DATE('$VStart','%Y-%m-%d'),STR_TO_DATE('$VEnd','%Y-%m-%d'))";
                                    $con->query($sql0);  
                                    $con->close();
-                    
-                                echo $VStart."+".$VEnd."+++".($maxNo+1)."--".($maxVNo+1);
+
                                 echo "
                                   <script>
                                     alert('add vacation!!!');

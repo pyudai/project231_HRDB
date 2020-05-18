@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,10 +72,7 @@
         .topnav a.picture{
         float:left;
         }
-        /*input{
-            pointer-events:none;
-        }
-        */
+
     </style>
 </head>
 
@@ -82,8 +82,8 @@
         <a class="picture"><img src="centar.png"></a>
     </div>
     
-    <?php include('connectDB.php'); //ยังไม่ได้แก้กัน input
-                    $StaffID = "236377"; //staffIDค่อยใส่//ต้องแก้เป็นดึงมาจากอีกหน้า
+    <?php include('connectDB.php'); //ยังไม่ได้แก้กัน input เป็น input ได้บางอันด้วย
+                    $StaffID =  $_SESSION['StaffID'];
                     $sql0 = "SELECT *,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), '%Y')+0 AS age  FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
                   while ($row = $result->fetch_assoc()) {
@@ -105,15 +105,15 @@
                     $con->close();
     ?>
 
-    <form class="container-fluid " method="get" >
+    <form class="container-fluid " method="post" >
       <div class="mt-4 mx-auto pt-4 row input-group">
          <div class=" input-group-prepend col-sm-4">
           <span class=" block input-group-text" >StaffID</span>
-              <input type ="text" class="form-control" value='<?php echo $StaffID; ?>' >
+              <input type ="text" class="form-control" value='<?php echo $StaffID; ?>' readonly>
         </div>
         <div class="input-group-prepend col-sm-4">
           <span class="block input-group-text">Start Date</span>
-              <input type="text" class="form-control" value='<?php echo $StartDate; ?>' >
+              <input type="text" class="form-control" value='<?php echo $StartDate; ?>' readonly>
         </div>
     	<div class="col-sm-4 ">
         </div>
@@ -130,7 +130,7 @@
         </div>
     	<div class="input-group-prepend col-sm-4">
          	<span class="block input-group-text">Gender</span>
-       		<input type="text" class="form-control" value='<?php echo $Gender; ?>' >
+       		<input type="text" class="form-control" value='<?php echo $Gender; ?>' readonly>
         </div>
       </div>
     
@@ -138,15 +138,15 @@
       <div class=" mx-auto pt-4 row input-group">
          <div class=" input-group-prepend col-sm-4">
           <span class="block input-group-text">CitizenID</span>
-              <input type="text" class="form-control" value='<?php echo $CitizenID; ?>' >
+              <input type="text" class="form-control" value='<?php echo $CitizenID; ?>' readonly>
         </div>
         <div class="input-group-prepend col-sm-4">
           <span class="block input-group-text">Birth Date</span>
-              <input type="text" class="form-control" value='<?php echo $DOB; ?>' >
+              <input type="text" class="form-control" value='<?php echo $DOB; ?>' readonly>
         </div>
     	<div class="input-group-prepend col-sm-4 ">
-         	<span class="block input-group-text">Age</span> <!-- แก้เป็นคำนวณ -->
-       		<input type="text" class="form-control" value='<?php echo $Age; ?>' >
+         	<span class="block input-group-text">Age</span>
+       		<input type="text" class="form-control" value='<?php echo $Age; ?>' readonly>
         </div>
       </div>
       
@@ -181,11 +181,11 @@
         </div>
         <div class="input-group-prepend col-sm-4">
           <span class="block input-group-text">TaxID</span>
-              <input type="text" class="form-control" value='<?php echo $TaxID; ?>' >
+              <input type="text" class="form-control" value='<?php echo $TaxID; ?>' readonly>
         </div>
       	<div class="input-group-prepend col-sm-4 ">
          	<span class="block input-group-text">InsuranceID</span>
-       		<input type="text" class="form-control" value='<?php echo $InsuranceID; ?>' >
+       		<input type="text" class="form-control" value='<?php echo $InsuranceID; ?>' readonly>
         </div>
       </div>
 
@@ -224,8 +224,6 @@
                                     "</td><td class='text-center'> <button type ='submit' class='btn btn-danger  btn-sm' name='delete' id='delete'  value=".$row2['GraduationDate']."|".$row2['Levels']." >delete</button>
                                     </td></tr>";
                                 }
-                                echo "</table>";
-                                echo $result->fetch_assoc();
                             } else { echo "0 results"; }
                             $con->close();
                             ?>
@@ -248,7 +246,7 @@
                                      <script type="text/javascript"> <!-- auto complete box -->
                                          var DegreeID = [
                                             <?php
-                                                $province = "";
+                                                $DegreeID = "";
                                                 while ($result = $query->fetch_assoc()) {
                                                      $DegreeID .= "'" . $result['DegreeID'] . "',";
                                                 }
@@ -261,7 +259,7 @@
                                              });
                                          });
                                      </script> <!-- auto complete box -->
-                                <td id="Graduation_Date" class="text-center"><input type="date" name="Graduation_Date" value="<?php echo date('Y-m-d'); ?>"></td>
+                                <td id="Graduation_Date" class="text-center"><input type="date" name="Graduation_Date" /></td>
                                 <td class="text-center"> <button type ="submit" class="btn btn-success btn-sm" name="add" id="add">Add</button> </td>
                             </tr>
                             
@@ -273,19 +271,28 @@
     
     <div class="row pt-5">
     	<div class="col text-center">
-            <button type ="button" class="btn btn-success">Previous</button>
     		<button type ="submit" class="btn btn-success" name="done" id="done" >Done</button>
-            <button type ="button" class="btn btn-success">Next</button>
         </div>
     </div>
 </form>
                   <?php
-                        if( isset($_GET['delete']) )
+                        if( isset($_POST['delete']) )
             			{
                                 include('connectDB.php'); 
-                                list($gradDate, $Levels) = explode("|", $_GET['delete']);
-                        $sql = "DELETE FROM EducationalHistory WHERE StaffID='$StaffID' AND GraduationDate='$gradDate' AND Levels='$Levels' ";//อาจจะแก้เป็นกด done แล้วค่อยลบ จะแก้ถ้าเวลาเหลือ
-                        $con->query($sql);                        
+                                list($gradDate, $Levels) = explode("|", $_POST['delete']);
+                                  if($Levels=="High")
+                                    $Levels='High School' ;
+                                                          
+                                $sql0 = "SELECT No FROM EducationalHistory WHERE StaffID='$StaffID' AND GraduationDate=STR_TO_DATE('$gradDate','%Y-%m-%d') AND Levels='$Levels' ";
+                                $result =$con->query($sql0); 
+                                while ($row = $result->fetch_assoc()) {
+                                    $No = $row["No"];
+                                }
+
+                                    $sql = "DELETE FROM EducationalHistory WHERE StaffID='$StaffID' AND GraduationDate=STR_TO_DATE('$gradDate','%Y-%m-%d') AND Levels='$Levels' ";
+                        $con->query($sql);    
+                        $sql0 = "UPDATE EducationalHistory SET No=(No-1) WHERE StaffID='$StaffID' AND No>'$No' ";
+                        $con->query($sql0);                      
                         $con->close();
                        echo "
                               <script>
@@ -293,16 +300,16 @@
                                 window.location.href='EmInEdit.php';
                             </script>";
                         }
-                  		if( isset($_GET['done']) )
+                  		if( isset($_POST['done']) )
             			{
                                 include('connectDB.php'); 
-                                $F_Name = $_GET["F_Name"];
-                                $L_Name = $_GET["L_Name"];
-                                $MaritalStatus = $_GET["MaritalStatus"];
-                                $TelephoneNo = $_GET["TelephoneNo"];
-                                $AccountNo = $_GET["AccountNo"];
-                                $Email = $_GET["Email"];
-                                $Address = $_GET["Address"];
+                                $F_Name = $_POST["F_Name"];
+                                $L_Name = $_POST["L_Name"];
+                                $MaritalStatus = $_POST["MaritalStatus"];
+                                $TelephoneNo = $_POST["TelephoneNo"];
+                                $AccountNo = $_POST["AccountNo"];
+                                $Email = $_POST["Email"];
+                                $Address = $_POST["Address"];
                                 
                                $sql = "UPDATE EmployeeInfo SET F_Name='$F_Name' ,L_Name='$L_Name' ,MaritalStatus='$MaritalStatus',TelephoneNo='$TelephoneNo',Email='$Email',Address='$Address',AccountNo='$AccountNo' WHERE StaffID='$StaffID' ";
                                $con->query($sql);                        
@@ -313,14 +320,39 @@
                                 window.location.href='EmployeeInfo.php';
                             </script>";
                         }
-                        if(isset($_GET['add']) )
+                        if(isset($_POST['add']) )
                         {
-                            $Levels = $_GET['Levels'];
-                            $Degree = $_GET['Degree'];
-                            $Graduation_Date = $_GET['Graduation_Date'];
+                            $Levels = $_POST['Levels'];
+                            $Degree = $_POST['Degree'];
+                            $Graduation_Date = $_POST['Graduation_Date'] ; 
+                            if($Graduation_Date==""){
+                                echo "
+                              <script>
+                                alert('No Graduation Date was filled in !!!');
+                            </script>";
+                            }else if($Degree ==""&& $Levels!="High School"){
+                                echo "
+                              <script>
+                                alert('No Degree was filled in !!!!!');
+                            </script>";
+                            }
+                            else
+                            {
+
                             include('connectDB.php'); 
-                                
-                            $sql = "INSERT INTO educationalhistory VALUES ('$StaffID',STR_TO_DATE('$Graduation_Date','%Y-%m-%d'),'$Degree','$Levels')";//อาจจะแก้เป็นกด done แล้วค่อยเพิ่ม จะแก้ถ้าเวลาเหลือ
+                            
+                            // ใช้เวลา insert ค่า
+                        $sql = "SELECT MAX(No) AS maxNo FROM educationalhistory WHERE StaffID='$StaffID' LIMIT 1";
+                        $result = $con->query($sql);
+                        if ($result->num_rows > 0) {
+                            while($row2 = $result->fetch_assoc()) {
+                              $maxNo=$row2["maxNo"];
+                            }
+                        }
+                             if($Degree ==""&& $Levels=="High School")   
+                                 $sql = "INSERT INTO educationalhistory VALUES ('$StaffID','$maxNo'+1,STR_TO_DATE('$Graduation_Date','%Y-%m-%d'),NULL,'$Levels')";
+                             else 
+                                 $sql = "INSERT INTO educationalhistory VALUES ('$StaffID','$maxNo'+1,STR_TO_DATE('$Graduation_Date','%Y-%m-%d'),'$Degree','$Levels')";
                             $con->query($sql);                        
                            $con->close();
 
@@ -329,6 +361,7 @@
                                 alert('add education history!!!');
                                 window.location.href='EmInEdit.php';
                             </script>";
+                            }
                         }
                     ?>
 
