@@ -241,6 +241,8 @@ CREATE TABLE MonthlyPaySlip (
 	PositionJobID 			char(3) 			NOT NULL,
 	DepartmentID 		char(3) 			NOT NULL,
 	PayDate 			DATE 				NOT NULL,
+	GrossIncome         int                 NOT NULL,
+	TotalDeDuction      int                 NOT NULL,
     CONSTRAINT			PK_MonthlyPaySlip	PRIMARY KEY (PayrollNo),
     CONSTRAINT			FK_MPS_EI			FOREIGN KEY (StaffID) 			
 											REFERENCES EmployeeInfo(StaffID),
