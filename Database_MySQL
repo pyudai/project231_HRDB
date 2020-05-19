@@ -219,7 +219,7 @@ CREATE TABLE PromotionalHistory (
 	PerformanceReviewDate 	DATE 					NOT NULL,
 	PromotionDate 			DATE 					NOT NULL,
 	SuperVisorName 			varchar(70) 			NOT NULL,
-    CONSTRAINT				PK_PromotionalHistory	PRIMARY KEY (StaffID, PositionJobID),
+    CONSTRAINT				PK_PromotionalHistory	PRIMARY KEY (StaffID, PositionJobID,PerformanceReviewDate),
     CONSTRAINT				FK_PH_EI				FOREIGN KEY (StaffID) 							
 													REFERENCES EmployeeInfo(StaffID),
     CONSTRAINT				FK_PH_P					FOREIGN KEY (PositionJobID) 						
