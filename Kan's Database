@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: 19 พ.ค. 2020 เมื่อ 05:30 PM
+-- เวอร์ชันของเซิร์ฟเวอร์: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -12,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `hr_database`
 --
-CREATE DATABASE IF NOT EXISTS `hr_database` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `hr_database`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +33,12 @@ CREATE TABLE `absent` (
   `StaffID` char(6) NOT NULL,
   `AbsentDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `absent`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
 
 --
 -- dump ตาราง `absent`
@@ -56,6 +69,10 @@ CREATE TABLE `course` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- RELATIONSHIPS FOR TABLE `course`:
+--
+
+--
 -- dump ตาราง `course`
 --
 
@@ -78,6 +95,12 @@ CREATE TABLE `dailytimecard` (
   `TimeIn` time NOT NULL,
   `TimeOut` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `dailytimecard`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
 
 --
 -- dump ตาราง `dailytimecard`
@@ -105,6 +128,10 @@ CREATE TABLE `deductioncode` (
   `DescriptionDed` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- RELATIONSHIPS FOR TABLE `deductioncode`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -116,6 +143,10 @@ CREATE TABLE `degree` (
   `DegreeName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- RELATIONSHIPS FOR TABLE `degree`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +157,10 @@ CREATE TABLE `department` (
   `DepartmentID` char(3) NOT NULL,
   `Department_Name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `department`:
+--
 
 --
 -- dump ตาราง `department`
@@ -160,6 +195,14 @@ CREATE TABLE `educationalhistory` (
   `Levels` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- RELATIONSHIPS FOR TABLE `educationalhistory`:
+--   `DegreeID`
+--       `degree` -> `DegreeID`
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -170,6 +213,10 @@ CREATE TABLE `employeebenefits` (
   `BenefitCode` char(4) NOT NULL,
   `BeniefitsDescription` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `employeebenefits`:
+--
 
 -- --------------------------------------------------------
 
@@ -183,6 +230,14 @@ CREATE TABLE `employeededuction` (
   `AmountDed` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- RELATIONSHIPS FOR TABLE `employeededuction`:
+--   `DeductionCode`
+--       `deductioncode` -> `DeductionCode`
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -194,6 +249,14 @@ CREATE TABLE `employeeincome` (
   `IncomeCode` char(4) NOT NULL,
   `Amountin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `employeeincome`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--   `IncomeCode`
+--       `incomecode` -> `IncomeCode`
+--
 
 -- --------------------------------------------------------
 
@@ -217,6 +280,10 @@ CREATE TABLE `employeeinfo` (
   `Gender` char(1) NOT NULL,
   `Address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `employeeinfo`:
+--
 
 --
 -- dump ตาราง `employeeinfo`
@@ -244,6 +311,14 @@ CREATE TABLE `employeeskill` (
   `StaffID` char(6) NOT NULL,
   `SkillID` char(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `employeeskill`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--   `SkillID`
+--       `skill` -> `SkillID`
+--
 
 --
 -- dump ตาราง `employeeskill`
@@ -278,6 +353,12 @@ CREATE TABLE `familymember` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- RELATIONSHIPS FOR TABLE `familymember`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
+
+--
 -- dump ตาราง `familymember`
 --
 
@@ -299,6 +380,10 @@ CREATE TABLE `incomecode` (
   `DescriptionIn` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- RELATIONSHIPS FOR TABLE `incomecode`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -316,6 +401,24 @@ CREATE TABLE `monthlypayslip` (
   `TCDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- RELATIONSHIPS FOR TABLE `monthlypayslip`:
+--   `AbsentNo`
+--       `absent` -> `AbsentNo`
+--   `DepartmentID`
+--       `department` -> `DepartmentID`
+--   `StaffID`
+--       `dailytimecard` -> `StaffID`
+--   `TCDate`
+--       `dailytimecard` -> `TCDate`
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--   `PositionJobID`
+--       `positionjob` -> `PositionJobID`
+--   `VacationNo`
+--       `vacation` -> `VacationNo`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -330,6 +433,12 @@ CREATE TABLE `performancereview` (
   `QualityofWork` char(1) NOT NULL,
   `Comments` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `performancereview`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
 
 --
 -- dump ตาราง `performancereview`
@@ -357,6 +466,10 @@ CREATE TABLE `positionjob` (
   `PositionJobName` varchar(50) NOT NULL,
   `StartSalary` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `positionjob`:
+--
 
 --
 -- dump ตาราง `positionjob`
@@ -395,6 +508,20 @@ CREATE TABLE `promotionalhistory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- RELATIONSHIPS FOR TABLE `promotionalhistory`:
+--   `DepartmentID`
+--       `department` -> `DepartmentID`
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--   `PositionJobID`
+--       `positionjob` -> `PositionJobID`
+--   `StaffID`
+--       `performancereview` -> `StaffID`
+--   `PerformanceReviewDate`
+--       `performancereview` -> `PerformanceReviewDate`
+--
+
+--
 -- dump ตาราง `promotionalhistory`
 --
 
@@ -417,6 +544,10 @@ CREATE TABLE `skill` (
   `SkillName` varchar(20) NOT NULL,
   `SkillDescription` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `skill`:
+--
 
 --
 -- dump ตาราง `skill`
@@ -457,6 +588,14 @@ CREATE TABLE `traininghistory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- RELATIONSHIPS FOR TABLE `traininghistory`:
+--   `CourseID`
+--       `course` -> `CourseID`
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
+
+--
 -- dump ตาราง `traininghistory`
 --
 
@@ -468,7 +607,7 @@ INSERT INTO `traininghistory` (`TrainingNo`, `StaffID`, `CourseID`, `Result`) VA
 (100021, '100235', 'JP2', 0),
 (100022, '104582', 'JP2', 0),
 (100023, '100436', 'JP2', 0),
-(100024, '100001', 'JP1', 8);
+(100024, '100001', 'JP1', 0);
 
 -- --------------------------------------------------------
 
@@ -484,6 +623,12 @@ CREATE TABLE `vacation` (
   `VDateEnd` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- RELATIONSHIPS FOR TABLE `vacation`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -494,6 +639,14 @@ CREATE TABLE `welfare` (
   `StaffID` char(6) NOT NULL,
   `BenefitCode` char(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `welfare`:
+--   `BenefitCode`
+--       `employeebenefits` -> `BenefitCode`
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
 
 -- --------------------------------------------------------
 
@@ -510,6 +663,12 @@ CREATE TABLE `workhistory` (
   `HistoryPositionJob` varchar(20) NOT NULL,
   `ExitInterview` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `workhistory`:
+--   `StaffID`
+--       `employeeinfo` -> `StaffID`
+--
 
 --
 -- Indexes for dumped tables
@@ -789,3 +948,7 @@ ALTER TABLE `welfare`
 ALTER TABLE `workhistory`
   ADD CONSTRAINT `FK_WH_EI` FOREIGN KEY (`StaffID`) REFERENCES `employeeinfo` (`StaffID`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
