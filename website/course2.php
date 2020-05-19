@@ -107,11 +107,10 @@
                         if ($Date == 'ALL') {
                             $sql2 = "SELECT * FROM course ORDER BY EvaluateDate"; 
                         } else {
-                            $check = 1;
                             $sql2 = "SELECT * FROM course WHERE EvaluateDate = '$Date' ORDER BY EvaluateDate";  
                         }  
                     } else {
-                        $sql2 = "SELECT * FROM course WHERE EvaluateDate = '$Date' ORDER BY EvaluateDate"; 
+                        $sql2 = "SELECT * FROM course ORDER BY StartCourse "; 
                     }
                 ?>
         <?php 
