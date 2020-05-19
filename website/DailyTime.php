@@ -48,7 +48,10 @@
         .topnav a.picture{
             float:left;
         }
-
+        .table {
+                margin: auto;
+                width: 80% !important; 
+        }
         
         </style>
     </head>
@@ -63,6 +66,8 @@
             if (mysqli_connect_error()) {
                 echo "Failed to Connect to MySQL : " . mysqli_connect_error();
             }
+            $check_stage = 0;
+            $late = 0;
         ?>
 
         <form class="container-fluid ">
@@ -94,18 +99,33 @@
                             <?php endwhile;?>
                         </select>
                     </div>
-                    <input value="submit" type ="submit" name="submit" class="btn btn-lg btn-success" style="transform:translateX(105%);">
+
+                    <div class="input-group-prepend col-sm-3">
+                        <span class="block input-group-text">Date</span>
+                        <select id="enddate" name="enddate"  class="selectpicker" data-live-search="true">
+                            <option value="0"> - </option>
+                            <?php
+                                $sql2 = "SELECT * FROM dailytimecard GROUP BY TCDate";
+                                $result2 = mysqli_query($con, $sql2);
+                                while($row2 = $result2->fetch_assoc()):
+                            ?>
+                            <option><?php echo $row2["TCDate"];?></option>
+                            <?php endwhile;?>
+                        </select>
+                    </div>
+                    <input value="submit" type ="submit" name="submit" class="btn btn-md btn-success" >
                 </div>
             </div>
-            
+            <br>
             <div>
                 <table class="table table-bordered">
                     <thead>
                         <tr class="title text-center">
-                            <th>StaffID</th>
-                            <th>Date</th>
-                            <th>Time IN</th>
-                            <th>Time OUT</th>
+                            <th style="width : 15%;">StaffID</th>
+                            <th style="width : 20%;">Date</th>
+                            <th style="width : 15%;">Time IN</th>
+                            <th style="width : 15%;">Time OUT</th>
+                            <th style="width : 15%;">On time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -113,41 +133,65 @@
                             if (isset($_GET['submit'])) {
                                 $depart = $_GET['depart'];
                                 $tcdate = $_GET['tcdate'];
-                                //echo $depart;
-                                //echo $tcdate;
-                                if ($tcdate == 'ALL' AND $depart == 'ALL') {
+                                $enddate = $_GET['enddate'];
+                                if ($tcdate == 'ALL' AND $depart == 'ALL' AND $enddate == 0) {
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard ORDER BY TCDate DESC, TimeIn, TimeOut"; 
-                                } elseif ($tcdate != 'ALL' AND $depart == 'ALL') {
+                                } elseif ($tcdate != 'ALL' AND $depart == 'ALL' AND $enddate == 0) {
+                                    $check_stage = 1;
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard WHERE TCDate = '$tcdate' ORDER BY TCDate DESC, TimeIn, TimeOut";
-                                } elseif ($depart != 'ALL' AND $tcdate == 'ALL') {
+                                } elseif ($tcdate != 'ALL' AND $depart == 'ALL' AND $enddate != 0) {
+                                    $check_stage = 2;
+                                    $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard WHERE TCDate BETWEEN '$tcdate' AND '$enddate' ORDER BY TCDate DESC, TimeIn, TimeOut";
+                                } elseif ($depart != 'ALL' AND $tcdate == 'ALL' AND $enddate == 0) {
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard WHERE StaffID IN
-                                    (SELECT StaffID FROM promotionalhistory p, department d WHERE p.DepartmentID = d.DepartmentID AND d.Department_Name = '$depart') ORDER BY TCDate DESC, TimeIn, TimeOut"; //Not finish
+                                    (SELECT StaffID FROM promotionalhistory p, department d WHERE p.DepartmentID = d.DepartmentID AND d.Department_Name = '$depart') 
+                                    ORDER BY TCDate DESC, TimeIn, TimeOut"; 
                                 } else {
+                                    $check_stage = 3;
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard WHERE TCDate = '$tcdate' AND StaffID IN
-                                    (SELECT StaffID FROM promotionalhistory p, department d WHERE p.DepartmentID = d.DepartmentID AND d.Department_Name = '$depart') ORDER BY TCDate DESC"; //Not finish
+                                    (SELECT StaffID FROM promotionalhistory p, department d WHERE p.DepartmentID = d.DepartmentID AND d.Department_Name = '$depart') 
+                                    ORDER BY TCDate DESC"; 
                                 }
                                 
                             } else {
                                 $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard ORDER BY TCDate DESC, TimeIn, TimeOut";
                             }
                             $result = $con->query($sql);
+                            $check_time = date("09:00:00");
+                            
                             if ($result->num_rows > 0) {
-                            // output data of each row
-                                while($row2 = $result->fetch_assoc()) {
-                                    
-                                    echo "<tr><td>" . $row2["StaffID"]. "</td><td>" . $row2["TCDate"]. "</td><td>" 
-                                    . $row2["TimeIn"]. "</td><td>" . $row2["TimeOut"]. 
-                                    
-                                    "</td></tr>";
+                                while($row = $result->fetch_assoc()) {
+                                    $time = $row['TimeIn'];
+                                    //echo $time. " ". gettype($time). " ". $check_time;
+                                    if ($time > $check_time) {
+                                        $late = $late + 1;
+                                        echo "<tr class='text-center'><td>". $row["StaffID"]. "</td><td>". $row["TCDate"]. "</td><td>". 
+                                        $row["TimeIn"]. "</td><td>". $row["TimeOut"]. "</td><td>" ?>
+                                        <img src="fault.png" class="rounded mx-auto d-block" style="width: 12%; height: 4.8%;" >
+                                     <?php "</td></tr>";
+                                    } else {
+                                        echo "<tr class='text-center'><td>". $row["StaffID"]. "</td><td>". $row["TCDate"]. "</td><td>". 
+                                        $row["TimeIn"]. "</td><td>". $row["TimeOut"]. "</td><td>" ?> 
+                                        <img src="correct_logo.png" class="rounded mx-auto d-block" style="width: 15.2; height: 6.8%;" >
+                                    <?php "</td></tr>";
+                                    }
                                 }
                                 echo "</table>";
-                            } else { echo "0 results"; }
+                            } else { echo '<h4 style="margin: auto; width: 10%;"><span class="badge badge-info"> No Data </span></h4> <br>'; }
                             $con->close();
                         ?>
                     </tbody>    
                 </table>
+                <br>
+                <?php if ($late > 0 AND $check_stage > 0) { ?>
+                    <h3 class="float-right"><a class="h1 badge badge-info">
+                        LATE : <span class="badge badge-light"><?PHP echo $late;?></span>
+                    </a></h3>
+                <?php }
+                ?>
+                
             </div>
-            <a class="nav-link" href="HOME.php">back</a>
+            <a class="btn btn-success" href="HOME.php" role="button">BACK</a>
         </form>
     </body>
 </html>
