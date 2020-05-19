@@ -233,8 +233,14 @@ if(isset($_GET['add'])) {
                             EndCourse,EvaluateDate)
                                     VALUES ('$CourseID', '$CourseName', '$Description', '$StartDate',
                                     '$EndDate','NULL')";
+                                echo "
+                                  <script>
+                                    alert('add course!');
+                                    window.location.href='course2.php';
+                                </script>";
+
                             if ($con->query($sql) === TRUE) {
-                                echo "New record in course created successfully";
+                                //echo "New record in course created successfully";
                             } else {
                                 echo "Error: " . $sql . "<br>" . $con->error;
                                 $con->close();
