@@ -13,9 +13,6 @@ session_start();
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/> <!-- auto complete box -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> <!-- auto complete box -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> <!-- auto complete box -->
     <style>
     
         body{
@@ -194,9 +191,6 @@ session_start();
         <div class ="col-8 pt-4 pl-5">
             <b style="font-size:20px;">Educational History</b>
         </div>        
-        <!-- <div class ="col-3 pt-4 pl-5">
-            <button type ="submit" class="btn btn-success btn-sm" name="add">Add Educational History</button>
-        </div>    อาจจะทำ ขอแก้แบบโง่ๆไปก่อน-->
     </div>
     
     <div class="row justify-content-center">
@@ -211,16 +205,20 @@ session_start();
                             
                         </tr>
                     </thead>
-                    <tbody class="tb">
+                    <tbody class="tb text-center" >
                         <?php include('connectDB.php'); 
-                                $sql = "SELECT Levels, DegreeID, GraduationDate FROM EducationalHistory WHERE StaffID='$StaffID' ORDER BY GraduationDate";
+                                $sql = "SELECT Levels, e.DegreeID, GraduationDate,DegreeName FROM EducationalHistory e LEFT JOIN Degree d ON e.DegreeID=d.DegreeID WHERE StaffID='$StaffID' ORDER BY GraduationDate";
                             $result = $con->query($sql);
                             if ($result->num_rows > 0) {
                             // output data of each row
                                 while($row2 = $result->fetch_assoc()) {
                                     
-                                    echo "<tr><td class='text-center'></td><td>" . $row2["Levels"]. "</td><td>" 
-                                    . $row2["DegreeID"]. "</td><td>" . $row2["GraduationDate"].
+                                    echo "<tr><td></td><td>" . $row2["Levels"]. "</td><td>";
+                                    if($row2["Levels"] != "High School")
+                                        echo $row2["DegreeName"]." (". $row2["DegreeID"]. ")</td>";
+                                    else
+                                        echo "-</td>";
+                                    echo "<td>" . $row2["GraduationDate"].
                                     "</td><td class='text-center'> <button type ='submit' class='btn btn-danger  btn-sm' name='delete' id='delete'  value=".$row2['GraduationDate']."|".$row2['Levels']." >delete</button>
                                     </td></tr>";
                                 }
@@ -237,28 +235,21 @@ session_start();
                                         <option>Doctor</option>
                                     </select>
                                 </td>
-                                <td class="text-center"><input type="text" name="Degree" id="Degree"></td>
+                                <td class="text-center"><select class="form-control selectpicker" name="Degree" id="Degree" data-live-search="true">
+                                    <option value=""> - </option>
                                     <?php
                                         include('connectDB.php'); 
                                         $sql = "SELECT * FROM Degree";
                                         $query = $con->query($sql);
-                                    ?>
-                                     <script type="text/javascript"> <!-- auto complete box -->
-                                         var DegreeID = [
-                                            <?php
-                                                $DegreeID = "";
-                                                while ($result = $query->fetch_assoc()) {
-                                                     $DegreeID .= "'" . $result['DegreeID'] . "',";
-                                                }
-                                                echo rtrim($DegreeID, ",");
-                                            ?>
-                                         ];
-                                         $(function () {
-                                             $("input#Degree").autocomplete({
-                                                 source: DegreeID
-                                             });
-                                         });
-                                     </script> <!-- auto complete box -->
+                                        $result = mysqli_query($con, $sql);
+                                            while($row = $result->fetch_assoc()):
+                                        ?>
+                                        <option value="<?php echo $row['DegreeID'];?>"><?php echo $row["DegreeName"]." (".$row["DegreeID"].")";?></option>
+                                        <?php endwhile; 
+                                        $con->close();
+                                        ?>
+                                        </select>
+                                </td>
                                 <td id="Graduation_Date" class="text-center"><input type="date" name="Graduation_Date" /></td>
                                 <td class="text-center"> <button type ="submit" class="btn btn-success btn-sm" name="add" id="add">Add</button> </td>
                             </tr>
