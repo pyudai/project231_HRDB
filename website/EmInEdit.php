@@ -79,7 +79,7 @@ session_start();
         <a class="picture"><img src="centar.png"></a>
     </div>
     
-    <?php include('connectDB.php'); //ยังไม่ได้แก้กัน input เป็น input ได้บางอันด้วย
+    <?php include('connectDB.php');
                     $StaffID =  $_SESSION['StaffID'];
                     $sql0 = "SELECT *,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(), dob)), '%Y')+0 AS age  FROM EmployeeInfo WHERE StaffID='$StaffID' LIMIT 1";
                     $result = mysqli_query($con, $sql0);
