@@ -100,34 +100,15 @@
 				
 				<div class="col input-group col-3">
 					<span class="block input-group-text">Timesheet</span>
-					<select name="timesheet" class="form-control selectpicker" id="timesheet"  data-live-search="true" >
-						<option>ALL</option>
-						
-						<?php
-                        $sql0 = "SELECT * FROM absent GROUP BY AbsentDAte";
-                        $result0 = mysqli_query($con, $sql0);
-                        while($row0 = $result0->fetch_assoc()):
-						?>
-						<option value="<?php echo $row0["AbsentDate"];?>"><?php echo $row0["AbsentDate"];?></option>
-						<?php endwhile;?>
-
+					
+						<input id="timesheet" name="timesheet" type="date" class="form-control">
 					</select>
 				</div>
 
 				<div class="col input-group col-2">
 					<span class="block input-group-text">To</span>
-					<select name="to_end" class="form-control selectpicker" id="to_end"  data-live-search="true" >
-						<option value="0"> - </option>
-						
-						<?php
-                        $sql1 = "SELECT * FROM absent GROUP BY AbsentDAte";
-                        $result1 = mysqli_query($con, $sql1);
-                        while($row1 = $result1->fetch_assoc()):
-						?>
-						<option value="<?php echo $row1["AbsentDate"];?>"><?php echo $row1["AbsentDate"];?></option>
-						<?php endwhile;?>
-
-					</select>
+					
+					<input id="to_end" name="to_end" type="date" class="form-control">
 				</div>
 				<input name="submit" type="submit" class="btn btn-md btn-success" id="submit" value="submit">
 			</div>		
@@ -152,16 +133,16 @@
 									$timesheet = $_GET['timesheet'];
 									$endtime = $_GET['to_end'];
 									//echo $timesheet. " ". $endtime;
-									if ($depart == 'ALL' AND $timesheet == 'ALL' AND $endtime == 0) { 
+									if ($depart == 'ALL' AND $timesheet == NULL AND $endtime == NULL) { 
 										$sql = "SELECT *, COUNT(*) AS sumAbsent FROM absent GROUP BY StaffID ORDER BY sumAbsent DESC, StaffID;"; 
-									} elseif ($depart != 'ALL' AND $timesheet == 'ALL' AND $endtime == 0) {
+									} elseif ($depart != 'ALL' AND $timesheet == NULL AND $endtime == NULL) {
 										$sql = "SELECT * , COUNT(*) AS sumAbsent FROM absent WHERE StaffID IN
 										(SELECT StaffID FROM promotionalhistory p, department d WHERE p.DepartmentID = d.DepartmentID AND d.Department_Name = '$depart')
 										GROUP BY StaffID ORDER BY sumAbsent DESC, StaffID;";
-									} elseif ($depart == 'ALL' AND $timesheet != 'ALL' AND $endtime == 0) {
+									} elseif ($depart == 'ALL' AND $timesheet != NULL AND $endtime == NULL) {
 										$sql = "SELECT *, COUNT(*) AS sumAbsent FROM absent WHERE Absentdate = '$timesheet' GROUP BY StaffID 
 										ORDER BY sumAbsent DESC, StaffID;";
-									} elseif ($depart == 'ALL' AND $timesheet != 'ALL' AND $endtime != 0) {
+									} elseif ($depart == 'ALL' AND $timesheet != NULL AND $endtime != NULL) {
 										$sql = "SELECT *, COUNT(*) AS sumAbsent FROM absent WHERE Absentdate BETWEEN '$timesheet' AND '$endtime' 
 										GROUP BY StaffID ORDER BY sumAbsent DESC, StaffID;";
 									} else {
