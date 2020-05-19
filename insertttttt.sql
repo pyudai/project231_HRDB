@@ -85,17 +85,17 @@
 
 
 
-	INSERT INTO COURSE VALUES ('EN1','English for Communication 1',' This course emphasizes the fundamental English language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('EN2','English for Communication 2',' This course emphasizes the intermediate English language skills of reading, writing, speaking',STR_TO_DATE('11-12-2019','%d-%m-%Y'),STR_TO_DATE('25-12-2019','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('CN1','Chinese for Communication 1','This course emphasizes the fundamental Chinese language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('20-12-2019','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('CN2','Chinene for Communication 2','This course emphasizes the intermediate Chinese language skills of reading, writing, speaking',STR_TO_DATE('10-01-2020','%d-%m-%Y'),STR_TO_DATE('10-02-2020','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('15-02-2020','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking',STR_TO_DATE('20-02-2020','%d-%m-%Y'),STR_TO_DATE('10-04-2020','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('SP2','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('31-01-2020','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals',STR_TO_DATE('16-01-2020','%d-%m-%Y'),STR_TO_DATE('17-01-2020','%d-%m-%Y'));
- 	INSERT INTO COURSE VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills',STR_TO_DATE('16-03-2020','%d-%m-%Y'),STR_TO_DATE('18-03-2020','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills',STR_TO_DATE('25-02-2020','%d-%m-%Y'),STR_TO_DATE('27-02-2020','%d-%m-%Y'));
+	INSERT INTO COURSE VALUES ('EN1','English for Communication 1',' This course emphasizes the fundamental English language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'),STR_TO_DATE('25-12-2019','%d-%m-%Y'));
+	INSERT INTO COURSE VALUES ('EN2','English for Communication 2',' This course emphasizes the intermediate English language skills of reading, writing, speaking',STR_TO_DATE('11-12-2019','%d-%m-%Y'),STR_TO_DATE('25-12-2019','%d-%m-%Y'),STR_TO_DATE('28-12-2019','%d-%m-%Y'));
+	INSERT INTO COURSE VALUES ('CN1','Chinese for Communication 1','This course emphasizes the fundamental Chinese language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('20-12-2019','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('CN2','Chinese for Communication 2','This course emphasizes the intermediate Chinese language skills of reading, writing, speaking',STR_TO_DATE('10-01-2020','%d-%m-%Y'),STR_TO_DATE('10-02-2020','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('15-02-2020','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking',STR_TO_DATE('20-02-2020','%d-%m-%Y'),STR_TO_DATE('10-04-2020','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('SP2','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('31-01-2020','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals',STR_TO_DATE('16-01-2020','%d-%m-%Y'),STR_TO_DATE('17-01-2020','%d-%m-%Y'),'');
+ 	INSERT INTO COURSE VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills',STR_TO_DATE('16-03-2020','%d-%m-%Y'),STR_TO_DATE('18-03-2020','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills',STR_TO_DATE('25-02-2020','%d-%m-%Y'),STR_TO_DATE('27-02-2020','%d-%m-%Y'),'');
 
 
 
