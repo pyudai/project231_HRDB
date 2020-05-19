@@ -226,8 +226,6 @@ CREATE TABLE PromotionalHistory (
 													REFERENCES PositionJob(PositionJobID),
     CONSTRAINT				FK_PH_D					FOREIGN KEY (DepartmentID)
 							 						REFERENCES Department(DepartmentID),
-    CONSTRAINT				FK_PH_TH				FOREIGN KEY (TrainingNo) 
-													REFERENCES TrainingHistory(TrainingNo),
     CONSTRAINT				FK_PH_PR				FOREIGN KEY (StaffID, PerformanceReviewDate) 
 													REFERENCES PerformanceReview(StaffID, PerformanceReviewDate)
 	);
