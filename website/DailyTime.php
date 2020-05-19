@@ -88,7 +88,7 @@
                     </div>
                     <div class="input-group-prepend col-sm-3">
                         <span class="block input-group-text">Date</span>
-                        <select id="tcdate" name="tcdate"  class="selectpicker" data-live-search="true">
+                        <!-- <select id="tcdate" name="tcdate"  class="selectpicker" data-live-search="true">
                             <option> ALL </option>
                             <?php
                                 $sql1 = "SELECT * FROM dailytimecard GROUP BY TCDate";
@@ -97,12 +97,13 @@
                             ?>
                             <option><?php echo $row1["TCDate"];?></option>
                             <?php endwhile;?>
-                        </select>
+                        </select> -->
+                        <input id="tcdate" name="tcdate" type="date" class="form-control">
                     </div>
 
-                    <div class="input-group-prepend col-sm-3">
-                        <span class="block input-group-text">Date</span>
-                        <select id="enddate" name="enddate"  class="selectpicker" data-live-search="true">
+                    <div class="input-group-prepend col-sm-2">
+                        <span class="block input-group-text">To</span>
+                        <!-- <select id="enddate" name="enddate"  class="selectpicker" data-live-search="true">
                             <option value="0"> - </option>
                             <?php
                                 $sql2 = "SELECT * FROM dailytimecard GROUP BY TCDate";
@@ -111,7 +112,8 @@
                             ?>
                             <option><?php echo $row2["TCDate"];?></option>
                             <?php endwhile;?>
-                        </select>
+                        </select> -->
+                        <input id="enddate" name="enddate" type="date" class="form-control">
                     </div>
                     <input value="submit" type ="submit" name="submit" class="btn btn-md btn-success" >
                 </div>
@@ -134,15 +136,16 @@
                                 $depart = $_GET['depart'];
                                 $tcdate = $_GET['tcdate'];
                                 $enddate = $_GET['enddate'];
-                                if ($tcdate == 'ALL' AND $depart == 'ALL' AND $enddate == 0) {
+                                echo $tcdate. " ". $enddate;
+                                if ($tcdate == NULL AND $depart == 'ALL' AND $enddate == NULL) {
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard ORDER BY TCDate DESC, TimeIn, TimeOut"; 
-                                } elseif ($tcdate != 'ALL' AND $depart == 'ALL' AND $enddate == 0) {
+                                } elseif ($tcdate != NULL AND $depart == 'ALL' AND $enddate == NULL) {
                                     $check_stage = 1;
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard WHERE TCDate = '$tcdate' ORDER BY TCDate DESC, TimeIn, TimeOut";
-                                } elseif ($tcdate != 'ALL' AND $depart == 'ALL' AND $enddate != 0) {
+                                } elseif ($tcdate != NULL AND $depart == 'ALL' AND $enddate != NULL) {
                                     $check_stage = 2;
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard WHERE TCDate BETWEEN '$tcdate' AND '$enddate' ORDER BY TCDate DESC, TimeIn, TimeOut";
-                                } elseif ($depart != 'ALL' AND $tcdate == 'ALL' AND $enddate == 0) {
+                                } elseif ($depart != 'ALL' AND $tcdate == NULL AND $enddate == NULL) {
                                     $sql = "SELECT StaffID, TCDate, TimeIn, TimeOut FROM dailytimecard WHERE StaffID IN
                                     (SELECT StaffID FROM promotionalhistory p, department d WHERE p.DepartmentID = d.DepartmentID AND d.Department_Name = '$depart') 
                                     ORDER BY TCDate DESC, TimeIn, TimeOut"; 
