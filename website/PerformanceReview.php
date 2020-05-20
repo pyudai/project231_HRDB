@@ -43,15 +43,15 @@
             if (mysqli_connect_error()) {
               echo "Failed to Connect to MySQL : " . mysqli_connect_error();
             }
-            $job = NULL;
-            $quantity = NULL;
-            $quality = NULL;
-            $comment = NULL;
             $staff = NULL;
             $supervisor = NULL;
             $supervisorName = NULL;
             $posit = NULL;
             $depart = NULL;
+            $job = 0;
+            $quality = 0;
+            $quantity = 0;
+            $comment = NULL;
         ?>
         
        
@@ -105,9 +105,8 @@
                 if (isset($_GET['submit2'])) {
                         $staff = $_GET['staff'];
                         $supervisor = $_GET['supervisor'];
-                        // echo "   ".$staff."  ";
                         if ($staff != 'SELECT') {
-                            $sql = "SELECT * FROM employeeinfo WHERE StaffID = '$staff'";  //Not finish
+                            $sql = "SELECT * FROM employeeinfo WHERE StaffID = '$staff'"; 
                         }  
                     } else {
                         $staff = 'All';
@@ -116,19 +115,13 @@
                     }
                     
                     $result = mysqli_query($con, $sql);
-                    //while($row = $result->fetch_assoc()):
-            ?>
-                    <?php //echo $row["StaffID"] ?>
-                    <?php //echo $row["F_Name"] ?>
-                    <?php //echo $row["L_Name"] ?>
-                <?php //endwhile;?>
                 
                     <?php $sql1 = "SELECT * FROM positionjob j, promotionalhistory h 
                     WHERE j.PositionJobID = h.PositionJobID AND h.StaffID = '$staff' ORDER BY h.PromotionDate DESC LIMIT  1;";
                         $result1 = mysqli_query($con, $sql1);
                         while($row1 = $result1->fetch_assoc()):
                     ?>              
-                    <?php //echo $row1["PositionJobName"];
+                    <?php 
                           $posit = $row1['PositionJobID'];?>
                     <?php endwhile;?>  
                     <?php $sql1 = "SELECT * FROM department j, promotionalhistory h 
@@ -136,14 +129,14 @@
                         $result1 = mysqli_query($con, $sql1);
                         while($row1 = $result1->fetch_assoc()):
                     ?>       
-                    <?php //echo $row1["Department_Name"];
+                    <?php
                           $depart = $row1['DepartmentID'];?>
                     <?php endwhile;?>  
                 <?php $sql1 = "SELECT * FROM employeeinfo WHERE StaffID = '$supervisor'";
                         $result1 = mysqli_query($con, $sql1);
                         while($row1 = $result1->fetch_assoc()):
                     ?>       
-                    <?php //echo $row1["StaffID"].' '.$row1["F_Name"].' '.$row1["L_Name"];
+                    <?php 
                           $supervisorName = $row1['F_Name']. ' '. $row1['L_Name'];?>
                     <?php endwhile;?>   
                 
@@ -248,41 +241,49 @@
                     </div> <br class="threeline">
                     <input value="submit" name="submit2" type ="submit" class="btn btn-lg btn-success" style="transform:translateX(805%);">
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="nav-link" href="HOME.php">back</a>
-                    </div> 
-                </div>
             
-                <?php
-                    
-                    echo $job. "   ". $quantity. "   ". $quality. "     ". $comment. "     ". $current_time. "     ".
-                    $staff. "     ". $supervisorName. "     ". $posit. "     ". $depart; ?>
                 <br>
                 <?php 
+                    $check1 = 0; 
+                    $check2 = 0;
+                    $job = 0;
+                    $quality = 0;
+                    $quantity = 0;
+                    $comment = NULL;
                     if(isset($_GET['submit2'])){
-                        //$staff = $_POST['staff'];
-                        //$supervisor = $_POST['supervisor'];
-                        if($staff != 0 && $supervisor != 0) {
+                        if($staff != 0 && $supervisor != 0 ) {
                             $job = $_GET['job'];
                             $quantity = $_GET['quantity'];
                             $quality = $_GET['quality'];
                             $comment = $_GET['comment'];
-                            $sql = "INSERT INTO performancereview (StaffID, PerformanceReviewDate, JobKnowledge, QuantityofWork, QualityofWork, Comments)
-                                    VALUES ('$staff', '$current_date', '$job', '$quantity', '$quality', '$comment')";
-                            if ($con->query($sql) === TRUE) {
-                                echo "New record in performancereview created successfully";
-                            } else {
-                                echo "Error: " . $sql . "<br>" . $con->error;
-                            }
+                            if($job != 0 AND $quality != 0 AND $quantity != 0 AND $comment != NULL) {
+                                $sql = "INSERT INTO performancereview (StaffID, PerformanceReviewDate, JobKnowledge, QuantityofWork, QualityofWork, Comments)
+                                        VALUES ('$staff', '$current_date', '$job', '$quantity', '$quality', '$comment')";
+                                if ($con->query($sql) === TRUE) {
+                                    $check1 = 1;
+                                } else {
+                                    $check1 = 0;
+                                }
 
-                            $sql = "INSERT INTO promotionalhistory (StaffID, PositionJobID, DepartmentID, PerformanceReviewDate, SuperVisorName)
-                                    VALUES ('$staff', '$posit', '$depart', '$current_date', '$supervisorName')";
-                            if ($con->query($sql) === TRUE) {
-                                echo "New record in promotionalhistory created successfully";
+                                $sql = "INSERT INTO promotionalhistory (StaffID, PositionJobID, DepartmentID, PerformanceReviewDate, PromotionDate, SuperVisorName)
+                                        VALUES ('$staff', '$posit', '$depart', '$current_date', NULL, '$supervisorName')";
+                                if ($con->query($sql) === TRUE) {
+                                    $check2 = 1;
+                                } else {
+                                    $check2 = 0;
+                                }
+
+                                if ($check1 == 1 AND $check2 == 1) {
+                                    echo "<script> alert('Result recorded'); </script>";
+                                } else {
+                                    echo "<script> alert('Error $check1 $check2'); </script>";
+                                }
                             } else {
-                                echo "Error: " . $sql . "<br>" . $con->error;
+                                echo "<script> alert('Please let us know about you thought for this staff.'); </script>";
                             }
+                            
+                        } else {
+                            echo "<script> alert('Choose Staff and Superviser'); </script>";
                         }
                         
 
@@ -291,6 +292,7 @@
                         
                     }                   
                 ?>
+                <a class="btn btn-success" href="HOME.php" role="button">BACK</a>
         </form>
     </body>
 </html>
