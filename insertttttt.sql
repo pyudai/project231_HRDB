@@ -85,18 +85,37 @@
 
 
 
-	INSERT INTO COURSE VALUES ('EN1','English for Communication 1',' This course emphasizes the fundamental English language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'),STR_TO_DATE('25-12-2019','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('EN2','English for Communication 2',' This course emphasizes the intermediate English language skills of reading, writing, speaking',STR_TO_DATE('11-12-2019','%d-%m-%Y'),STR_TO_DATE('25-12-2019','%d-%m-%Y'),STR_TO_DATE('28-12-2019','%d-%m-%Y'));
-	INSERT INTO COURSE VALUES ('CN1','Chinese for Communication 1','This course emphasizes the fundamental Chinese language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('20-12-2019','%d-%m-%Y'),'');
-	INSERT INTO COURSE VALUES ('CN2','Chinese for Communication 2','This course emphasizes the intermediate Chinese language skills of reading, writing, speaking',STR_TO_DATE('10-01-2020','%d-%m-%Y'),STR_TO_DATE('10-02-2020','%d-%m-%Y'),'');
-	INSERT INTO COURSE VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('15-02-2020','%d-%m-%Y'),'');
-	INSERT INTO COURSE VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking',STR_TO_DATE('20-02-2020','%d-%m-%Y'),STR_TO_DATE('10-04-2020','%d-%m-%Y'),'');
-	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'),'');
-	INSERT INTO COURSE VALUES ('SP2','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('31-01-2020','%d-%m-%Y'),'');
-	INSERT INTO COURSE VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals',STR_TO_DATE('16-01-2020','%d-%m-%Y'),STR_TO_DATE('17-01-2020','%d-%m-%Y'),'');
- 	INSERT INTO COURSE VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills',STR_TO_DATE('16-03-2020','%d-%m-%Y'),STR_TO_DATE('18-03-2020','%d-%m-%Y'),'');
-	INSERT INTO COURSE VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills',STR_TO_DATE('25-02-2020','%d-%m-%Y'),STR_TO_DATE('27-02-2020','%d-%m-%Y'),'');
+	INSERT INTO COURSE VALUES ('EN1','English for Communication 1',' This course emphasizes the fundamental English language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'),STR_TO_DATE('25-12-2019','%d-%m-%Y'),'EN0001');
+	INSERT INTO COURSE VALUES ('EN2','English for Communication 2',' This course emphasizes the intermediate English language skills of reading, writing, speaking',STR_TO_DATE('11-12-2019','%d-%m-%Y'),STR_TO_DATE('25-12-2019','%d-%m-%Y'),STR_TO_DATE('28-12-2019','%d-%m-%Y'),'EN0002');
+	INSERT INTO COURSE VALUES ('JP1','Japanese for Communication 1','This course emphasizes the fundamental Japanese language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('15-02-2020','%d-%m-%Y'),'JLPT05');
+	INSERT INTO COURSE VALUES ('JP2','Japanese for Communication 2','This course emphasizes the intermediate Japanese language skills of reading, writing, speaking',STR_TO_DATE('20-02-2020','%d-%m-%Y'),STR_TO_DATE('10-04-2020','%d-%m-%Y'),'JLPT04');
+	INSERT INTO COURSE VALUES ('SP1','Spanish for Communication 1','This course emphasizes the fundamental Spanish language skills of reading, writing, speaking',STR_TO_DATE('01-12-2019','%d-%m-%Y'),STR_TO_DATE('10-12-2019','%d-%m-%Y'),'SP0001');
+	INSERT INTO COURSE VALUES ('SP2','Spanish for Communication 2','This course emphasizes the intermediate Spanish language skills of reading, writing, speaking',STR_TO_DATE('15-01-2020','%d-%m-%Y'),STR_TO_DATE('31-01-2020','%d-%m-%Y'),'SP0002');
+	INSERT INTO COURSE VALUES ('LDS','Leadership','This course aims to enhance your ability to lead other people effectively in order to achieve work or organisational goals',STR_TO_DATE('16-01-2020','%d-%m-%Y'),STR_TO_DATE('17-01-2020','%d-%m-%Y'),'SFT004');
+ 	INSERT INTO COURSE VALUES ('SVM','Supervisory Management','This course provides participants with the opportunity to gain the knowledge and expertise required to excel in a managerial role.Developing a range of supervisory and management skills, as well as improving interpersonal and communication skills',STR_TO_DATE('16-03-2020','%d-%m-%Y'),STR_TO_DATE('18-03-2020','%d-%m-%Y'),'SFT005');
+	INSERT INTO COURSE VALUES ('EFM','Effective Meeting Skills','This course aims to enhance creative thinking skills and fine-tune your meeting communications and interpersonal skills',STR_TO_DATE('25-02-2020','%d-%m-%Y'),STR_TO_DATE('27-02-2020','%d-%m-%Y'),'SFT007');
 
+	INSERT INTO Skill VALUES ('EN0001','English A1 (Beginner)','Can understand and use familiar everyday expressions and very basic phrases aimed at the satisfaction of needs of a concrete type');
+	INSERT INTO Skill VALUES ('EN0002','English A2 (Elementary)','Can understand sentences and frequently used expressions related to areas of most immediate relevance ');
+	INSERT INTO Skill VALUES ('EN0003','Enlish B1 (Intermediate)','Can understand the main points of clear standard input on familiar matters regularly encountered in work, school, leisure, etc');
+	INSERT INTO Skill VALUES ('EN0004','Enlish B2 (Upper-Intermediate)','Can understand the main ideas of complex text on both concrete and abstract topics, including technical discussions in his/her field of specialisation');
+	INSERT INTO Skill VALUES ('EN0005','English C1 (Advanced English)','Can understand a wide range of demanding, longer texts, and recognise implicit meaning. Can express him/herself fluently and spontaneously without much obvious searching for expressions');
+	INSERT INTO Skill VALUES ('EN0006','English C2 (Proficiency) ','Can understand with ease virtually everything heard or read. Can summarise information from different spoken and written sources, reconstructing arguments and accounts in a coherent presentation');
+	INSERT INTO Skill VALUES ('JLPT01','N1 (Advance)','Understand Japanese used in a variety of circumstances');
+	INSERT INTO Skill VALUES ('JLPT02','N2 (Upper-Intermediate)','Understand Japanese used in everyday situations, and in a variety of circumstances to a certain degree');
+	INSERT INTO Skill VALUES ('JLPT03','N3 (Intermediate)','Understand Japanese used in everyday situations to a certain degree');
+	INSERT INTO Skill VALUES ('JLPT04','N4 (Elementary)','Understand basic Japanese');
+	INSERT INTO Skill VALUES ('JLPT05','N5 (Beginner)','Understand some basic Japanese');
+	INSERT INTO Skill VALUES ('SP0002','Spanish 2 (Elementary)','Understand basic Spanish');
+	INSERT INTO Skill VALUES ('SP0001','Spanish 1 (Beginner)','Understand some basic Spanish');
+	INSERT INTO Skill VALUES ('SFT001','Negotiation','Preparation, Discussion, Clarification of goals, Negotiate towards a Win-Win outcome, Agreement, Implementation of a course of action ');
+	INSERT INTO Skill VALUES ('SFT002','Judgement in Decision Making','Capacity to decide, Thought processes used to decide, Decision outcome that comes from exercising judgment');
+    INSERT INTO Skill VALUES ('SFT003','Emotional Intelligence','Recognize his emotions, understand what we are telling, and realize how his emotions affect people around him');
+    INSERT INTO Skill VALUES ('SFT004','leadership','Ability to communicate well, motivate their team, handle and delegate responsibilities, listen to feedback, and have the flexibility to solve problems in an ever-changing workplace');
+    INSERT INTO Skill VALUES ('SFT005','Planning','Organize activities in line with set guidelines while still remaining within the limits of the available resources such as time, money, and labor');
+    INSERT INTO Skill VALUES ('SFT006','Communication','Relate well with the employees and thus, be able to achieve the company set goals and objectives easily');
+    INSERT INTO Skill VALUES ('SFT007','Delegation','Able to effectively and efficiently re-assign tasks and give authority to the right employees');
+    INSERT INTO Skill VALUES ('SFT008','Problem-solving','Identifying a certain problem or situation and then finding the best way to handle the problem and get the best solution');
 
 
 	INSERT INTO degree VALUES ('B.A.','Bachelor of Arts');
@@ -314,25 +333,6 @@
 
 
 
-	INSERT INTO Skill VALUES ('EN0001','English A1 (Beginner)','Can understand and use familiar everyday expressions and very basic phrases aimed at the satisfaction of needs of a concrete type');
-	INSERT INTO Skill VALUES ('EN0002','English A2 (Elementary)','Can understand sentences and frequently used expressions related to areas of most immediate relevance ');
-	INSERT INTO Skill VALUES ('EN0003','Enlish B1 (Intermediate)','Can understand the main points of clear standard input on familiar matters regularly encountered in work, school, leisure, etc');
-	INSERT INTO Skill VALUES ('EN0004','Enlish B2 (Upper-Intermediate)','Can understand the main ideas of complex text on both concrete and abstract topics, including technical discussions in his/her field of specialisation');
-	INSERT INTO Skill VALUES ('EN0005','English C1 (Advanced English)','Can understand a wide range of demanding, longer texts, and recognise implicit meaning. Can express him/herself fluently and spontaneously without much obvious searching for expressions');
-	INSERT INTO Skill VALUES ('EN0006','English C2 (Proficiency) ','Can understand with ease virtually everything heard or read. Can summarise information from different spoken and written sources, reconstructing arguments and accounts in a coherent presentation');
-	INSERT INTO Skill VALUES ('JLPT01','N1 (Advance)','Understand Japanese used in a variety of circumstances');
-	INSERT INTO Skill VALUES ('JLPT02','N2 (Upper-Intermediate)','Understand Japanese used in everyday situations, and in a variety of circumstances to a certain degree');
-	INSERT INTO Skill VALUES ('JLPT03','N3 (Intermediate)','Understand Japanese used in everyday situations to a certain degree');
-	INSERT INTO Skill VALUES ('JLPT04','N4 (Elementary)','Understand basic Japanese');
-	INSERT INTO Skill VALUES ('JLPT05','N5 (Beginner)','Understand some basic Japanese');
-	INSERT INTO Skill VALUES ('SFT001','Negotiation','Preparation, Discussion, Clarification of goals, Negotiate towards a Win-Win outcome, Agreement, Implementation of a course of action ');
-	INSERT INTO Skill VALUES ('SFT002','Judgement in Decision Making','Capacity to decide, Thought processes used to decide, Decision outcome that comes from exercising judgment');
-    INSERT INTO Skill VALUES ('SFT003','Emotional Intelligence','Recognize his emotions, understand what we are telling, and realize how his emotions affect people around him');
-    INSERT INTO Skill VALUES ('SFT004','leadership','Ability to communicate well, motivate their team, handle and delegate responsibilities, listen to feedback, and have the flexibility to solve problems in an ever-changing workplace');
-    INSERT INTO Skill VALUES ('SFT005','Planning','Organize activities in line with set guidelines while still remaining within the limits of the available resources such as time, money, and labor');
-    INSERT INTO Skill VALUES ('SFT006','Communication','Relate well with the employees and thus, be able to achieve the company set goals and objectives easily');
-    INSERT INTO Skill VALUES ('SFT007','Delegation','Able to effectively and efficiently re-assign tasks and give authority to the right employees');
-    INSERT INTO Skill VALUES ('SFT008','Problem-solving','Identifying a certain problem or situation and then finding the best way to handle the problem and get the best solution');
 
 
     INSERT INTO EmployeeSkill VALUES ('100001','EN0005');
