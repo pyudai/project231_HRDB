@@ -76,7 +76,7 @@ CREATE TABLE Course (
 	EvaluateDate        DATE                NOT NULL,
 	SkillID             char(6)             NOT NULL,
     CONSTRAINT			PK_Course			PRIMARY KEY (CourseID),
-    CONSTRAINT			FK_ES_S				FOREIGN KEY (SkillID)		
+    CONSTRAINT			FK_ESM_S				FOREIGN KEY (SkillID)		
 											REFERENCES Skill(SkillID)
 	);	
 
