@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Monthly Pay Slip (Edit)</title>
+    <title>Monthly Payslip (Edit)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -65,7 +65,7 @@
 <body>
 
     <div class="topnav">
-        <a class="text">Monthly Pay Slip (Edit)</a>
+        <a class="text">Monthly Payslip (Edit)</a>
          <a class="picture"><img src="centar.png"></a>
     </div>
 
