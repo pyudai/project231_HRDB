@@ -50,13 +50,13 @@
             <a href="#" class="btn btn-primary">Go somewhere</a><br class="threeline">
             <a class="btn btn-primary" href="PerformanceReview.php">Performance Review</a> 
             <a class="btn btn-primary" href="DailyTime.php">Daily Time</a>
-            <a class="btn btn-primary" href="EmployeeInfo.php">Employee Infomation</a><br>
+            <a class="btn btn-primary" href="EmployeeInfo.php">Employee Information</a><br>
             <a class="btn btn-primary" href="AllAbsent.php">All Absent</a>
             <a class="btn btn-primary" href="FamilyMember.php">Family Member</a>
-            <a class="btn btn-primary" href="Age.php">Age</a><br>
-            <a class="btn btn-primary" href="DepartmentMember.php">Department Member</a>
+            <a class="btn btn-primary" href="all employee skill.php">All Employee Skill</a><br>
+            <a class="btn btn-primary" href="department member2.php">Department Member</a>
             <a class="btn btn-primary" href="TrainingResult.php">Training History</a>
-            <a class="btn btn-primary" href="course.php">course</a><br>
+            <a class="btn btn-primary" href="course2.php">Course</a><br>
             <a class="btn btn-primary" href="monthly.php">Monthly Pay Slip</a>
             <a class="btn btn-primary" href="monthly.php">Monthly Pay Slip</a>
             <a class="btn btn-primary" href="monthly.php">Monthly Pay Slip</a>
