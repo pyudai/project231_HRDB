@@ -251,28 +251,3 @@ CREATE TABLE MonthlyPaySlip (
 	);
 
 
-
-// ไ่ช่
-CREATE TABLE MonthlyPaySlip (
-	PayrollNo 			char(6) 			NOT NULL,
-	VacationNo 			int 			NOT NULL,
-	AbsentNo 			int 			NOT NULL,
-	StaffID 			char(6) 			NOT NULL,
-	PositionJobID 			char(3) 			NOT NULL,
-	DepartmentID 		char(3) 			NOT NULL,
-	PayDate 			DATE 				NOT NULL,
-	TCDate 				DATE 				NOT NULL,
-    CONSTRAINT			PK_MonthlyPaySlip	PRIMARY KEY (PayrollNo, AbsentNo),
-    CONSTRAINT			FK_MPS_V			FOREIGN KEY (VacationNo) 		
-											REFERENCES Vacation(VacationNo),
-    CONSTRAINT			FK_MPS_A			FOREIGN KEY (AbsentNo) 			
-											REFERENCES Absent(AbsentNo),
-    CONSTRAINT			FK_MPS_EI			FOREIGN KEY (StaffID) 			
-											REFERENCES EmployeeInfo(StaffID),
-    CONSTRAINT			FK_MPS_P			FOREIGN KEY (PositionJobID) 		
-											REFERENCES PositionJob(PositionJobID),
-    CONSTRAINT			FK_MPS_D			FOREIGN KEY (DepartmentID) 		
-											REFERENCES Department(DepartmentID),
-    CONSTRAINT			FK_MPS_DTC			FOREIGN KEY (StaffID, TCDate) 	
-											REFERENCES DailyTimeCard(StaffID, TCDate)
-	);
