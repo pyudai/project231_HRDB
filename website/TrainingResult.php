@@ -77,11 +77,6 @@
                 margin: auto;
                 width: 70% !important; 
             }
-/*             
-            tr td:first-child:before {
-                counter-increment: Serial;
-                content: " " counter(Serial);
-            } */
         </style>
     </head>
 
@@ -99,6 +94,7 @@
                 $course = NULL;
                 date_default_timezone_set("Asia/Bangkok");
                 $current_date = date("Y-m-d");
+                $stage = 0;
         ?>
         
         <form class="container-fluid ">
@@ -173,7 +169,7 @@
                         
                         $result2 = $con->query($sql2);
                         if ($result2->num_rows > 0) {
-                        // output data of each row
+                            $stage = 1;
                             while($row2 = $result2->fetch_assoc()) {
                                 
                                 echo "<tr class='text-center'><td>". $row2["StaffID"]. "</td><td>". $row2["F_Name"]. " ". $row2["L_Name"]. "</td><td>" ?>
@@ -184,19 +180,28 @@
                                 <?php "</td></tr>";
                             }
                             echo "</table>";
-                        } else { echo "0 results"; }
+                        } else { echo '<h4 style="margin: auto; width: 70%;"><span class="badge badge-info"> No Data </span></h4> <br>'; }
                         $con->close();
                         ?>
                     </tbody>
                 </table>
             </div>
             <br>
-        
-            <div class="col text-center pr-5">
-                <input value="submit" name="submit2" type ="submit" class="btn btn-lg btn-success">
-            </div>
-
+            <?php if($stage == 1) {
+            echo
+                '<div class="col text-center pr-5">
+                    <input value="submit" name="submit2" type ="submit" class="btn btn-lg btn-success">
+                </div>';    
+            }
+           
+            ?>
                 <?php
+                    $show1 = NULL;
+                    $show2 = NULL;
+                    $show3 = NULL;
+                    $show4 = NULL;
+                    $display1 = NULL;
+                    $display2 = NULL;
                     if(isset($_GET['submit2'])) {
                         $result = $_GET['result'];
                         $s_id = $_GET['s_id'];
@@ -205,24 +210,29 @@
                         $end_date = $_GET['end_date'];
                         $count = count($result);
                         //echo "$course, $start_date, $end_date, $count <br>";
-                        // print_r($result);
-                        // print_r($s_id);
                         $i = 0;
                         $j = 0;
                         while ($i < $count) {
                             $score = $result[$i];
                             $idstaff = $s_id[$i];
+                            if (!ctype_digit($score) OR $score < 1 OR $score  > 10) {
+                                $j = $j + 1;
+                            }
+                            $i = $i + 1;
+                        }
+                        $i = 0;
+                        //echo $j;
+                        while ($i < $count) {
+                            $score = $result[$i];
+                            $idstaff = $s_id[$i];
                             $con = mysqli_connect("localhost", "root", "", "hr_database");
                             //echo "$i  $score  $idstaff <br>";
-                            if (ctype_digit($score) AND $score > 0 AND $score  < 11) {
+                            if ($j==0) {
                                 $score = intval($score);
                                 //echo gettype($score). gettype($idstaff). '<br>';
-                                // UPDATE table_name
-                                // SET column1=value, column2=value2,...
-                                // WHERE some_column=some_value
                                 $sql = "UPDATE traininghistory SET Result = '$score' WHERE StaffID = '$idstaff' AND CourseID = '$course'";
                                 if ($con->query($sql) === TRUE) {   
-                                    echo "$idstaff update success. <br>";
+                                    $show4 = "$idstaff update success. <br>";
                                 } else {
                                     echo "Error: " . $sql . "<br>" . $con->error;
                                 } 
@@ -236,51 +246,43 @@
                                 $check_skill = NULL;
                                 $sql4 = "SELECT * FROM employeeskill WHERE StaffID = '$idstaff' AND SkillID = '$skill'";
                                 $result4 = mysqli_query($con, $sql4);
-                                while($row4 = $result4->fetch_assoc()) {
-                                $check_skill = $row4["SkillID"];
-                                echo "$skill = $check_skill <br>"; 
-                                }
+                                // while($row4 = $result4->fetch_assoc()) {
+                                // $check_skill = $row4["SkillID"];
+                                //     echo "$skill = $check_skill <br>"; 
+                                // }
                                 if ($score > 4 AND $score < 11 AND $check_skill != $skill) {
                                     //insert
                                     $sql = "INSERT INTO employeeskill (StaffID, SkillID) VALUES ('$idstaff', '$skill')";
                                         if ($con->query($sql) === TRUE) {   
-                                            echo "Congrats get new skill $skill <br>";
+                                            $show1 = "$idstaff get new skill $skill.";
                                         } else {
                                             echo "Error: " . $sql . "<br>" . $con->error;
                                         }
                                 } else {
-                                    echo "Not get skill $skill <br>";
+                                    $show2 = "$idstaff not get skill $skill.";
                                 }
                             } else {
-                                $j = $j + 1;
-                                echo "$idstaff update error because result is not true. <br>";
+                                $display1 = "$idstaff update error because result is not true.";
                             }
                             $i = $i + 1; 
                         }
                         if ($j==0) {
-                            echo "Evaluate Date Updated $j";
+                            $show3 = "Evaluate Date Updated.";
+                            //echo "<script> alert('Update success'); </script>";
                             $sql = "UPDATE course SET EvaluateDate = '$current_date' WHERE CourseID = '$course'";
                                 if ($con->query($sql) === TRUE) {   
-                                    echo "Congrats get new skill $skill <br>";
+                                    echo "<script> alert('$show1  $show2  $show3'); </script>";
                                 } else {
                                     echo "Error: " . $sql . "<br>" . $con->error;
                                 }
                         } else {
-                            echo "Cannot update evaluate date $j";
+                            $display2 = "Cannot update evaluate date.";
+                            echo "<script> alert('$display1 $display2'); </script>";
                         }
                     }
 
                 ?>
+            <a type="button" class="btn btn-success" href="HOME.php">BACK</a>
         </form>
-        
-        
-
-        <div class="row pt-5">
-            <div class="col text-right pr-5">
-                <a type="button" class="btn btn-success" href="HOME.php">Previous</a>
-            </div>
-        </div>
-
     </body>
-
 </html>
