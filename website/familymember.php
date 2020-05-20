@@ -57,6 +57,11 @@
             tbody.tb {
               background: #FAFAFA;
             }
+
+            .table {
+                margin: auto;
+                width: 80% !important; 
+            }
      
         </style>
         
@@ -70,6 +75,9 @@
             }
             $fam = NULL;
             $parent_name = NULL;
+            $childID = NULL;
+            $dob = NULL;
+            $child = NULL;
         ?>
         <div class="topnav">
             <a class="text">Family member</a>
@@ -92,12 +100,11 @@
                 <?php 
                     if (isset($_GET['submit'])) {
                         $fam = $_GET['fam'];
-                        //echo "   ".$fam."  ";
                         if ($fam == 'ALL') {
                             $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB"; 
                         } else {
                             $check = 1;
-                            $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB";  //Not finish
+                            $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB"; 
                         }  
                     } else {
                         $sql = "SELECT * FROM familymember WHERE StaffID = '$fam' ORDER BY ChildDOB"; 
@@ -131,21 +138,21 @@
                         <span class="block input-group-text" style="background: #E8D8C9; padding: 4px 20px;">
                             Date of Birth    
                         </span>
-                        <input id="DOB" name="DOB" type="text" placeholder="Your Child Date of Birth : YYYY-MM-DD" class="form-control" style="width: 1000px;">
+                        <input id="DOB" name="DOB" type="date" class="form-control" style="width: 1000px;">
                     </div>
                     <input name = "add" type = "submit" id = "add" value = "Add" class="btn btn-lg btn-success">
                 </div>
             </div>
+            <br>
         
             <div class="row pt-2 pl-5 pr-5">
                 <div class="col">
-                    
                     <table class="table table-bordered">
                         <thead>
                             <tr class="title text-center">
-                                <th>ChildName</th>
-                                <th>Date of Birth</th>
-                                <th>Edit</th>
+                                <th style="width : 40%;">ChildName</th>
+                                <th style="width : 40%;">Date of Birth</th>
+                                <th style="width : 20%;">Delete</th>
                             </tr>
                         </thead>
                         
@@ -153,64 +160,73 @@
                             <?php
                                 $result = $con->query($sql);
                                 if ($result->num_rows > 0) {
-                                // output data of each row
-                                    //echo $result->num_rows;
                                     while($row2 = $result->fetch_assoc()) {
                                         
-                                        echo "<tr><td>". $row2["ChildName"]. "</td><td>". $row2["ChildDOB"]. "</td><td>" ?>
-                                        <input class="form-check-input col-2" type="radio" name="child" id="child" value="<?php echo $row2["childID"];?> ">
+                                        echo "<tr class='text-center'><td>". $row2["ChildName"]. "</td><td>". $row2["ChildDOB"]. "</td><td>" ?>
+                                        <input class="form-check-input" type="radio" name="child" id="child" value="<?php echo $row2["childID"];?> ">
                                         <?php "</td></tr>";
                                     }
                                     
                                     echo "</table>";
-                                } else { echo "0 results"; }
+                                } else { echo '<h4 style="margin: auto; width: 10%;"><span class="badge badge-info"> No Data </span></h4> <br>'; }
                                 $con->close();
                             ?>
 
                         </tbody>
                     </table>
-                    <input name = "delete" type = "submit" id = "delete" value = "Delete" class="btn btn-lg btn-success">
+                    <div class="col text-right pt-5">
+                        <input name = "delete" type = "submit" id = "delete" value = "Confirm Delete" class="btn btn-lg btn-success">
+                    </div>
+                    
                     <?php 
+                        $show1 = NULL;
+                        $show2 = NULL;
                         if(isset($_GET['delete'])) {
                             $con = mysqli_connect("localhost", "root", "", "hr_database");
-                            $childID = $_GET['child'];
-                            echo $childID;
-                            $sql = "DELETE FROM familymember WHERE childID = $childID" ;
-                            $retval = $con->query($sql);
-                            
-                            if(! $retval ) {
-                            die('Could not delete data: ' . mysqli_connect_error());
+                            if (isset($_GET['child'])) {
+                                $childID = $_GET['child'];
+                                $show1 = "Delete success";
+                                $sql = "DELETE FROM familymember WHERE childID = $childID" ;
+                                $retval = $con->query($sql);
+                                
+                                if(! $retval ) {
+                                die('Could not delete data: ' . mysqli_connect_error());
+                                } else {
+                                    echo "<script> alert('Deleted data successfully'); </script>";
+                                    $con->close();
+                                }  
                             } else {
-                                echo "Deleted data successfully\n";
-                                $con->close();
+                                $show1 = "Delete failed";
                             }
                         } elseif(isset($_GET['add'])) {
                             $con = mysqli_connect("localhost", "root", "", "hr_database");
                             $childname = $_GET['childname'];
                             $dob = $_GET['DOB'];
                             $staffid = $_GET['parent'];
-                            echo $childname. $dob. $staffid;
-                            $sql = "INSERT INTO familymember (childID, StaffID, ChildName, ChildDOB)
-                                    VALUES (NULL, '$staffid', '$childname', '$dob')";
-                            if ($con->query($sql) === TRUE) {
-                                echo "New record in familymember created successfully";
+                            if ($childname != NULL AND $dob != NULL) {
+                                $show2 = "Add success";
+                                $sql = "INSERT INTO familymember (childID, StaffID, ChildName, ChildDOB) 
+                                VALUES (NULL, '$staffid', '$childname', '$dob')";
+                                if ($con->query($sql) === TRUE) {
+                                    echo "<script> alert('New record in familymember is created.'); </script>";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . $con->error;
+                                    $con->close();
+                                } 
                             } else {
-                                echo "Error: " . $sql . "<br>" . $con->error;
-                                $con->close();
+                                $show2 = "Add failed";
                             }
-                        } else {
-                            echo "error";
                         }
+                        if ($show1 != NULL OR $show2) {
+                            echo "<script> alert('$show1 $show2'); </script>";
+                        }
+                        
                     ?>
                 </div>
             </div>
-            
-            <!-- <div class="text-right pt-3 pr-5">
-                <a class="btn btn-success" href="FamilyMemberEdit.php" role="button">EDIT</a>
-            </div> -->
-
+            <br>
+            <a class="btn btn-success" href="HOME.php" role="button">BACK</a>
         </form>
-        <br>
-        <a class="btn btn-success" href="HOME.php" role="button">BACK</a>
+        
     </body>
 </html>
