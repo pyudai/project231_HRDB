@@ -531,27 +531,25 @@ INSERT INTO DailyTimeCard VALUES ('618643',STR_TO_DATE('06-12-2019','%d-%m-%Y'),
 
 
 
-// slip ที่มีเเค่ Staffid payrollNo Position department วันที่จ่ายเงิน
-
-INSERT INTO MonthlyPaySlip VALUES ('300891','100001','GSM','FOF',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300892','100235','DOM','MTN',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300893','104582','RSV','FOF',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300894','400823','CFM','FBS',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300895','341001','ACC','ANF',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300896','236377','GMG','BND',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300897','100436','FOM','FOF',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300898','101112','ITT','ITN',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300899','104097','SSM','ITN',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
-
-INSERT INTO MonthlyPaySlip VALUES ('300900','618643','ITT','ITN',STR_TO_DATE('30-11-2019','%d-%m-%Y'));
 
 
+INSERT INTO MonthlyPaySlip VALUES ('300891','100001','GSM','FOF',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300892','100235','DOM','MTN',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300893','104582','RSV','FOF',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300894','400823','CFM','FBS',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300895','341001','ACC','ANF',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300896','236377','GMG','BND',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300897','100436','FOM','FOF',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300898','101112','ITT','ITN',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300899','104097','SSM','ITN',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
+
+INSERT INTO MonthlyPaySlip VALUES ('300900','618643','ITT','ITN',STR_TO_DATE('30-11-2019','%d-%m-%Y'),'','');
 
