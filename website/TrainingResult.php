@@ -124,7 +124,6 @@
                         while($row1 = $result1->fetch_assoc()) {
                             $start_date = $row1["StartCourse"];
                             $end_date = $row1["EndCourse"];
-                            //echo $row1["StartCourse"]. " ". $row1["EndCourse"]; 
                         }
                     }
                 } else {
@@ -162,7 +161,6 @@
                         if(isset($_GET['submit1'])) {
                         $course = $_GET['course'];
                         }
-                        //array
                         $result = array();
                         $s_id = array();
                         $sql2 = "SELECT * FROM employeeinfo i, traininghistory t WHERE i.StaffID = t.StaffID AND t.CourseID = '$course' ORDER BY i.StaffID"; 
@@ -209,7 +207,6 @@
                         $start_date = $_GET['start_date'];
                         $end_date = $_GET['end_date'];
                         $count = count($result);
-                        //echo "$course, $start_date, $end_date, $count <br>";
                         $i = 0;
                         $j = 0;
                         while ($i < $count) {
@@ -221,15 +218,12 @@
                             $i = $i + 1;
                         }
                         $i = 0;
-                        //echo $j;
                         while ($i < $count) {
                             $score = $result[$i];
                             $idstaff = $s_id[$i];
                             $con = mysqli_connect("localhost", "root", "", "hr_database");
-                            //echo "$i  $score  $idstaff <br>";
                             if ($j==0) {
                                 $score = intval($score);
-                                //echo gettype($score). gettype($idstaff). '<br>';
                                 $sql = "UPDATE traininghistory SET Result = '$score' WHERE StaffID = '$idstaff' AND CourseID = '$course'";
                                 if ($con->query($sql) === TRUE) {   
                                     $show4 = "$idstaff update success. <br>";
@@ -241,17 +235,11 @@
                                 $result3 = mysqli_query($con, $sql3);
                                 while($row3 = $result3->fetch_assoc()) {
                                 $skill = $row3["SkillID"];
-                                //echo $skill. "<br>"; 
                                 }
                                 $check_skill = NULL;
                                 $sql4 = "SELECT * FROM employeeskill WHERE StaffID = '$idstaff' AND SkillID = '$skill'";
                                 $result4 = mysqli_query($con, $sql4);
-                                // while($row4 = $result4->fetch_assoc()) {
-                                // $check_skill = $row4["SkillID"];
-                                //     echo "$skill = $check_skill <br>"; 
-                                // }
                                 if ($score > 4 AND $score < 11 AND $check_skill != $skill) {
-                                    //insert
                                     $sql = "INSERT INTO employeeskill (StaffID, SkillID) VALUES ('$idstaff', '$skill')";
                                         if ($con->query($sql) === TRUE) {   
                                             $show1 = "$idstaff get new skill $skill.";
@@ -268,7 +256,6 @@
                         }
                         if ($j==0) {
                             $show3 = "Evaluate Date Updated.";
-                            //echo "<script> alert('Update success'); </script>";
                             $sql = "UPDATE course SET EvaluateDate = '$current_date' WHERE CourseID = '$course'";
                                 if ($con->query($sql) === TRUE) {   
                                     echo "<script> alert('$show1  $show2  $show3'); </script>";
